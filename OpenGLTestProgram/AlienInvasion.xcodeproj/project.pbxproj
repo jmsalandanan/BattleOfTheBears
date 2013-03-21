@@ -1,0 +1,754 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C010EDB1662F9840063670B /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C010E661662F9840063670B /* CDAudioManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0C010EDC1662F9840063670B /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C010E691662F9840063670B /* CDOpenALSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0C010EDD1662F9840063670B /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C010E6B1662F9840063670B /* CocosDenshion.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0C010EDE1662F9840063670B /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C010E6D1662F9840063670B /* SimpleAudioEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0C010EF21662F9840063670B /* machinegun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C010E8B1662F9840063670B /* machinegun.wav */; };
+		0C010F281662FB420063670B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C010F271662FB420063670B /* AudioToolbox.framework */; };
+		0C010F2A1662FB480063670B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C010F291662FB480063670B /* OpenAL.framework */; };
+		0C010F2C1662FB500063670B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C010F2B1662FB500063670B /* AVFoundation.framework */; };
+		0C010F31166308CC0063670B /* SoundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C010F30166308CC0063670B /* SoundLayer.m */; };
+		0C010F3516630C890063670B /* crash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C010F3416630C890063670B /* crash.wav */; };
+		0C010F3816630E2A0063670B /* explosion_large.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C010F3716630E2A0063670B /* explosion_large.caf */; };
+		0C010F3A16630E300063670B /* explosion_small.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C010F3916630E300063670B /* explosion_small.caf */; };
+		0C010F52166321DC0063670B /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C010F50166321DC0063670B /* MainMenuViewController.m */; };
+		0C010F53166321DC0063670B /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C010F51166321DC0063670B /* MainMenuViewController.xib */; };
+		0C01EA7A165F1B7E00ED872E /* Bomber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C01EA79165F1B7E00ED872E /* Bomber.m */; };
+		0C0284741663624D00776E4B /* start-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0284731663624D00776E4B /* start-button.png */; };
+		0C0284771663656900776E4B /* Quick-How-To-Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0284761663656900776E4B /* Quick-How-To-Button.png */; };
+		0C0CBBEC1650C72200F32CDE /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CBBE71650C72100F32CDE /* 5.png */; };
+		0C0CBBED1650C72200F32CDE /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CBBE81650C72200F32CDE /* 4.png */; };
+		0C0CBBEE1650C72200F32CDE /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CBBE91650C72200F32CDE /* 3.png */; };
+		0C0CBBEF1650C72200F32CDE /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CBBEA1650C72200F32CDE /* 2.png */; };
+		0C0CBBF01650C72200F32CDE /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CBBEB1650C72200F32CDE /* 1.png */; };
+		0C21FDC1164CA2F2006152B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C21FDC0164CA2F2006152B9 /* UIKit.framework */; };
+		0C21FDC3164CA2F2006152B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C21FDC2164CA2F2006152B9 /* Foundation.framework */; };
+		0C21FDC5164CA2F2006152B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C21FDC4164CA2F2006152B9 /* CoreGraphics.framework */; };
+		0C21FDCB164CA2F2006152B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C21FDC9164CA2F2006152B9 /* InfoPlist.strings */; };
+		0C21FDCD164CA2F2006152B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C21FDCC164CA2F2006152B9 /* main.m */; };
+		0C21FDD1164CA2F2006152B9 /* ExerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C21FDD0164CA2F2006152B9 /* ExerAppDelegate.m */; };
+		0C21FDD9164CA338006152B9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C21FDD7164CA338006152B9 /* GLKit.framework */; };
+		0C21FDDA164CA338006152B9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C21FDD8164CA338006152B9 /* OpenGLES.framework */; };
+		0C21FDDC164CA33E006152B9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C21FDDB164CA33E006152B9 /* QuartzCore.framework */; };
+		0C21FDE8164CA99F006152B9 /* SGGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C21FDE7164CA99F006152B9 /* SGGViewController.m */; };
+		0C21FDFA164CAC27006152B9 /* ProtoSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C21FDF9164CAC27006152B9 /* ProtoSprite.m */; };
+		0C240C721665A1BA00991CC8 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C711665A1BA00991CC8 /* home.png */; };
+		0C240C7B1665B64E00991CC8 /* shipDestroySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C751665B64D00991CC8 /* shipDestroySound.wav */; };
+		0C240C7C1665B64E00991CC8 /* gunSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C761665B64D00991CC8 /* gunSound.wav */; };
+		0C240C7D1665B64E00991CC8 /* playerDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C771665B64D00991CC8 /* playerDie.wav */; };
+		0C240C7E1665B64E00991CC8 /* playerHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C781665B64D00991CC8 /* playerHit.wav */; };
+		0C240C7F1665B64E00991CC8 /* bombDrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C791665B64E00991CC8 /* bombDrop.wav */; };
+		0C240C811665B6B200991CC8 /* bombSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C801665B6B200991CC8 /* bombSound.wav */; };
+		0C240C831665C15300991CC8 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C821665C15300991CC8 /* appIcon.png */; };
+		0C240C851665C1D800991CC8 /* appIconRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C240C841665C1D800991CC8 /* appIconRetina.png */; };
+		0C2E1411165DCF8300F089AF /* boss.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E1410165DCF8300F089AF /* boss.gif */; };
+		0C2E141C165DD7A300F089AF /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E141B165DD7A300F089AF /* player.png */; };
+		0C3F342D166498C800E17C68 /* bomb1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F3429166498C800E17C68 /* bomb1.png */; };
+		0C3F342E166498C800E17C68 /* bomb2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F342A166498C800E17C68 /* bomb2.png */; };
+		0C3F342F166498C800E17C68 /* bomb3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F342B166498C800E17C68 /* bomb3.png */; };
+		0C3F3430166498C800E17C68 /* bomb4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F342C166498C800E17C68 /* bomb4.png */; };
+		0C3F34331664B54E00E17C68 /* maleHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F34321664B54E00E17C68 /* maleHit.wav */; };
+		0C3F34341664B6B000E17C68 /* laser_enemy.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C010F3616630D030063670B /* laser_enemy.caf */; };
+		0C76C5571663447500C548BC /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5561663447500C548BC /* GameViewController.xib */; };
+		0C76C55B1663517F00C548BC /* EndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C76C5591663517E00C548BC /* EndGameViewController.m */; };
+		0C76C55C1663517F00C548BC /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55A1663517E00C548BC /* EndGameViewController.xib */; };
+		0C76C55E1663523D00C548BC /* alien-invasion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55D1663523D00C548BC /* alien-invasion.jpg */; };
+		0C76C5621663583300C548BC /* Alien Invasion new header large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */; };
+		0CC7D6F2165CC8C5002CCC1E /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC7D6F1165CC8C5002CCC1E /* bomb.png */; };
+		0CC7D6F4165CC8CE002CCC1E /* bomber.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC7D6F3165CC8CE002CCC1E /* bomber.png */; };
+		0CC7D6F6165CCB16002CCC1E /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CC7D6F5165CCB16002CCC1E /* background.jpg */; };
+		0CD02CD416645CDA00A9EB9F /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */; };
+		0CD02CD516645CDA00A9EB9F /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CD316645CDA00A9EB9F /* HighScoreViewController.xib */; };
+		0CD02CDD16646AD500A9EB9F /* healthbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CDC16646AD500A9EB9F /* healthbar.png */; };
+		0CD02CE316646F2F00A9EB9F /* medal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CE216646F2F00A9EB9F /* medal.png */; };
+		0CD02CE81664711B00A9EB9F /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD02CE61664711B00A9EB9F /* HowToViewController.m */; };
+		0CD02CE91664711B00A9EB9F /* HowToViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CE71664711B00A9EB9F /* HowToViewController.xib */; };
+		0CD80795165B6DEE0001D4A2 /* ammo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CD80794165B6DEE0001D4A2 /* ammo.png */; };
+		0CF5BD0F165E118B0070B404 /* gun1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD01165E118B0070B404 /* gun1.png */; };
+		0CF5BD10165E118B0070B404 /* gun2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD02165E118B0070B404 /* gun2.png */; };
+		0CF5BD11165E118B0070B404 /* gun3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD03165E118B0070B404 /* gun3.png */; };
+		0CF5BD12165E118B0070B404 /* gun4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD04165E118B0070B404 /* gun4.png */; };
+		0CF5BD13165E118B0070B404 /* gun5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD05165E118B0070B404 /* gun5.png */; };
+		0CF5BD14165E118B0070B404 /* gun6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD06165E118B0070B404 /* gun6.png */; };
+		0CF5BD15165E118B0070B404 /* gun7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD07165E118B0070B404 /* gun7.png */; };
+		0CF5BD16165E118B0070B404 /* gun8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD08165E118B0070B404 /* gun8.png */; };
+		0CF5BD17165E118B0070B404 /* gun9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD09165E118B0070B404 /* gun9.png */; };
+		0CF5BD18165E118B0070B404 /* gun10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD0A165E118B0070B404 /* gun10.png */; };
+		0CF5BD19165E118B0070B404 /* gun11.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD0B165E118B0070B404 /* gun11.png */; };
+		0CF5BD1A165E118B0070B404 /* gun12.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD0C165E118B0070B404 /* gun12.png */; };
+		0CF5BD1B165E118B0070B404 /* gun13.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD0D165E118B0070B404 /* gun13.png */; };
+		0CF5BD1C165E118B0070B404 /* gun14.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD0E165E118B0070B404 /* gun14.png */; };
+		0CF5BD28165E1E7C0070B404 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD1D165E1E7C0070B404 /* ship1.png */; };
+		0CF5BD29165E1E7C0070B404 /* ship2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD1E165E1E7C0070B404 /* ship2.png */; };
+		0CF5BD2A165E1E7C0070B404 /* ship3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD1F165E1E7C0070B404 /* ship3.png */; };
+		0CF5BD2B165E1E7C0070B404 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD20165E1E7C0070B404 /* ship4.png */; };
+		0CF5BD2C165E1E7C0070B404 /* ship5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD21165E1E7C0070B404 /* ship5.png */; };
+		0CF5BD2D165E1E7C0070B404 /* ship6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD22165E1E7C0070B404 /* ship6.png */; };
+		0CF5BD2E165E1E7C0070B404 /* ship7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD23165E1E7C0070B404 /* ship7.png */; };
+		0CF5BD2F165E1E7C0070B404 /* ship8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD24165E1E7C0070B404 /* ship8.png */; };
+		0CF5BD30165E1E7C0070B404 /* ship9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD25165E1E7C0070B404 /* ship9.png */; };
+		0CF5BD31165E1E7C0070B404 /* ship10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD26165E1E7C0070B404 /* ship10.png */; };
+		0CF5BD32165E1E7C0070B404 /* ship12.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD27165E1E7C0070B404 /* ship12.png */; };
+		0CFFAC0E165C610900425148 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC04165C610900425148 /* 15.png */; };
+		0CFFAC0F165C610900425148 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC05165C610900425148 /* 14.png */; };
+		0CFFAC10165C610900425148 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC06165C610900425148 /* 13.png */; };
+		0CFFAC11165C610900425148 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC07165C610900425148 /* 12.png */; };
+		0CFFAC12165C610900425148 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC08165C610900425148 /* 11.png */; };
+		0CFFAC13165C610900425148 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC09165C610900425148 /* 10.png */; };
+		0CFFAC14165C610900425148 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0A165C610900425148 /* 9.png */; };
+		0CFFAC15165C610900425148 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0B165C610900425148 /* 8.png */; };
+		0CFFAC16165C610900425148 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0C165C610900425148 /* 7.png */; };
+		0CFFAC17165C610900425148 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0D165C610900425148 /* 6.png */; };
+		0CFFAC1A165C615400425148 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC19165C615400425148 /* enemy.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C010E651662F9840063670B /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		0C010E661662F9840063670B /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		0C010E671662F9840063670B /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		0C010E681662F9840063670B /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		0C010E691662F9840063670B /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		0C010E6A1662F9840063670B /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		0C010E6B1662F9840063670B /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		0C010E6C1662F9840063670B /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
+		0C010E6D1662F9840063670B /* SimpleAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine.m; sourceTree = "<group>"; };
+		0C010E8B1662F9840063670B /* machinegun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = machinegun.wav; path = OpenGLTestProgram/CocosDenshion/TestsAndDemos/DrumPad/Sounds/machinegun.wav; sourceTree = "<group>"; };
+		0C010F271662FB420063670B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0C010F291662FB480063670B /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		0C010F2B1662FB500063670B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0C010F2F166308CC0063670B /* SoundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundLayer.h; sourceTree = "<group>"; };
+		0C010F30166308CC0063670B /* SoundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundLayer.m; sourceTree = "<group>"; };
+		0C010F3416630C890063670B /* crash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crash.wav; sourceTree = "<group>"; };
+		0C010F3616630D030063670B /* laser_enemy.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = laser_enemy.caf; sourceTree = "<group>"; };
+		0C010F3716630E2A0063670B /* explosion_large.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_large.caf; sourceTree = "<group>"; };
+		0C010F3916630E300063670B /* explosion_small.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_small.caf; sourceTree = "<group>"; };
+		0C010F4F166321DC0063670B /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		0C010F50166321DC0063670B /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		0C010F51166321DC0063670B /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
+		0C01EA78165F1B7E00ED872E /* Bomber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bomber.h; sourceTree = "<group>"; };
+		0C01EA79165F1B7E00ED872E /* Bomber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bomber.m; sourceTree = "<group>"; };
+		0C0284731663624D00776E4B /* start-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-button.png"; sourceTree = "<group>"; };
+		0C0284761663656900776E4B /* Quick-How-To-Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Quick-How-To-Button.png"; sourceTree = "<group>"; };
+		0C0CBBE71650C72100F32CDE /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		0C0CBBE81650C72200F32CDE /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		0C0CBBE91650C72200F32CDE /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		0C0CBBEA1650C72200F32CDE /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		0C0CBBEB1650C72200F32CDE /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		0C21FDBC164CA2F2006152B9 /* AlienInvasion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlienInvasion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C21FDC0164CA2F2006152B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0C21FDC2164CA2F2006152B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0C21FDC4164CA2F2006152B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0C21FDC8164CA2F2006152B9 /* AlienInvasion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AlienInvasion-Info.plist"; sourceTree = "<group>"; };
+		0C21FDCA164CA2F2006152B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0C21FDCC164CA2F2006152B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0C21FDCE164CA2F2006152B9 /* AlienInvasion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlienInvasion-Prefix.pch"; sourceTree = "<group>"; };
+		0C21FDCF164CA2F2006152B9 /* ExerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExerAppDelegate.h; sourceTree = "<group>"; };
+		0C21FDD0164CA2F2006152B9 /* ExerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExerAppDelegate.m; sourceTree = "<group>"; };
+		0C21FDD7164CA338006152B9 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		0C21FDD8164CA338006152B9 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0C21FDDB164CA33E006152B9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0C21FDE6164CA99F006152B9 /* SGGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGGViewController.h; path = ../SGGViewController.h; sourceTree = "<group>"; };
+		0C21FDE7164CA99F006152B9 /* SGGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGGViewController.m; path = ../SGGViewController.m; sourceTree = "<group>"; };
+		0C21FDF8164CAC27006152B9 /* ProtoSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtoSprite.h; sourceTree = "<group>"; };
+		0C21FDF9164CAC27006152B9 /* ProtoSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtoSprite.m; sourceTree = "<group>"; };
+		0C240C711665A1BA00991CC8 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		0C240C751665B64D00991CC8 /* shipDestroySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shipDestroySound.wav; sourceTree = "<group>"; };
+		0C240C761665B64D00991CC8 /* gunSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gunSound.wav; sourceTree = "<group>"; };
+		0C240C771665B64D00991CC8 /* playerDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playerDie.wav; sourceTree = "<group>"; };
+		0C240C781665B64D00991CC8 /* playerHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playerHit.wav; sourceTree = "<group>"; };
+		0C240C791665B64E00991CC8 /* bombDrop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bombDrop.wav; sourceTree = "<group>"; };
+		0C240C801665B6B200991CC8 /* bombSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bombSound.wav; sourceTree = "<group>"; };
+		0C240C821665C15300991CC8 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		0C240C841665C1D800991CC8 /* appIconRetina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIconRetina.png; sourceTree = "<group>"; };
+		0C2E1410165DCF8300F089AF /* boss.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = boss.gif; sourceTree = "<group>"; };
+		0C2E141B165DD7A300F089AF /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		0C3F3429166498C800E17C68 /* bomb1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb1.png; sourceTree = "<group>"; };
+		0C3F342A166498C800E17C68 /* bomb2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb2.png; sourceTree = "<group>"; };
+		0C3F342B166498C800E17C68 /* bomb3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb3.png; sourceTree = "<group>"; };
+		0C3F342C166498C800E17C68 /* bomb4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb4.png; sourceTree = "<group>"; };
+		0C3F34321664B54E00E17C68 /* maleHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = maleHit.wav; sourceTree = "<group>"; };
+		0C76C5561663447500C548BC /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		0C76C5581663517E00C548BC /* EndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameViewController.h; sourceTree = "<group>"; };
+		0C76C5591663517E00C548BC /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameViewController.m; sourceTree = "<group>"; };
+		0C76C55A1663517E00C548BC /* EndGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndGameViewController.xib; sourceTree = "<group>"; };
+		0C76C55D1663523D00C548BC /* alien-invasion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "alien-invasion.jpg"; sourceTree = "<group>"; };
+		0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Alien Invasion new header large.jpg"; sourceTree = "<group>"; };
+		0CC7D6F1165CC8C5002CCC1E /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb.png; sourceTree = "<group>"; };
+		0CC7D6F3165CC8CE002CCC1E /* bomber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomber.png; sourceTree = "<group>"; };
+		0CC7D6F5165CCB16002CCC1E /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		0CD02CD116645CDA00A9EB9F /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
+		0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
+		0CD02CD316645CDA00A9EB9F /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
+		0CD02CDC16646AD500A9EB9F /* healthbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar.png; sourceTree = "<group>"; };
+		0CD02CE216646F2F00A9EB9F /* medal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medal.png; sourceTree = "<group>"; };
+		0CD02CE51664711B00A9EB9F /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
+		0CD02CE61664711B00A9EB9F /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
+		0CD02CE71664711B00A9EB9F /* HowToViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToViewController.xib; sourceTree = "<group>"; };
+		0CD80794165B6DEE0001D4A2 /* ammo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ammo.png; sourceTree = "<group>"; };
+		0CF5BD01165E118B0070B404 /* gun1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun1.png; sourceTree = "<group>"; };
+		0CF5BD02165E118B0070B404 /* gun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun2.png; sourceTree = "<group>"; };
+		0CF5BD03165E118B0070B404 /* gun3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun3.png; sourceTree = "<group>"; };
+		0CF5BD04165E118B0070B404 /* gun4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun4.png; sourceTree = "<group>"; };
+		0CF5BD05165E118B0070B404 /* gun5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun5.png; sourceTree = "<group>"; };
+		0CF5BD06165E118B0070B404 /* gun6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun6.png; sourceTree = "<group>"; };
+		0CF5BD07165E118B0070B404 /* gun7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun7.png; sourceTree = "<group>"; };
+		0CF5BD08165E118B0070B404 /* gun8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun8.png; sourceTree = "<group>"; };
+		0CF5BD09165E118B0070B404 /* gun9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun9.png; sourceTree = "<group>"; };
+		0CF5BD0A165E118B0070B404 /* gun10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun10.png; sourceTree = "<group>"; };
+		0CF5BD0B165E118B0070B404 /* gun11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun11.png; sourceTree = "<group>"; };
+		0CF5BD0C165E118B0070B404 /* gun12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun12.png; sourceTree = "<group>"; };
+		0CF5BD0D165E118B0070B404 /* gun13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun13.png; sourceTree = "<group>"; };
+		0CF5BD0E165E118B0070B404 /* gun14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun14.png; sourceTree = "<group>"; };
+		0CF5BD1D165E1E7C0070B404 /* ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship1.png; sourceTree = "<group>"; };
+		0CF5BD1E165E1E7C0070B404 /* ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship2.png; sourceTree = "<group>"; };
+		0CF5BD1F165E1E7C0070B404 /* ship3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship3.png; sourceTree = "<group>"; };
+		0CF5BD20165E1E7C0070B404 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
+		0CF5BD21165E1E7C0070B404 /* ship5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship5.png; sourceTree = "<group>"; };
+		0CF5BD22165E1E7C0070B404 /* ship6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship6.png; sourceTree = "<group>"; };
+		0CF5BD23165E1E7C0070B404 /* ship7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship7.png; sourceTree = "<group>"; };
+		0CF5BD24165E1E7C0070B404 /* ship8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship8.png; sourceTree = "<group>"; };
+		0CF5BD25165E1E7C0070B404 /* ship9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship9.png; sourceTree = "<group>"; };
+		0CF5BD26165E1E7C0070B404 /* ship10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship10.png; sourceTree = "<group>"; };
+		0CF5BD27165E1E7C0070B404 /* ship12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship12.png; sourceTree = "<group>"; };
+		0CFFAC04165C610900425148 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
+		0CFFAC05165C610900425148 /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
+		0CFFAC06165C610900425148 /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
+		0CFFAC07165C610900425148 /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
+		0CFFAC08165C610900425148 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		0CFFAC09165C610900425148 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		0CFFAC0A165C610900425148 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		0CFFAC0B165C610900425148 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		0CFFAC0C165C610900425148 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		0CFFAC0D165C610900425148 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		0CFFAC19165C615400425148 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C21FDB9164CA2F2006152B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C010F2C1662FB500063670B /* AVFoundation.framework in Frameworks */,
+				0C010F2A1662FB480063670B /* OpenAL.framework in Frameworks */,
+				0C010F281662FB420063670B /* AudioToolbox.framework in Frameworks */,
+				0C21FDDC164CA33E006152B9 /* QuartzCore.framework in Frameworks */,
+				0C21FDD9164CA338006152B9 /* GLKit.framework in Frameworks */,
+				0C21FDDA164CA338006152B9 /* OpenGLES.framework in Frameworks */,
+				0C21FDC1164CA2F2006152B9 /* UIKit.framework in Frameworks */,
+				0C21FDC3164CA2F2006152B9 /* Foundation.framework in Frameworks */,
+				0C21FDC5164CA2F2006152B9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C010E641662F9840063670B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0C010E651662F9840063670B /* CDAudioManager.h */,
+				0C010E661662F9840063670B /* CDAudioManager.m */,
+				0C010E671662F9840063670B /* CDConfig.h */,
+				0C010E681662F9840063670B /* CDOpenALSupport.h */,
+				0C010E691662F9840063670B /* CDOpenALSupport.m */,
+				0C010E6A1662F9840063670B /* CocosDenshion.h */,
+				0C010E6B1662F9840063670B /* CocosDenshion.m */,
+				0C010E6C1662F9840063670B /* SimpleAudioEngine.h */,
+				0C010E6D1662F9840063670B /* SimpleAudioEngine.m */,
+			);
+			name = Sounds;
+			path = CocosDenshion/CocosDenshion;
+			sourceTree = "<group>";
+		};
+		0C010F261662FA530063670B /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0C240C751665B64D00991CC8 /* shipDestroySound.wav */,
+				0C240C761665B64D00991CC8 /* gunSound.wav */,
+				0C240C801665B6B200991CC8 /* bombSound.wav */,
+				0C240C771665B64D00991CC8 /* playerDie.wav */,
+				0C240C781665B64D00991CC8 /* playerHit.wav */,
+				0C240C791665B64E00991CC8 /* bombDrop.wav */,
+				0C3F34321664B54E00E17C68 /* maleHit.wav */,
+				0C010F3616630D030063670B /* laser_enemy.caf */,
+				0C010F3416630C890063670B /* crash.wav */,
+				0C010F3716630E2A0063670B /* explosion_large.caf */,
+				0C010F3916630E300063670B /* explosion_small.caf */,
+				0C010E8B1662F9840063670B /* machinegun.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		0C21FDB1164CA2F2006152B9 = {
+			isa = PBXGroup;
+			children = (
+				0C21FDE9164CABED006152B9 /* Resources */,
+				0C21FDC6164CA2F2006152B9 /* PrototypeApp */,
+				0C21FDBF164CA2F2006152B9 /* Frameworks */,
+				0C21FDBD164CA2F2006152B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0C21FDBD164CA2F2006152B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C21FDBC164CA2F2006152B9 /* AlienInvasion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C21FDBF164CA2F2006152B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C010F2B1662FB500063670B /* AVFoundation.framework */,
+				0C010F291662FB480063670B /* OpenAL.framework */,
+				0C010F271662FB420063670B /* AudioToolbox.framework */,
+				0C21FDDB164CA33E006152B9 /* QuartzCore.framework */,
+				0C21FDD7164CA338006152B9 /* GLKit.framework */,
+				0C21FDD8164CA338006152B9 /* OpenGLES.framework */,
+				0C21FDC0164CA2F2006152B9 /* UIKit.framework */,
+				0C21FDC2164CA2F2006152B9 /* Foundation.framework */,
+				0C21FDC4164CA2F2006152B9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0C21FDC6164CA2F2006152B9 /* PrototypeApp */ = {
+			isa = PBXGroup;
+			children = (
+				0C21FDCF164CA2F2006152B9 /* ExerAppDelegate.h */,
+				0C21FDD0164CA2F2006152B9 /* ExerAppDelegate.m */,
+				0C21FDC7164CA2F2006152B9 /* Supporting Files */,
+				0C010E641662F9840063670B /* Sounds */,
+				0CD02CCF16645C4D00A9EB9F /* Main Menu */,
+				0CD02CD016645CAA00A9EB9F /* High Score */,
+				0CD02CCE16645C3700A9EB9F /* Game View */,
+				0CD02CE4166470F700A9EB9F /* How To */,
+				0CD02CCC16645C1400A9EB9F /* End Game */,
+			);
+			name = PrototypeApp;
+			path = OpenGLTestProgram;
+			sourceTree = "<group>";
+		};
+		0C21FDC7164CA2F2006152B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C21FDC8164CA2F2006152B9 /* AlienInvasion-Info.plist */,
+				0C21FDC9164CA2F2006152B9 /* InfoPlist.strings */,
+				0C21FDCC164CA2F2006152B9 /* main.m */,
+				0C21FDCE164CA2F2006152B9 /* AlienInvasion-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0C21FDE9164CABED006152B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C240C841665C1D800991CC8 /* appIconRetina.png */,
+				0C240C821665C15300991CC8 /* appIcon.png */,
+				0C010F261662FA530063670B /* sounds */,
+				0CF5BD00165E11750070B404 /* animation */,
+				0C2E141B165DD7A300F089AF /* player.png */,
+				0C240C711665A1BA00991CC8 /* home.png */,
+				0CD02CDC16646AD500A9EB9F /* healthbar.png */,
+				0CD02CE216646F2F00A9EB9F /* medal.png */,
+				0C0284731663624D00776E4B /* start-button.png */,
+				0C0284761663656900776E4B /* Quick-How-To-Button.png */,
+				0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */,
+				0C76C55D1663523D00C548BC /* alien-invasion.jpg */,
+				0C2E1410165DCF8300F089AF /* boss.gif */,
+				0CC7D6F5165CCB16002CCC1E /* background.jpg */,
+				0CC7D6F3165CC8CE002CCC1E /* bomber.png */,
+				0CC7D6F1165CC8C5002CCC1E /* bomb.png */,
+				0CFFAC19165C615400425148 /* enemy.png */,
+				0CD80794165B6DEE0001D4A2 /* ammo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0CD02CCC16645C1400A9EB9F /* End Game */ = {
+			isa = PBXGroup;
+			children = (
+				0C76C5581663517E00C548BC /* EndGameViewController.h */,
+				0C76C5591663517E00C548BC /* EndGameViewController.m */,
+				0C76C55A1663517E00C548BC /* EndGameViewController.xib */,
+			);
+			name = "End Game";
+			sourceTree = "<group>";
+		};
+		0CD02CCE16645C3700A9EB9F /* Game View */ = {
+			isa = PBXGroup;
+			children = (
+				0C21FDE6164CA99F006152B9 /* SGGViewController.h */,
+				0C21FDE7164CA99F006152B9 /* SGGViewController.m */,
+				0C76C5561663447500C548BC /* GameViewController.xib */,
+				0C01EA78165F1B7E00ED872E /* Bomber.h */,
+				0C01EA79165F1B7E00ED872E /* Bomber.m */,
+				0C21FDF8164CAC27006152B9 /* ProtoSprite.h */,
+				0C21FDF9164CAC27006152B9 /* ProtoSprite.m */,
+				0C010F2F166308CC0063670B /* SoundLayer.h */,
+				0C010F30166308CC0063670B /* SoundLayer.m */,
+			);
+			name = "Game View";
+			sourceTree = "<group>";
+		};
+		0CD02CCF16645C4D00A9EB9F /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0C010F4F166321DC0063670B /* MainMenuViewController.h */,
+				0C010F50166321DC0063670B /* MainMenuViewController.m */,
+				0C010F51166321DC0063670B /* MainMenuViewController.xib */,
+			);
+			name = "Main Menu";
+			sourceTree = "<group>";
+		};
+		0CD02CD016645CAA00A9EB9F /* High Score */ = {
+			isa = PBXGroup;
+			children = (
+				0CD02CD116645CDA00A9EB9F /* HighScoreViewController.h */,
+				0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */,
+				0CD02CD316645CDA00A9EB9F /* HighScoreViewController.xib */,
+			);
+			name = "High Score";
+			sourceTree = "<group>";
+		};
+		0CD02CE4166470F700A9EB9F /* How To */ = {
+			isa = PBXGroup;
+			children = (
+				0CD02CE51664711B00A9EB9F /* HowToViewController.h */,
+				0CD02CE61664711B00A9EB9F /* HowToViewController.m */,
+				0CD02CE71664711B00A9EB9F /* HowToViewController.xib */,
+			);
+			name = "How To";
+			sourceTree = "<group>";
+		};
+		0CF5BD00165E11750070B404 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				0C3F3429166498C800E17C68 /* bomb1.png */,
+				0C3F342A166498C800E17C68 /* bomb2.png */,
+				0C3F342B166498C800E17C68 /* bomb3.png */,
+				0C3F342C166498C800E17C68 /* bomb4.png */,
+				0CF5BD01165E118B0070B404 /* gun1.png */,
+				0CF5BD02165E118B0070B404 /* gun2.png */,
+				0CF5BD03165E118B0070B404 /* gun3.png */,
+				0CF5BD04165E118B0070B404 /* gun4.png */,
+				0CF5BD05165E118B0070B404 /* gun5.png */,
+				0CF5BD06165E118B0070B404 /* gun6.png */,
+				0CF5BD07165E118B0070B404 /* gun7.png */,
+				0CF5BD08165E118B0070B404 /* gun8.png */,
+				0CF5BD09165E118B0070B404 /* gun9.png */,
+				0CF5BD0A165E118B0070B404 /* gun10.png */,
+				0CF5BD0B165E118B0070B404 /* gun11.png */,
+				0CF5BD0C165E118B0070B404 /* gun12.png */,
+				0CF5BD0D165E118B0070B404 /* gun13.png */,
+				0CF5BD0E165E118B0070B404 /* gun14.png */,
+				0CFFAC04165C610900425148 /* 15.png */,
+				0CFFAC05165C610900425148 /* 14.png */,
+				0CFFAC06165C610900425148 /* 13.png */,
+				0CFFAC07165C610900425148 /* 12.png */,
+				0CFFAC08165C610900425148 /* 11.png */,
+				0CFFAC09165C610900425148 /* 10.png */,
+				0CFFAC0A165C610900425148 /* 9.png */,
+				0CFFAC0B165C610900425148 /* 8.png */,
+				0CFFAC0C165C610900425148 /* 7.png */,
+				0CFFAC0D165C610900425148 /* 6.png */,
+				0C0CBBE71650C72100F32CDE /* 5.png */,
+				0C0CBBE81650C72200F32CDE /* 4.png */,
+				0C0CBBE91650C72200F32CDE /* 3.png */,
+				0C0CBBEA1650C72200F32CDE /* 2.png */,
+				0C0CBBEB1650C72200F32CDE /* 1.png */,
+				0CF5BD1D165E1E7C0070B404 /* ship1.png */,
+				0CF5BD1E165E1E7C0070B404 /* ship2.png */,
+				0CF5BD1F165E1E7C0070B404 /* ship3.png */,
+				0CF5BD20165E1E7C0070B404 /* ship4.png */,
+				0CF5BD21165E1E7C0070B404 /* ship5.png */,
+				0CF5BD22165E1E7C0070B404 /* ship6.png */,
+				0CF5BD23165E1E7C0070B404 /* ship7.png */,
+				0CF5BD24165E1E7C0070B404 /* ship8.png */,
+				0CF5BD25165E1E7C0070B404 /* ship9.png */,
+				0CF5BD26165E1E7C0070B404 /* ship10.png */,
+				0CF5BD27165E1E7C0070B404 /* ship12.png */,
+			);
+			name = animation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0C21FDBB164CA2F2006152B9 /* AlienInvasion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C21FDD4164CA2F2006152B9 /* Build configuration list for PBXNativeTarget "AlienInvasion" */;
+			buildPhases = (
+				0C21FDB8164CA2F2006152B9 /* Sources */,
+				0C21FDB9164CA2F2006152B9 /* Frameworks */,
+				0C21FDBA164CA2F2006152B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlienInvasion;
+			productName = OpenGLTestProgram;
+			productReference = 0C21FDBC164CA2F2006152B9 /* AlienInvasion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0C21FDB3164CA2F2006152B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Exer;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Jose Mari Salandanan";
+			};
+			buildConfigurationList = 0C21FDB6164CA2F2006152B9 /* Build configuration list for PBXProject "AlienInvasion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0C21FDB1164CA2F2006152B9;
+			productRefGroup = 0C21FDBD164CA2F2006152B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0C21FDBB164CA2F2006152B9 /* AlienInvasion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0C21FDBA164CA2F2006152B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C21FDCB164CA2F2006152B9 /* InfoPlist.strings in Resources */,
+				0C0CBBEC1650C72200F32CDE /* 5.png in Resources */,
+				0C0CBBED1650C72200F32CDE /* 4.png in Resources */,
+				0C0CBBEE1650C72200F32CDE /* 3.png in Resources */,
+				0C0CBBEF1650C72200F32CDE /* 2.png in Resources */,
+				0C0CBBF01650C72200F32CDE /* 1.png in Resources */,
+				0CD80795165B6DEE0001D4A2 /* ammo.png in Resources */,
+				0CFFAC0E165C610900425148 /* 15.png in Resources */,
+				0CFFAC0F165C610900425148 /* 14.png in Resources */,
+				0CFFAC10165C610900425148 /* 13.png in Resources */,
+				0CFFAC11165C610900425148 /* 12.png in Resources */,
+				0CFFAC12165C610900425148 /* 11.png in Resources */,
+				0CFFAC13165C610900425148 /* 10.png in Resources */,
+				0CFFAC14165C610900425148 /* 9.png in Resources */,
+				0CFFAC15165C610900425148 /* 8.png in Resources */,
+				0CFFAC16165C610900425148 /* 7.png in Resources */,
+				0CFFAC17165C610900425148 /* 6.png in Resources */,
+				0CFFAC1A165C615400425148 /* enemy.png in Resources */,
+				0CC7D6F2165CC8C5002CCC1E /* bomb.png in Resources */,
+				0CC7D6F4165CC8CE002CCC1E /* bomber.png in Resources */,
+				0CC7D6F6165CCB16002CCC1E /* background.jpg in Resources */,
+				0C2E1411165DCF8300F089AF /* boss.gif in Resources */,
+				0C2E141C165DD7A300F089AF /* player.png in Resources */,
+				0CF5BD0F165E118B0070B404 /* gun1.png in Resources */,
+				0CF5BD10165E118B0070B404 /* gun2.png in Resources */,
+				0CF5BD11165E118B0070B404 /* gun3.png in Resources */,
+				0CF5BD12165E118B0070B404 /* gun4.png in Resources */,
+				0CF5BD13165E118B0070B404 /* gun5.png in Resources */,
+				0CF5BD14165E118B0070B404 /* gun6.png in Resources */,
+				0CF5BD15165E118B0070B404 /* gun7.png in Resources */,
+				0CF5BD16165E118B0070B404 /* gun8.png in Resources */,
+				0CF5BD17165E118B0070B404 /* gun9.png in Resources */,
+				0CF5BD18165E118B0070B404 /* gun10.png in Resources */,
+				0CF5BD19165E118B0070B404 /* gun11.png in Resources */,
+				0CF5BD1A165E118B0070B404 /* gun12.png in Resources */,
+				0CF5BD1B165E118B0070B404 /* gun13.png in Resources */,
+				0CF5BD1C165E118B0070B404 /* gun14.png in Resources */,
+				0CF5BD28165E1E7C0070B404 /* ship1.png in Resources */,
+				0CF5BD29165E1E7C0070B404 /* ship2.png in Resources */,
+				0CF5BD2A165E1E7C0070B404 /* ship3.png in Resources */,
+				0CF5BD2B165E1E7C0070B404 /* ship4.png in Resources */,
+				0CF5BD2C165E1E7C0070B404 /* ship5.png in Resources */,
+				0CF5BD2D165E1E7C0070B404 /* ship6.png in Resources */,
+				0CF5BD2E165E1E7C0070B404 /* ship7.png in Resources */,
+				0CF5BD2F165E1E7C0070B404 /* ship8.png in Resources */,
+				0CF5BD30165E1E7C0070B404 /* ship9.png in Resources */,
+				0CF5BD31165E1E7C0070B404 /* ship10.png in Resources */,
+				0CF5BD32165E1E7C0070B404 /* ship12.png in Resources */,
+				0C010EF21662F9840063670B /* machinegun.wav in Resources */,
+				0C010F3516630C890063670B /* crash.wav in Resources */,
+				0C010F3816630E2A0063670B /* explosion_large.caf in Resources */,
+				0C010F3A16630E300063670B /* explosion_small.caf in Resources */,
+				0C010F53166321DC0063670B /* MainMenuViewController.xib in Resources */,
+				0C76C5571663447500C548BC /* GameViewController.xib in Resources */,
+				0C76C55C1663517F00C548BC /* EndGameViewController.xib in Resources */,
+				0C76C55E1663523D00C548BC /* alien-invasion.jpg in Resources */,
+				0C76C5621663583300C548BC /* Alien Invasion new header large.jpg in Resources */,
+				0C0284741663624D00776E4B /* start-button.png in Resources */,
+				0C0284771663656900776E4B /* Quick-How-To-Button.png in Resources */,
+				0CD02CD516645CDA00A9EB9F /* HighScoreViewController.xib in Resources */,
+				0CD02CDD16646AD500A9EB9F /* healthbar.png in Resources */,
+				0CD02CE316646F2F00A9EB9F /* medal.png in Resources */,
+				0CD02CE91664711B00A9EB9F /* HowToViewController.xib in Resources */,
+				0C3F342D166498C800E17C68 /* bomb1.png in Resources */,
+				0C3F342E166498C800E17C68 /* bomb2.png in Resources */,
+				0C3F342F166498C800E17C68 /* bomb3.png in Resources */,
+				0C3F3430166498C800E17C68 /* bomb4.png in Resources */,
+				0C3F34331664B54E00E17C68 /* maleHit.wav in Resources */,
+				0C3F34341664B6B000E17C68 /* laser_enemy.caf in Resources */,
+				0C240C721665A1BA00991CC8 /* home.png in Resources */,
+				0C240C7B1665B64E00991CC8 /* shipDestroySound.wav in Resources */,
+				0C240C7C1665B64E00991CC8 /* gunSound.wav in Resources */,
+				0C240C7D1665B64E00991CC8 /* playerDie.wav in Resources */,
+				0C240C7E1665B64E00991CC8 /* playerHit.wav in Resources */,
+				0C240C7F1665B64E00991CC8 /* bombDrop.wav in Resources */,
+				0C240C811665B6B200991CC8 /* bombSound.wav in Resources */,
+				0C240C831665C15300991CC8 /* appIcon.png in Resources */,
+				0C240C851665C1D800991CC8 /* appIconRetina.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C21FDB8164CA2F2006152B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C21FDCD164CA2F2006152B9 /* main.m in Sources */,
+				0C21FDD1164CA2F2006152B9 /* ExerAppDelegate.m in Sources */,
+				0C21FDE8164CA99F006152B9 /* SGGViewController.m in Sources */,
+				0C21FDFA164CAC27006152B9 /* ProtoSprite.m in Sources */,
+				0C01EA7A165F1B7E00ED872E /* Bomber.m in Sources */,
+				0C010EDB1662F9840063670B /* CDAudioManager.m in Sources */,
+				0C010EDC1662F9840063670B /* CDOpenALSupport.m in Sources */,
+				0C010EDD1662F9840063670B /* CocosDenshion.m in Sources */,
+				0C010EDE1662F9840063670B /* SimpleAudioEngine.m in Sources */,
+				0C010F31166308CC0063670B /* SoundLayer.m in Sources */,
+				0C010F52166321DC0063670B /* MainMenuViewController.m in Sources */,
+				0C76C55B1663517F00C548BC /* EndGameViewController.m in Sources */,
+				0CD02CD416645CDA00A9EB9F /* HighScoreViewController.m in Sources */,
+				0CD02CE81664711B00A9EB9F /* HowToViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0C21FDC9164CA2F2006152B9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0C21FDCA164CA2F2006152B9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0C21FDD2164CA2F2006152B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rio Ohmori (GU37ZJ94M4)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "749EF362-0C1B-4F29-907E-9DA8FA360AC8";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0C21FDD3164CA2F2006152B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rio Ohmori (GU37ZJ94M4)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "749EF362-0C1B-4F29-907E-9DA8FA360AC8";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0C21FDD5164CA2F2006152B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenGLTestProgram/AlienInvasion-Prefix.pch";
+				INFOPLIST_FILE = "OpenGLTestProgram/AlienInvasion-Info.plist";
+				PRODUCT_NAME = AlienInvasion;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0C21FDD6164CA2F2006152B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OpenGLTestProgram/AlienInvasion-Prefix.pch";
+				INFOPLIST_FILE = "OpenGLTestProgram/AlienInvasion-Info.plist";
+				PRODUCT_NAME = AlienInvasion;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C21FDB6164CA2F2006152B9 /* Build configuration list for PBXProject "AlienInvasion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C21FDD2164CA2F2006152B9 /* Debug */,
+				0C21FDD3164CA2F2006152B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C21FDD4164CA2F2006152B9 /* Build configuration list for PBXNativeTarget "AlienInvasion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C21FDD5164CA2F2006152B9 /* Debug */,
+				0C21FDD6164CA2F2006152B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0C21FDB3164CA2F2006152B9 /* Project object */;
+}
