@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 // hello!!!
 // :P
+<<<<<<< HEAD
 ///bwisit na github
+=======
+>>>>>>> eh eto?
 @interface MainMenuViewController : UIViewController
 
 - (IBAction)startGameButtonPressed:(id)sender;
