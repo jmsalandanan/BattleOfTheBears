@@ -362,7 +362,7 @@
 }
 
 -(void)addSuicideBomber{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];    
     int rangeY3 = arc4random_uniform(320);
 
@@ -774,7 +774,7 @@
         gunAnimation.animationRepeatCount = 1;
         [gunAnimation setFrame:CGRectMake(self.player.position.x-10, -60, 0, 320)];
         [gunAnimation startAnimating];
-        [self flashScreen];
+//        [self flashScreen];
     }
 }
 -(void) flashScreen
