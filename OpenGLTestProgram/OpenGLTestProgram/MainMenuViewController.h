@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 // hello!!!
+// :P
 @interface MainMenuViewController : UIViewController
 
 - (IBAction)startGameButtonPressed:(id)sender;
