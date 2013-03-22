@@ -282,7 +282,7 @@
     if(!gunAnimation.isAnimating)
     {
     [SoundLayer playSound:@"gunSound.wav"];
-    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
+    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo1.png" effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
     sprite.moveVelocity = moveVelocity;
     [self.children addObject:sprite];

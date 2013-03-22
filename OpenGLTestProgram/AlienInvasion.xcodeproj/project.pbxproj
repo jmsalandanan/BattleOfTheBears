@@ -108,7 +108,8 @@
 		0CFFAC17165C610900425148 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0D165C610900425148 /* 6.png */; };
 		0CFFAC1A165C615400425148 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC19165C615400425148 /* enemy.png */; };
 		7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7896B8E216FC0EDF00D3BC67 /* background.jpg */; };
-		7896B8ED16FC12BF00D3BC67 /* suicidepanda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B8EC16FC12BF00D3BC67 /* suicidepanda.png */; };
+		7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90016FC4F9F00D3BC67 /* ammo1.png */; };
+		7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90216FC508F00D3BC67 /* suicidepanda.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -230,7 +231,8 @@
 		0CFFAC0D165C610900425148 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		0CFFAC19165C615400425148 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		7896B8E216FC0EDF00D3BC67 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		7896B8EC16FC12BF00D3BC67 /* suicidepanda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suicidepanda.png; sourceTree = "<group>"; };
+		7896B90016FC4F9F00D3BC67 /* ammo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ammo1.png; sourceTree = "<group>"; };
+		7896B90216FC508F00D3BC67 /* suicidepanda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suicidepanda.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,13 +368,14 @@
 				7896B8E216FC0EDF00D3BC67 /* background.jpg */,
 				0C0284761663656900776E4B /* Quick-How-To-Button.png */,
 				0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */,
+				7896B90216FC508F00D3BC67 /* suicidepanda.png */,
 				0C76C55D1663523D00C548BC /* alien-invasion.jpg */,
-				7896B8EC16FC12BF00D3BC67 /* suicidepanda.png */,
 				0C2E1410165DCF8300F089AF /* boss.gif */,
 				0CC7D6F3165CC8CE002CCC1E /* bomber.png */,
 				0CC7D6F1165CC8C5002CCC1E /* bomb.png */,
 				0CFFAC19165C615400425148 /* enemy.png */,
 				0CD80794165B6DEE0001D4A2 /* ammo.png */,
+				7896B90016FC4F9F00D3BC67 /* ammo1.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -614,7 +617,8 @@
 				0C240C831665C15300991CC8 /* appIcon.png in Resources */,
 				0C240C851665C1D800991CC8 /* appIconRetina.png in Resources */,
 				7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */,
-				7896B8ED16FC12BF00D3BC67 /* suicidepanda.png in Resources */,
+				7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */,
+				7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
