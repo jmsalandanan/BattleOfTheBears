@@ -33,6 +33,7 @@
 @property (strong) NSMutableArray *targets;
 @property (strong) NSMutableArray *bomber;
 @property (strong) NSMutableArray *suicideBomber;
+@property (strong) NSMutableArray *fastBomber;
 @property (strong) NSMutableArray *bomb;
 @property (strong) NSMutableArray *bossArr;
 
@@ -169,6 +170,7 @@
     self.targets = [NSMutableArray array];
     self.bomber = [NSMutableArray array];
     self.suicideBomber = [NSMutableArray array];
+    self.fastBomber = [NSMutableArray array];
     self.bomb = [NSMutableArray array];
     self.bossArr = [NSMutableArray array];
     //***********************************************
@@ -374,6 +376,29 @@
     NSLog(@"enemy count: %d ADDED SUICIDE BOMBER", enemyCounter);
 }
 
+-(void)addFastBomber{
+    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
+    [self.children addObject:target4];
+    BOOL originRand = arc4random_uniform(2);
+    
+    int rangeY2 = 110;
+    int actualY2 = (arc4random() % rangeY2) + 150;
+    if(originRand)
+    {
+        target4.position = GLKVector2Make(480 + (target4.contentSize.width/2), actualY2);
+        target4.moveVelocity = GLKVector2Make(-300,0);
+    }
+    else
+    {
+        target4.position = GLKVector2Make(-20 + (target4.contentSize.width/2), actualY2);
+        target4.moveVelocity = GLKVector2Make(300,0);
+    }
+    [self.fastBomber addObject:target4];
+    enemyCounter++;
+    NSLog(@"enemy count: %d", enemyCounter);
+}
+
+
 -(void)addBomb:(float )bombX : (float ) bombY {
     ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:@"bomb.png" effect:self.effect];
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
@@ -525,6 +550,35 @@
         }
 
     }
+        //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
+    for(ProtoSprite *target4 in self.fastBomber)
+    {
+        if(target4.position.x<=self.player.position.x+80&&!target4.isAttacking)
+        {
+            int rand = arc4random_uniform(10);
+            if(rand==3)
+            {
+                target4.isAttacking = TRUE;
+                [self addBomb:target4.position.x :target4.position.y];
+            }
+        }
+
+        if(target4.position.x<=-800)
+        {
+            [self.fastBomber removeObject:target4];
+            [self.children removeObject:target4];
+            
+            return;
+        }
+        if(target4.position.x>=550)
+        {
+            [self.fastBomber removeObject:target4];
+            [self.children removeObject:target4];
+            
+            return;
+        }
+        
+    }
     //AI behavior of bombers on when to drop bomb.
     for(ProtoSprite *target2 in self.bomber)
         {
@@ -577,6 +631,7 @@
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             }
         }
+        
         //Same as above function, for bomber enemy.
         for(ProtoSprite *target2 in self.bomber)
         {
@@ -621,6 +676,26 @@
                 break;
             }
         }
+        for(ProtoSprite *target4 in self.fastBomber)
+        {
+            x=target4.position.x;
+            y=-target4.position.y;
+            if (CGRectIntersectsRect(projectile.boundingBox, target4.boundingBox)) {
+                [SoundLayer playSound:@"bombSound.wav"];
+                [self.view addSubview:explodeAnimation];
+                [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
+                
+                [explodeAnimation startAnimating];
+                [self.fastBomber removeObject:target4];
+                [self.children removeObject:target4];
+                playerScore += 70;
+                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+                [projectilesToDelete addObject:projectile];
+                [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+                break;
+            }
+        }
+
         //Same as above function, bomb.
         for(ProtoSprite *alienBomb in self.bomb)
         {
@@ -690,15 +765,18 @@
          {
             return;
          }
-        else
+        if(r>25&&r<60)
          {
         [self addBomber];
-               [self addSuicideBomber];
          }
-         if(r>60)
+         if(r>40&&r<60)
          {
-             [self addSuicideBomber];
+        [self addSuicideBomber];
          }
+        if(r>60)
+        {
+            [self addFastBomber];
+        }
      }
     }
     for (ProtoSprite * sprite in self.children) {
