@@ -32,6 +32,7 @@
 @property (strong) NSMutableArray *projectiles;
 @property (strong) NSMutableArray *targets;
 @property (strong) NSMutableArray *bomber;
+@property (strong) NSMutableArray *suicideBomber;
 @property (strong) NSMutableArray *bomb;
 @property (strong) NSMutableArray *bossArr;
 
@@ -167,6 +168,7 @@
     self.projectiles = [NSMutableArray array];
     self.targets = [NSMutableArray array];
     self.bomber = [NSMutableArray array];
+    self.suicideBomber = [NSMutableArray array];
     self.bomb = [NSMutableArray array];
     self.bossArr = [NSMutableArray array];
     //***********************************************
@@ -304,51 +306,11 @@
         [sprite render];
     }
 }
--(void)addBomber{
-    ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
-        [self.children addObject:target2];
-    BOOL originRand = arc4random_uniform(2);
-    
-    int rangeY2 = 110;
-    int actualY2 = (arc4random() % rangeY2) + 150;
-    if(originRand)
-    {        
-        target2.position = GLKVector2Make(480 + (target2.contentSize.width/2), actualY2);
-        target2.moveVelocity = GLKVector2Make(-actualVelocity,0);
-    }
-    else
-    {
-        target2.position = GLKVector2Make(-20 + (target2.contentSize.width/2), actualY2);
-        target2.moveVelocity = GLKVector2Make(actualVelocity,0);
-    }
-    [self.bomber addObject:target2];
-    enemyCounter++;
-    NSLog(@"enemy count: %d", enemyCounter);    
-}
--(void)addBomb:(float )bombX : (float ) bombY {
-    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:@"bomb.png" effect:self.effect];
-    alienBomb.moveVelocity = GLKVector2Make(0, -50);
-    alienBomb.position = GLKVector2Make(bombX, bombY);
-    [SoundLayer playSound:@"bombDrop.wav"];
-    [self.children addObject:alienBomb];
-    [self.bomb addObject:alienBomb];
-}   
--(void)addBoss{
-    if(!isBossStage)
-    {
-    ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
-    [self.children addObject:boss];
-    [self.bossArr addObject:boss];
-    bossHealth = 10;
-    boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
-    boss.moveVelocity = GLKVector2Make(-300,0);
-    }
-}
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
     ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"enemy.png" effect:self.effect];
-        target.isAttacking = FALSE;
+    target.isAttacking = FALSE;
     [self.children addObject:target];
     BOOL originRand = arc4random_uniform(2);
     int minY = 200;
@@ -375,6 +337,63 @@
     enemyCounter++;
     NSLog(@"enemy count: %d", enemyCounter);
 }
+
+
+-(void)addBomber{
+    ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+        [self.children addObject:target2];
+    BOOL originRand = arc4random_uniform(2);
+    
+    int rangeY2 = 110;
+    int actualY2 = (arc4random() % rangeY2) + 150;
+    if(originRand)
+    {        
+        target2.position = GLKVector2Make(480 + (target2.contentSize.width/2), actualY2);
+        target2.moveVelocity = GLKVector2Make(-actualVelocity,0);
+    }
+    else
+    {
+        target2.position = GLKVector2Make(-20 + (target2.contentSize.width/2), actualY2);
+        target2.moveVelocity = GLKVector2Make(actualVelocity,0);
+    }
+    [self.bomber addObject:target2];
+    enemyCounter++;
+    NSLog(@"enemy count: %d", enemyCounter);    
+}
+
+-(void)addSuicideBomber{
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    [self.children addObject:target3];    
+    int rangeY3 = arc4random_uniform(320);
+
+        target3.position = GLKVector2Make(rangeY3, 320);
+        target3.moveVelocity = GLKVector2Make(0,-60);
+
+    [self.suicideBomber addObject:target3];
+    enemyCounter++;
+    NSLog(@"enemy count: %d ADDED SUICIDE BOMBER", enemyCounter);
+}
+
+-(void)addBomb:(float )bombX : (float ) bombY {
+    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:@"bomb.png" effect:self.effect];
+    alienBomb.moveVelocity = GLKVector2Make(0, -50);
+    alienBomb.position = GLKVector2Make(bombX, bombY);
+    [SoundLayer playSound:@"bombDrop.wav"];
+    [self.children addObject:alienBomb];
+    [self.bomb addObject:alienBomb];
+}   
+-(void)addBoss{
+    if(!isBossStage)
+    {
+    ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
+    [self.children addObject:boss];
+    [self.bossArr addObject:boss];
+    bossHealth = 10;
+    boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
+    boss.moveVelocity = GLKVector2Make(-300,0);
+    }
+}
+
 
 - (void)update {
    //int temp;
@@ -443,6 +462,50 @@
             break;
         }
     }
+    //Check suicide bombers if they reach ground or collide with player
+    for(ProtoSprite *target3 in self.suicideBomber)
+    {
+        if(target3.position.y<=10)
+        {
+            [SoundLayer playSound:@"shipDestroySound.wav"];
+            shootAnimation.animationRepeatCount = 1;
+            [shootAnimation setFrame:CGRectMake(target3.position.x-10, 0, 0, 320)];
+            [shootAnimation startAnimating];
+            [self.suicideBomber removeObject:target3];
+            [self.children removeObject:target3];
+            [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+            break;
+        }
+        if(CGRectIntersectsRect(target3.boundingBox, self.player.boundingBox))
+        {
+            [SoundLayer playSound:@"bombSound.wav"];
+            [SoundLayer playSound:@"playerDie.wav"];
+            [self flashScreen];
+            playerHealth -=1;
+            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
+            shootAnimation.animationRepeatCount = 1;
+            [shootAnimation setFrame:CGRectMake(target3.position.x-10, 0, 0, 320)];
+            [shootAnimation startAnimating];
+            [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+            [self.suicideBomber removeObject:target3];
+            [self.children removeObject:target3];
+            NSLog(@"playerHealth is now: %d",playerHealth);
+            NSLog(@"Player Damaged");
+            if(playerHealth <=0)
+            {
+                //[SoundLayer playSound:@"playerDie.wav"];
+                EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
+                endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
+                endGameViewController.temp = playerScore;
+                [self presentModalViewController:endGameViewController animated:YES];
+                NSLog(@"Game Ends");
+            }
+            break;
+        }
+
+
+    }
     //Checks if every instance of target reaches the end of the screen, therefore destroying it.
     for(ProtoSprite *target in self.targets)
     {      
@@ -487,6 +550,7 @@
                 return;
             }
         }
+
     //Checks if player projectile reaches end of screen. If condition is met, projectile is removed and dealloced.
     for(ProtoSprite *projectile in self.projectiles){
             if(projectile.position.x>=480||projectile.position.x<=-20||projectile.position.y<=-340)
@@ -513,7 +577,7 @@
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             }
         }
-        //Same as above function, different enemy.
+        //Same as above function, for bomber enemy.
         for(ProtoSprite *target2 in self.bomber)
         {
             x=target2.position.x;
@@ -529,6 +593,30 @@
                 playerScore += 30;
                     [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]]; 
                 [projectilesToDelete addObject:projectile];
+                [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+                break;
+            }
+        }
+        //same as above function, for suicide bomber enemy
+        for(ProtoSprite *target3 in self.suicideBomber)
+        {
+            x=target3.position.x;
+            y=-target3.position.y;
+            if (CGRectIntersectsRect(projectile.boundingBox, target3.boundingBox)) {
+                [SoundLayer playSound:@"bombSound.wav"];
+                [self.view addSubview:explodeAnimation];
+                [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];                
+                [explodeAnimation startAnimating];
+                [projectilesToDelete addObject:projectile];
+                [self addBomb:target3.position.x :target3.position.y];
+                [self addBomb:target3.position.x - 50 :target3.position.y];
+                [self addBomb:target3.position.x + 50:target3.position.y];
+                [self.suicideBomber removeObject:target3];
+                [self.children removeObject:target3];
+                playerScore += 50;
+                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+
+
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                 break;
             }
@@ -551,6 +639,7 @@
                 break;
             }
         }
+
         //Same as above function, boss
         for(ProtoSprite *boss in self.bossArr )
         {
@@ -597,13 +686,18 @@
         if(!isBossStage){
         [self addTarget];
         int r = arc4random_uniform(74);
-        if(r<50)
+        if(r<25)
          {
             return;
          }
         else
          {
         [self addBomber];
+               [self addSuicideBomber];
+         }
+         if(r>60)
+         {
+             [self addSuicideBomber];
          }
      }
     }
