@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "385869205.85645"
+         timestampString = "385886914.607612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "447"
-         endingLineNumber = "447"
+         startingLineNumber = "467"
+         endingLineNumber = "467"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "385626757.911883"
+         timestampString = "385886914.607612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
+         startingLineNumber = "318"
+         endingLineNumber = "318"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "385871984.940121"
+         timestampString = "385886914.607612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
+         startingLineNumber = "444"
+         endingLineNumber = "444"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>
