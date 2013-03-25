@@ -378,7 +378,7 @@
 }
 
 -(void)addBossSuicideBomber:(float )originX : (float ) originY{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];
     
     target3.position = GLKVector2Make(originX, originY);

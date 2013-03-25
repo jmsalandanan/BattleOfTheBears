@@ -62,7 +62,6 @@
 		0C76C55C1663517F00C548BC /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55A1663517E00C548BC /* EndGameViewController.xib */; };
 		0C76C55E1663523D00C548BC /* alien-invasion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55D1663523D00C548BC /* alien-invasion.jpg */; };
 		0C76C5621663583300C548BC /* Alien Invasion new header large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */; };
-		0CC7D6F2165CC8C5002CCC1E /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC7D6F1165CC8C5002CCC1E /* bomb.png */; };
 		0CC7D6F4165CC8CE002CCC1E /* bomber.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC7D6F3165CC8CE002CCC1E /* bomber.png */; };
 		0CD02CD416645CDA00A9EB9F /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */; };
 		0CD02CD516645CDA00A9EB9F /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CD316645CDA00A9EB9F /* HighScoreViewController.xib */; };
@@ -111,7 +110,9 @@
 		7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90016FC4F9F00D3BC67 /* ammo1.png */; };
 		7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90216FC508F00D3BC67 /* suicidepanda.png */; };
 		7896B90516FC5B5700D3BC67 /* playerkoala.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90416FC5B5700D3BC67 /* playerkoala.png */; };
-		78FEB1CA16FFEE0C00EB437D /* gameoverscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB1C916FFEE0C00EB437D /* gameoverscreen.png */; };
+		78FEB1E61700260400EB437D /* gameoverscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB1E51700260400EB437D /* gameoverscreen.png */; };
+		78FEB1EC17002CFD00EB437D /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB1EB17002CFD00EB437D /* bomb.png */; };
+		78FEB1EE170032F100EB437D /* buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB1ED170032F100EB437D /* buttons.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,7 +186,6 @@
 		0C76C55A1663517E00C548BC /* EndGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndGameViewController.xib; sourceTree = "<group>"; };
 		0C76C55D1663523D00C548BC /* alien-invasion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "alien-invasion.jpg"; sourceTree = "<group>"; };
 		0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Alien Invasion new header large.jpg"; sourceTree = "<group>"; };
-		0CC7D6F1165CC8C5002CCC1E /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb.png; sourceTree = "<group>"; };
 		0CC7D6F3165CC8CE002CCC1E /* bomber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomber.png; sourceTree = "<group>"; };
 		0CD02CD116645CDA00A9EB9F /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
@@ -236,7 +236,9 @@
 		7896B90016FC4F9F00D3BC67 /* ammo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ammo1.png; sourceTree = "<group>"; };
 		7896B90216FC508F00D3BC67 /* suicidepanda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suicidepanda.png; sourceTree = "<group>"; };
 		7896B90416FC5B5700D3BC67 /* playerkoala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerkoala.png; sourceTree = "<group>"; };
-		78FEB1C916FFEE0C00EB437D /* gameoverscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameoverscreen.png; sourceTree = "<group>"; };
+		78FEB1E51700260400EB437D /* gameoverscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameoverscreen.png; sourceTree = "<group>"; };
+		78FEB1EB17002CFD00EB437D /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb.png; sourceTree = "<group>"; };
+		78FEB1ED170032F100EB437D /* buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,10 +377,11 @@
 				7896B90216FC508F00D3BC67 /* suicidepanda.png */,
 				0C76C55D1663523D00C548BC /* alien-invasion.jpg */,
 				0C2E1410165DCF8300F089AF /* boss.gif */,
+				78FEB1EB17002CFD00EB437D /* bomb.png */,
 				0CC7D6F3165CC8CE002CCC1E /* bomber.png */,
-				0CC7D6F1165CC8C5002CCC1E /* bomb.png */,
+				78FEB1E51700260400EB437D /* gameoverscreen.png */,
 				0CFFAC19165C615400425148 /* enemy.png */,
-				78FEB1C916FFEE0C00EB437D /* gameoverscreen.png */,
+				78FEB1ED170032F100EB437D /* buttons.png */,
 				7896B90416FC5B5700D3BC67 /* playerkoala.png */,
 				0CD80794165B6DEE0001D4A2 /* ammo.png */,
 				7896B90016FC4F9F00D3BC67 /* ammo1.png */,
@@ -563,7 +566,6 @@
 				0CFFAC16165C610900425148 /* 7.png in Resources */,
 				0CFFAC17165C610900425148 /* 6.png in Resources */,
 				0CFFAC1A165C615400425148 /* enemy.png in Resources */,
-				0CC7D6F2165CC8C5002CCC1E /* bomb.png in Resources */,
 				0CC7D6F4165CC8CE002CCC1E /* bomber.png in Resources */,
 				0C2E1411165DCF8300F089AF /* boss.gif in Resources */,
 				0C2E141C165DD7A300F089AF /* player.png in Resources */,
@@ -626,7 +628,9 @@
 				7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */,
 				7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */,
 				7896B90516FC5B5700D3BC67 /* playerkoala.png in Resources */,
-				78FEB1CA16FFEE0C00EB437D /* gameoverscreen.png in Resources */,
+				78FEB1E61700260400EB437D /* gameoverscreen.png in Resources */,
+				78FEB1EC17002CFD00EB437D /* bomb.png in Resources */,
+				78FEB1EE170032F100EB437D /* buttons.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
