@@ -45,6 +45,7 @@
 @property (assign) int maxVelocity;
 @property (assign) int minVelocity;
 @property (assign) int rangeVelocity;
+@property (assign) int levelCount;
 
 @property (strong)UILabel *scoreLabel;
 @property (strong)UILabel *healthLabel;
@@ -376,6 +377,18 @@
     NSLog(@"enemy count: %d ADDED SUICIDE BOMBER", enemyCounter);
 }
 
+-(void)addBossSuicideBomber:(float )originX : (float ) originY{
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    [self.children addObject:target3];
+    
+    target3.position = GLKVector2Make(originX, originY);
+    target3.moveVelocity = GLKVector2Make(0,-60);
+    
+    [self.suicideBomber addObject:target3];
+    enemyCounter++;
+    NSLog(@"enemy count: %d ADDED SUICIDE BOMBER", enemyCounter);
+}
+
 -(void)addFastBomber{
     ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
     [self.children addObject:target4];
@@ -408,32 +421,102 @@
     [self.bomb addObject:alienBomb];
 }   
 -(void)addBoss{
+    _levelCount += 1;
+    NSLog(@"%d",_levelCount);
     if(!isBossStage)
     {
-    ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
+    NSString *bossSprite;
+        if (_levelCount == 1) {
+            bossSprite = @"bomber.png";
+            bossHealth = 10; 
+        }
+        if (_levelCount == 2) {
+            bossSprite = @"boss.gif";
+            bossHealth = 20;
+        }
+        if (_levelCount == 3) {
+            bossSprite = @"boss.gif";
+            bossHealth = 30;
+        }
+    ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
+   
     [self.children addObject:boss];
     [self.bossArr addObject:boss];
-    bossHealth = 10;
     boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
     boss.moveVelocity = GLKVector2Make(-300,0);
     }
 }
 
+-(void)firstBoss{
+for(ProtoSprite *boss in self.bossArr)
+{
+    int rand = arc4random_uniform(10);
+    if(rand==3)
+    {
+        boss.isAttacking = TRUE;
+        [self addBomb:boss.position.x :boss.position.y];
+    }
+    
+    if(boss.position.x<=0)
+    {
+        boss.moveVelocity = GLKVector2Make(300,0);
+    }
+    else if(boss.position.x>=460)
+    {
+        boss.moveVelocity = GLKVector2Make(-300,0);
+    }
+}
+}
+-(void)secondBoss{
+    static int attackCounter = 0;
+    for(ProtoSprite *boss in self.bossArr)
+    {
+        int rand = arc4random_uniform(10);
+        if(rand==3)
+        {
+            attackCounter++;
+            NSLog(@"%d",attackCounter);
+            boss.isAttacking = TRUE;
+            [self addBomb:boss.position.x :boss.position.y];
+        }
+           
+            if(attackCounter ==10)
+            {
+                NSLog(@"Teleport!");
+                 int teleportRandCoord = arc4random_uniform(320);
+                [self.view addSubview:shootAnimation];
+                shootAnimation.animationRepeatCount = 1;
+                [shootAnimation setFrame:CGRectMake(boss.position.x-10, boss.position.y, 0, 320)];
+                [shootAnimation startAnimating];
+                    [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+            boss.position = GLKVector2Make(teleportRandCoord +(boss.contentSize.width/2),250);
+                attackCounter = 0;
+            }
+        
+        if(boss.position.x<=0)
+        {
+            boss.moveVelocity = GLKVector2Make(300,0);
+        }
+        else if(boss.position.x>=460)
+        {
+            boss.moveVelocity = GLKVector2Make(-300,0);
+        }
+        
+    }
+}
 
-- (void)update {
-   //int temp;
-    NSMutableArray * projectilesToDelete = [NSMutableArray array];
-            NSMutableArray * targetsToDelete = [NSMutableArray array];
 
+
+-(void)thirdBoss{
     for(ProtoSprite *boss in self.bossArr)
     {
         int rand = arc4random_uniform(10);
         if(rand==3)
         {
             boss.isAttacking = TRUE;
-            [self addBomb:boss.position.x :boss.position.y];
+            [self addBossSuicideBomber:boss.position.x :boss.position.y];
         }
-
+        
         if(boss.position.x<=0)
         {
             boss.moveVelocity = GLKVector2Make(300,0);
@@ -443,6 +526,30 @@
             boss.moveVelocity = GLKVector2Make(-300,0);
         }
     }
+}
+
+
+- (void)update {
+   //int temp;
+    NSMutableArray * projectilesToDelete = [NSMutableArray array];
+            NSMutableArray * targetsToDelete = [NSMutableArray array];
+
+//insert boss AI here
+
+        if(_levelCount == 1)
+        {
+            [self firstBoss];
+        }
+        if(_levelCount ==2)
+        {
+            [self secondBoss];
+        }
+        if(_levelCount == 3)
+        {
+            [self thirdBoss];
+        }
+
+  
     
     //checks if bomb's coordinates reaches ground.
     for(ProtoSprite *alienBomb in self.bomb)

@@ -33,7 +33,7 @@
     // Get the stored data before the view loads
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [defaults objectForKey:@"name"];
-   int score = [defaults integerForKey:@"score"];
+    int score = [defaults integerForKey:@"score"];
     // Update the UI elements with the saved data
     [highName setText:name];
     [highScore setText:[NSString stringWithFormat:@"%d",score]];
