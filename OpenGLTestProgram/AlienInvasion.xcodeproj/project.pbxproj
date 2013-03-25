@@ -110,6 +110,8 @@
 		7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7896B8E216FC0EDF00D3BC67 /* background.jpg */; };
 		7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90016FC4F9F00D3BC67 /* ammo1.png */; };
 		7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90216FC508F00D3BC67 /* suicidepanda.png */; };
+		7896B90516FC5B5700D3BC67 /* playerkoala.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90416FC5B5700D3BC67 /* playerkoala.png */; };
+		78FEB1CA16FFEE0C00EB437D /* gameoverscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FEB1C916FFEE0C00EB437D /* gameoverscreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -233,6 +235,8 @@
 		7896B8E216FC0EDF00D3BC67 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		7896B90016FC4F9F00D3BC67 /* ammo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ammo1.png; sourceTree = "<group>"; };
 		7896B90216FC508F00D3BC67 /* suicidepanda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suicidepanda.png; sourceTree = "<group>"; };
+		7896B90416FC5B5700D3BC67 /* playerkoala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerkoala.png; sourceTree = "<group>"; };
+		78FEB1C916FFEE0C00EB437D /* gameoverscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameoverscreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +378,8 @@
 				0CC7D6F3165CC8CE002CCC1E /* bomber.png */,
 				0CC7D6F1165CC8C5002CCC1E /* bomb.png */,
 				0CFFAC19165C615400425148 /* enemy.png */,
+				78FEB1C916FFEE0C00EB437D /* gameoverscreen.png */,
+				7896B90416FC5B5700D3BC67 /* playerkoala.png */,
 				0CD80794165B6DEE0001D4A2 /* ammo.png */,
 				7896B90016FC4F9F00D3BC67 /* ammo1.png */,
 			);
@@ -619,6 +625,8 @@
 				7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */,
 				7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */,
 				7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */,
+				7896B90516FC5B5700D3BC67 /* playerkoala.png in Resources */,
+				78FEB1CA16FFEE0C00EB437D /* gameoverscreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

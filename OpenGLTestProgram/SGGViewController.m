@@ -134,7 +134,7 @@
     self.backGround = [[ProtoSprite alloc] initWithFile:@"background.jpg" effect:self.effect];
     self.backGround.position = GLKVector2Make(0, 0);
     
-    self.player = [[ProtoSprite alloc] initWithFile:@"player.png" effect:self.effect];
+    self.player = [[ProtoSprite alloc] initWithFile:@"playerkoala.png" effect:self.effect];
     self.player.position = GLKVector2Make(190, 0);
     
     self.playerHealthBar = [[ProtoSprite alloc]initWithFile:@"healthbar.png" effect:self.effect];
