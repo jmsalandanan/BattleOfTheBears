@@ -332,7 +332,7 @@
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
-    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"enemy.png" effect:self.effect];
+    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"polarbear.png" effect:self.effect];
     target.isAttacking = FALSE;
     [self.children addObject:target];
     BOOL originRand = arc4random_uniform(2);
@@ -447,7 +447,7 @@
     {
     NSString *bossSprite;
         if (_levelCount == 1) {
-            bossSprite = @"bomber.png";
+            bossSprite = @"miniboss.png";
             bossHealth = 10; 
         }
         if (_levelCount == 2) {
