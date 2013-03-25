@@ -59,6 +59,7 @@
 @property (strong)UIImageView *explodeAnimation;
 @property (strong)UIImageView *gunAnimation;
 @property (strong)UIImageView *bombAnimation;
+@property (strong)UIImageView *teleportAnimation;
 @property (strong)UIView *v;
 
 @end
@@ -71,6 +72,7 @@
 @synthesize timeSinceLastSpawn = _timeSinceLastSpawn;
 @synthesize shootAnimation;
 @synthesize bombAnimation;
+@synthesize teleportAnimation;
 @synthesize actualVelocity;
 @synthesize maxVelocity;
 @synthesize minVelocity;
@@ -217,6 +219,24 @@
     bombAnimation.contentMode = UIViewContentModeBottomLeft;
     [self.view addSubview:bombAnimation];
     [bombAnimation setAnimationDuration:0.2];
+    
+    //***********************************************
+    
+    //***********************************************
+    //teleportAnimation
+    teleportAnimation = [[UIImageView alloc] initWithFrame:
+                     CGRectMake(185, -60, 0, 320)];
+    
+    NSArray * imageteleportArray  = [[NSArray alloc] initWithObjects:
+                                 [UIImage imageNamed:@"bomb1.png"],
+                                 [UIImage imageNamed:@"bomb2.png"],
+                                 [UIImage imageNamed:@"bomb3.png"],
+                                 [UIImage imageNamed:@"bomb4.png"],
+                                 nil];
+    teleportAnimation.animationImages = imageteleportArray;
+    teleportAnimation.contentMode = UIViewContentModeBottomLeft;
+    [self.view addSubview:teleportAnimation];
+    [teleportAnimation setAnimationDuration:0.2];
     
     //***********************************************
     
@@ -469,6 +489,7 @@ for(ProtoSprite *boss in self.bossArr)
 }
 -(void)secondBoss{
     static int attackCounter = 0;
+
     for(ProtoSprite *boss in self.bossArr)
     {
         int rand = arc4random_uniform(10);
@@ -483,14 +504,16 @@ for(ProtoSprite *boss in self.bossArr)
             if(attackCounter ==10)
             {
                 NSLog(@"Teleport!");
-                 int teleportRandCoord = arc4random_uniform(320);
-                [self.view addSubview:shootAnimation];
-                shootAnimation.animationRepeatCount = 1;
-                [shootAnimation setFrame:CGRectMake(boss.position.x-10, boss.position.y, 0, 320)];
-                [shootAnimation startAnimating];
-                    [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
-            boss.position = GLKVector2Make(teleportRandCoord +(boss.contentSize.width/2),250);
+                int teleportRandCoordX = arc4random_uniform(320);
+                int teleportRandCoordY = arc4random_uniform(120);
+                boss.position = GLKVector2Make(teleportRandCoordX,teleportRandCoordY+150);
+                teleportAnimation.animationRepeatCount = 1;
+                [teleportAnimation setFrame:CGRectMake(boss.position.x, -boss.position.y, 0, 320)];
+                [teleportAnimation startAnimating];
+                [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                 attackCounter = 0;
+                
+
             }
         
         if(boss.position.x<=0)
@@ -534,13 +557,12 @@ for(ProtoSprite *boss in self.bossArr)
     NSMutableArray * projectilesToDelete = [NSMutableArray array];
             NSMutableArray * targetsToDelete = [NSMutableArray array];
 
-//insert boss AI here
 
         if(_levelCount == 1)
         {
             [self firstBoss];
         }
-        if(_levelCount ==2)
+        if(_levelCount == 2)
         {
             [self secondBoss];
         }
@@ -550,7 +572,6 @@ for(ProtoSprite *boss in self.bossArr)
         }
 
   
-    
     //checks if bomb's coordinates reaches ground.
     for(ProtoSprite *alienBomb in self.bomb)
     {
