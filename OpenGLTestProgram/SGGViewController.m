@@ -137,7 +137,7 @@
     self.backGround = [[ProtoSprite alloc] initWithFile:@"background.jpg" effect:self.effect];
     self.backGround.position = GLKVector2Make(0, 0);
     
-    self.player = [[ProtoSprite alloc] initWithFile:@"player.png" effect:self.effect];
+    self.player = [[ProtoSprite alloc] initWithFile:@"playerkoala.png" effect:self.effect];
     self.player.position = GLKVector2Make(190, 0);
     
     self.playerHealthBar = [[ProtoSprite alloc]initWithFile:@"healthbar.png" effect:self.effect];
@@ -303,7 +303,7 @@
     if(!gunAnimation.isAnimating)
     {
     [SoundLayer playSound:@"gunSound.wav"];
-    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
+    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo1.png" effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
     sprite.moveVelocity = moveVelocity;
     [self.children addObject:sprite];
@@ -332,7 +332,7 @@
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
-    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"enemy.png" effect:self.effect];
+    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"polarbear.png" effect:self.effect];
     target.isAttacking = FALSE;
     [self.children addObject:target];
     BOOL originRand = arc4random_uniform(2);
@@ -398,7 +398,7 @@
 }
 
 -(void)addBossSuicideBomber:(float )originX : (float ) originY{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];
     
     target3.position = GLKVector2Make(originX, originY);
@@ -447,7 +447,7 @@
     {
     NSString *bossSprite;
         if (_levelCount == 1) {
-            bossSprite = @"bomber.png";
+            bossSprite = @"miniboss.png";
             bossHealth = 10; 
         }
         if (_levelCount == 2) {
