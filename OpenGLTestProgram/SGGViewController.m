@@ -94,7 +94,7 @@
 @synthesize isPaused;
 @synthesize v;
 @synthesize specialButton;
-
+    static NSString * enemyType;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -303,7 +303,8 @@
     if(!gunAnimation.isAnimating)
     {
     [SoundLayer playSound:@"gunSound.wav"];
-    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo1.png" effect:self.effect];
+        NSString *ammo = (_levelCount == 1? @"ammo.png": (_levelCount == 2?@"ammo1.png":@"ammo2.png"));
+    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:ammo effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
     sprite.moveVelocity = moveVelocity;
     [self.children addObject:sprite];
@@ -410,7 +411,7 @@
 }
 
 -(void)addFastBomber{
-    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
+    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"speedybear.png" effect:self.effect];
     [self.children addObject:target4];
     BOOL originRand = arc4random_uniform(2);
     
@@ -433,7 +434,8 @@
 
 
 -(void)addBomb:(float )bombX : (float ) bombY {
-    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:@"bomb.png" effect:self.effect];
+    NSString * bomb = ([enemyType isEqualToString:@"firstboss"]? @"panira1.png": ([enemyType isEqualToString:@"secondboss"]? @"panira2.png": @"bomb.png"));
+    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
     alienBomb.position = GLKVector2Make(bombX, bombY);
     [SoundLayer playSound:@"bombDrop.wav"];
@@ -448,14 +450,16 @@
     NSString *bossSprite;
         if (_levelCount == 1) {
             bossSprite = @"miniboss.png";
-            bossHealth = 10; 
+            bossHealth = 10;
+            enemyType = @"firstboss";
         }
         if (_levelCount == 2) {
-            bossSprite = @"boss.gif";
+            bossSprite = @"transporter.png";
             bossHealth = 20;
+            enemyType = @"secondboss";
         }
         if (_levelCount == 3) {
-            bossSprite = @"boss.gif";
+            bossSprite = @"giantpanda.png";
             bossHealth = 30;
         }
     ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
@@ -858,6 +862,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [self performSelector:@selector(explodeAnimationDone) withObject:nil afterDelay:0.3];
                 if(bossHealth<=0){
                     playerScore +=100;
+                    enemyType = @"";
                 [self.bossArr removeObject:boss];
                 [self.children removeObject:boss];
                     isBossStage =FALSE;
