@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386045465.851185"
+         timestampString = "386047869.704241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "548"
-         endingLineNumber = "548"
+         startingLineNumber = "550"
+         endingLineNumber = "550"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386045465.851185"
+         timestampString = "386047869.704241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "353"
-         endingLineNumber = "353"
+         startingLineNumber = "355"
+         endingLineNumber = "355"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386045465.851185"
+         timestampString = "386047869.704241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "525"
-         endingLineNumber = "525"
+         startingLineNumber = "527"
+         endingLineNumber = "527"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,12 +112,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386045465.851185"
+         timestampString = "386047869.704241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "524"
-         endingLineNumber = "524"
+         startingLineNumber = "526"
+         endingLineNumber = "526"
          landmarkName = "-addBoss"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SGGViewController.m"
+         timestampString = "386057474.906912"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1200"
+         endingLineNumber = "1200"
+         landmarkName = "-flashMultiplier:::"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
