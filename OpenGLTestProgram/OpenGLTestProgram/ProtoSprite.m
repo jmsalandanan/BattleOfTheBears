@@ -34,6 +34,7 @@ typedef struct {
 @synthesize moveVelocity = _moveVelocity;
 @synthesize isAttacking;
 @synthesize fromOrigin;
+@synthesize specialKey;
 
 - (id)initWithFile:(NSString *)fileName effect:(GLKBaseEffect *)effect {
     if ((self = [super init])) {

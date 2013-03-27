@@ -57,6 +57,7 @@
 		0C3F3430166498C800E17C68 /* bomb4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F342C166498C800E17C68 /* bomb4.png */; };
 		0C3F34331664B54E00E17C68 /* maleHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F34321664B54E00E17C68 /* maleHit.wav */; };
 		0C3F34341664B6B000E17C68 /* laser_enemy.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C010F3616630D030063670B /* laser_enemy.caf */; };
+		0C720B8F1701465400992546 /* shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C720B8E1701465400992546 /* shield.png */; };
 		0C76C5571663447500C548BC /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5561663447500C548BC /* GameViewController.xib */; };
 		0C76C55B1663517F00C548BC /* EndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C76C5591663517E00C548BC /* EndGameViewController.m */; };
 		0C76C55C1663517F00C548BC /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55A1663517E00C548BC /* EndGameViewController.xib */; };
@@ -197,6 +198,7 @@
 		0C3F342B166498C800E17C68 /* bomb3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb3.png; sourceTree = "<group>"; };
 		0C3F342C166498C800E17C68 /* bomb4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb4.png; sourceTree = "<group>"; };
 		0C3F34321664B54E00E17C68 /* maleHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = maleHit.wav; sourceTree = "<group>"; };
+		0C720B8E1701465400992546 /* shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shield.png; sourceTree = "<group>"; };
 		0C76C5561663447500C548BC /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		0C76C5581663517E00C548BC /* EndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameViewController.h; sourceTree = "<group>"; };
 		0C76C5591663517E00C548BC /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameViewController.m; sourceTree = "<group>"; };
@@ -396,7 +398,22 @@
 		0C21FDE9164CABED006152B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				0C2E1410165DCF8300F089AF /* boss.gif */,
+=======
+				0C240C841665C1D800991CC8 /* appIconRetina.png */,
+				0C240C821665C15300991CC8 /* appIcon.png */,
+				0C010F261662FA530063670B /* sounds */,
+				0CF5BD00165E11750070B404 /* animation */,
+				0C2E141B165DD7A300F089AF /* player.png */,
+				0C240C711665A1BA00991CC8 /* home.png */,
+				0C720B8E1701465400992546 /* shield.png */,
+				0CD02CDC16646AD500A9EB9F /* healthbar.png */,
+				0CD02CE216646F2F00A9EB9F /* medal.png */,
+				0C0284731663624D00776E4B /* start-button.png */,
+				7896B8E216FC0EDF00D3BC67 /* background.jpg */,
+				0C0284761663656900776E4B /* Quick-How-To-Button.png */,
+>>>>>>> master
 				0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */,
 				0C76C55D1663523D00C548BC /* alien-invasion.jpg */,
 				7896B8E216FC0EDF00D3BC67 /* background.jpg */,
@@ -673,6 +690,7 @@
 				0C240C811665B6B200991CC8 /* bombSound.wav in Resources */,
 				0C240C831665C15300991CC8 /* appIcon.png in Resources */,
 				0C240C851665C1D800991CC8 /* appIconRetina.png in Resources */,
+<<<<<<< HEAD
 				7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */,
 				7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */,
 				7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */,
@@ -680,6 +698,7 @@
 				78FEB1E61700260400EB437D /* gameoverscreen.png in Resources */,
 				78FEB1EC17002CFD00EB437D /* bomb.png in Resources */,
 				78FEB20B17004DB900EB437D /* polarbear.png in Resources */,
+<<<<<<< HEAD
 				78E259CF170136560032921B /* speedybear.png in Resources */,
 				78E259DF1701475A0032921B /* buttonpressed.png in Resources */,
 				78E259E11701476E0032921B /* buttons.png in Resources */,
@@ -699,6 +718,11 @@
 				78EF68CD1702827B00CD4938 /* scoresbuttonpressed.png in Resources */,
 				78EF68CE1702827B00CD4938 /* howtobuttonpressed.png in Resources */,
 				78EF68CF1702827B00CD4938 /* howtobutton.png in Resources */,
+=======
+=======
+				0C720B8F1701465400992546 /* shield.png in Resources */,
+>>>>>>> 438ae9730ca83d93a61e843e5b1cd6338c5a3f24
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
