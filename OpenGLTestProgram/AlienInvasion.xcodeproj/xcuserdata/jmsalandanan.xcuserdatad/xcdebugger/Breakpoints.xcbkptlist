@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386042825.251373"
+         timestampString = "386045465.851185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "538"
-         endingLineNumber = "538"
+         startingLineNumber = "548"
+         endingLineNumber = "548"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386042825.251373"
+         timestampString = "386045465.851185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "342"
-         endingLineNumber = "342"
+         startingLineNumber = "353"
+         endingLineNumber = "353"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386042825.251373"
+         timestampString = "386045465.851185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "515"
-         endingLineNumber = "515"
+         startingLineNumber = "525"
+         endingLineNumber = "525"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386042825.251373"
+         timestampString = "386045465.851185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "514"
-         endingLineNumber = "514"
+         startingLineNumber = "524"
+         endingLineNumber = "524"
          landmarkName = "-addBoss"
          landmarkType = "5">
       </FileBreakpoint>

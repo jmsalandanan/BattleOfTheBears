@@ -49,12 +49,14 @@
 @property (assign) int minVelocity;
 @property (assign) int rangeVelocity;
 @property (assign) int levelCount;
+@property (assign) int playerMultiplier;
 
 @property (strong)UILabel *scoreLabel;
 @property (strong)UILabel *healthLabel;
 @property (strong)UILabel *specialAmmoLabel;
 @property (strong)UIButton *pauseButton;
 @property (strong)UIButton *specialButton;
+@property (strong)UILabel *multiplierLabel;
 
 @property (assign) BOOL isBossStage;
 @property (assign) BOOL isPaused;
@@ -90,6 +92,7 @@
 @synthesize playerScore;
 @synthesize playerHealth;
 @synthesize playerSpecialAmmo;
+@synthesize playerMultiplier;
 @synthesize enemyCounter;
 @synthesize isBossStage;
 @synthesize bossHealth;
@@ -98,6 +101,7 @@
 @synthesize shieldAnimation;
 @synthesize scoreLabel;
 @synthesize healthLabel;
+@synthesize multiplierLabel;
 @synthesize specialAmmoLabel;
 @synthesize pauseButton;
 @synthesize isPaused;
@@ -135,13 +139,15 @@
     pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 230, 80, 40)];
     specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 200, 80, 40)];
     specialAmmoLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,200,40,40)];
+    multiplierLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,150,40,40)];
     [pauseButton addTarget: self
                action: @selector(pauseButtonPressed:)
      forControlEvents: UIControlEventTouchDown];
     [specialButton addTarget:self action:@selector(specialButtonPressed:) forControlEvents:UIControlEventTouchDown];
-    
+    playerMultiplier = 1;
     [scoreLabel setText:@"0"];
     [healthLabel setText:@"5"];
+    [multiplierLabel setText:@"1"];
     [specialAmmoLabel setText:@"0"];
     [pauseButton setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
     [specialButton setImage:[UIImage imageNamed:@"boss.gif"] forState:UIControlStateNormal];
@@ -163,6 +169,9 @@
     [healthLabel setBackgroundColor:[UIColor clearColor]];
     [healthLabel setTextColor:[UIColor whiteColor]];
     
+    [multiplierLabel setBackgroundColor:[UIColor clearColor]];
+    [multiplierLabel setTextColor:[UIColor whiteColor]];
+    
     [scoreLabel setBackgroundColor:[UIColor clearColor]];
     [scoreLabel setTextColor:[UIColor whiteColor]];
     
@@ -179,9 +188,11 @@
     [wnd addSubview: v];
         [view addSubview:specialButton];
     [view addSubview:scoreLabel];
+        [view addSubview:multiplierLabel];
     [view addSubview:specialAmmoLabel];
     [view addSubview:healthLabel];
     [view addSubview:pauseButton];
+
 
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
@@ -405,7 +416,7 @@
     }
     [self.bomber addObject:target2];
     enemyCounter++;
-    NSLog(@"enemy count: %d", enemyCounter);    
+   
 }
 
 -(void)addSuicideBomber{
@@ -418,7 +429,7 @@
 
     [self.suicideBomber addObject:target3];
     enemyCounter++;
-    NSLog(@"enemy count: %d ADDED SUICIDE BOMBER", enemyCounter);
+
 }
 
 -(void)addBossSuicideBomber:(float )originX : (float ) originY{
@@ -430,7 +441,7 @@
     
     [self.suicideBomber addObject:target3];
     enemyCounter++;
-    NSLog(@"enemy count: %d ADDED SUICIDE BOMBER", enemyCounter);
+
 }
 
 -(void)addFastBomber{
@@ -452,7 +463,6 @@
     }
     [self.fastBomber addObject:target4];
     enemyCounter++;
-    NSLog(@"enemy count: %d", enemyCounter);
 }
 
 
@@ -860,11 +870,15 @@ for(ProtoSprite *boss in self.bossArr)
   
     //Checks if player projectile reaches end of screen. If condition is met, projectile is removed and dealloced.
     for(ProtoSprite *projectile in self.projectiles){
-            if(projectile.position.x>=480||projectile.position.x<=-20||projectile.position.y<=-340)
+            if(projectile.position.x>=480||projectile.position.x<=-20||projectile.position.y>=320)
             {
+                NSLog(@"%f",projectile.position.y);
+                playerMultiplier = 1;
+                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [self.projectiles removeObject:projectile];
                 [self.children removeObject:projectile];
                 return;
+            
             }
     }
     //Checks if player projectile collides with target, adds score and destroys both projectiles and targets.
@@ -876,7 +890,10 @@ for(ProtoSprite *boss in self.bossArr)
                 [SoundLayer playSound:@"bombSound.wav"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
-                playerScore += 15;
+                playerScore += (15*playerMultiplier);
+                playerMultiplier +=1;
+                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
+                NSLog(@"%d - Player Multiplier",playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]]; 
                 [explodeAnimation startAnimating];
                 [targetsToDelete addObject:target];
@@ -893,12 +910,13 @@ for(ProtoSprite *boss in self.bossArr)
                 [SoundLayer playSound:@"bombSound.wav"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
-                
+                 playerMultiplier +=1;
+                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [explodeAnimation startAnimating];
                 [self.bomber removeObject:target2];
                 [self.children removeObject:target2];
-                playerScore += 30;
-                    [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]]; 
+                playerScore += (30 *playerMultiplier);
+                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]]; 
                 [projectilesToDelete addObject:projectile];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                 break;
@@ -920,10 +938,10 @@ for(ProtoSprite *boss in self.bossArr)
                 [self addBomb:target3.position.x + 50:target3.position.y];
                 [self.suicideBomber removeObject:target3];
                 [self.children removeObject:target3];
-                playerScore += 50;
+                playerScore += (50*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
-
-
+                playerMultiplier +=1;
+                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                 break;
             }
@@ -940,10 +958,13 @@ for(ProtoSprite *boss in self.bossArr)
                 [explodeAnimation startAnimating];
                 [self.fastBomber removeObject:target4];
                 [self.children removeObject:target4];
-                playerScore += 70;
+                playerScore += (70*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [projectilesToDelete addObject:projectile];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+                 playerMultiplier +=1;
+                NSLog(@"%d - Player Multiplier",playerMultiplier);
                 break;
             }
         }
