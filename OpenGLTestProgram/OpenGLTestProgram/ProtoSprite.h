@@ -20,6 +20,7 @@
 @property (assign) BOOL isAttacking;
 @property (assign) BOOL fromOrigin;
 @property (strong) GLKBaseEffect * effect;
+@property (assign) NSString * specialKey;
 
 @property (strong) GLKTextureInfo * textureInfo;
 
