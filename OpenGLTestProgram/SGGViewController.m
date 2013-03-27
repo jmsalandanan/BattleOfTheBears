@@ -57,6 +57,7 @@
 @property (strong)UIButton *pauseButton;
 @property (strong)UIButton *specialButton;
 @property (strong)UILabel *multiplierLabel;
+@property (strong)UILabel *scoreValLabel;
 
 @property (assign) BOOL isBossStage;
 @property (assign) BOOL isPaused;
@@ -103,6 +104,7 @@
 @synthesize healthLabel;
 @synthesize multiplierLabel;
 @synthesize specialAmmoLabel;
+@synthesize scoreValLabel;
 @synthesize pauseButton;
 @synthesize isPaused;
 @synthesize v;
@@ -894,9 +896,11 @@ for(ProtoSprite *boss in self.bossArr)
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 NSLog(@"%d - Player Multiplier",playerMultiplier);
-                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]]; 
+                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
                 [explodeAnimation startAnimating];
                 [targetsToDelete addObject:target];
+                NSLog(@"at %f,%f",target.position.x,target.position.y);
+                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             }
         }
@@ -913,11 +917,14 @@ for(ProtoSprite *boss in self.bossArr)
                  playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [explodeAnimation startAnimating];
+ 
+                playerScore += (30 *playerMultiplier);
+                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+ 
+                [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
+                [projectilesToDelete addObject:projectile];
                 [self.bomber removeObject:target2];
                 [self.children removeObject:target2];
-                playerScore += (30 *playerMultiplier);
-                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]]; 
-                [projectilesToDelete addObject:projectile];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                 break;
             }
@@ -932,16 +939,17 @@ for(ProtoSprite *boss in self.bossArr)
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];                
                 [explodeAnimation startAnimating];
-                [projectilesToDelete addObject:projectile];
                 [self addBomb:target3.position.x :target3.position.y];
                 [self addBomb:target3.position.x - 50 :target3.position.y];
                 [self addBomb:target3.position.x + 50:target3.position.y];
-                [self.suicideBomber removeObject:target3];
-                [self.children removeObject:target3];
                 playerScore += (50*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
                 playerMultiplier +=1;
+                    [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
+                [projectilesToDelete addObject:projectile];
+                [self.suicideBomber removeObject:target3];
+                [self.children removeObject:target3];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                 break;
             }
@@ -956,12 +964,13 @@ for(ProtoSprite *boss in self.bossArr)
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 [self addPowerup:target4.position.x :target4.position.y];
                 [explodeAnimation startAnimating];
-                [self.fastBomber removeObject:target4];
-                [self.children removeObject:target4];
                 playerScore += (70*playerMultiplier);
+                [self flashMultiplier:x+20 :280 -target4.position.y :(70*playerMultiplier)];
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [projectilesToDelete addObject:projectile];
+                [self.fastBomber removeObject:target4];
+                [self.children removeObject:target4];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
                  playerMultiplier +=1;
                 NSLog(@"%d - Player Multiplier",playerMultiplier);
@@ -1005,6 +1014,15 @@ for(ProtoSprite *boss in self.bossArr)
                     playerScore +=100;
                 [self.bossArr removeObject:boss];
                 [self.children removeObject:boss];
+                    if(_levelCount == 3)
+                    {
+                        EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
+                        endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                        //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
+                        endGameViewController.temp = playerScore;
+                        [self presentModalViewController:endGameViewController animated:YES];
+
+                    }
                     isBossStage =FALSE;
                     enemyCounter = 0;                    
                 }
@@ -1160,5 +1178,34 @@ for(ProtoSprite *boss in self.bossArr)
     v.alpha = 0.0f;
     [UIView commitAnimations];
 }
+
+-(void) flashMultiplier:(float)coordinatex:(float)coordinatey:(int)val
+{
+    // Create a blinking text
+    UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake(coordinatex, coordinatey, 400, 50)];
+    labelText.text = [NSString stringWithFormat:@"%d",val];
+    labelText.backgroundColor = [UIColor clearColor];
+    labelText.textColor = [UIColor whiteColor];
+    [self.view addSubview:labelText];
+    NSLog(@"%f, %f",coordinatex,coordinatey);
+    
+    void (^animationLabel) (void) = ^{
+        labelText.alpha = 0;
+    };
+    void (^completionLabel) (BOOL) = ^(BOOL f) {
+        labelText.alpha = 1;
+    };
+    void (^animationLabel2) (void) = ^{
+        labelText.alpha = 1;
+    };
+    void (^completionLabel2) (BOOL) = ^(BOOL f) {
+        labelText.alpha = 0;
+    };
+    
+    [UIView animateWithDuration:1 animations:animationLabel completion:completionLabel];
+    [UIView animateWithDuration:1 animations:animationLabel2 completion:completionLabel2];
+    //[labelText removeFromSuperview];
+}
+
 
 @end
