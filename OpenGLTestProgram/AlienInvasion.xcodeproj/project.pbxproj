@@ -105,6 +105,7 @@
 		0CFFAC16165C610900425148 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0C165C610900425148 /* 7.png */; };
 		0CFFAC17165C610900425148 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC0D165C610900425148 /* 6.png */; };
 		0CFFAC1A165C615400425148 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFAC19165C615400425148 /* enemy.png */; };
+		785C561B1702DA6B008B9939 /* panira3.png in Resources */ = {isa = PBXBuildFile; fileRef = 785C561A1702DA6B008B9939 /* panira3.png */; };
 		7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7896B8E216FC0EDF00D3BC67 /* background.jpg */; };
 		7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90016FC4F9F00D3BC67 /* ammo1.png */; };
 		7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7896B90216FC508F00D3BC67 /* suicidepanda.png */; };
@@ -121,7 +122,6 @@
 		78E259EF17016E3F0032921B /* bomber.png in Resources */ = {isa = PBXBuildFile; fileRef = 78E259EE17016E3F0032921B /* bomber.png */; };
 		78E259F1170179200032921B /* ammo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 78E259F01701791C0032921B /* ammo2.png */; };
 		78E259F7170186DF0032921B /* panira1.png in Resources */ = {isa = PBXBuildFile; fileRef = 78E259F6170186DF0032921B /* panira1.png */; };
-		78E259FB1701989D0032921B /* panira2.png in Resources */ = {isa = PBXBuildFile; fileRef = 78E259FA1701989D0032921B /* panira2.png */; };
 		78EF68C617027C2800CD4938 /* greenleafbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 78EF68C417027C2800CD4938 /* greenleafbutton.png */; };
 		78EF68C717027C2800CD4938 /* greenleafbuttonpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 78EF68C517027C2800CD4938 /* greenleafbuttonpressed.png */; };
 		78EF68CC1702827B00CD4938 /* scoresbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 78EF68C81702827B00CD4938 /* scoresbutton.png */; };
@@ -249,6 +249,7 @@
 		0CFFAC0C165C610900425148 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		0CFFAC0D165C610900425148 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		0CFFAC19165C615400425148 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		785C561A1702DA6B008B9939 /* panira3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panira3.png; sourceTree = "<group>"; };
 		7896B8E216FC0EDF00D3BC67 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		7896B90016FC4F9F00D3BC67 /* ammo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ammo1.png; sourceTree = "<group>"; };
 		7896B90216FC508F00D3BC67 /* suicidepanda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suicidepanda.png; sourceTree = "<group>"; };
@@ -265,7 +266,6 @@
 		78E259EE17016E3F0032921B /* bomber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomber.png; sourceTree = "<group>"; };
 		78E259F01701791C0032921B /* ammo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ammo2.png; sourceTree = "<group>"; };
 		78E259F6170186DF0032921B /* panira1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panira1.png; sourceTree = "<group>"; };
-		78E259FA1701989D0032921B /* panira2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panira2.png; sourceTree = "<group>"; };
 		78EF68C417027C2800CD4938 /* greenleafbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenleafbutton.png; sourceTree = "<group>"; };
 		78EF68C517027C2800CD4938 /* greenleafbuttonpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenleafbuttonpressed.png; sourceTree = "<group>"; };
 		78EF68C81702827B00CD4938 /* scoresbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoresbutton.png; sourceTree = "<group>"; };
@@ -398,9 +398,7 @@
 		0C21FDE9164CABED006152B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0C2E1410165DCF8300F089AF /* boss.gif */,
-=======
 				0C240C841665C1D800991CC8 /* appIconRetina.png */,
 				0C240C821665C15300991CC8 /* appIcon.png */,
 				0C010F261662FA530063670B /* sounds */,
@@ -413,7 +411,6 @@
 				0C0284731663624D00776E4B /* start-button.png */,
 				7896B8E216FC0EDF00D3BC67 /* background.jpg */,
 				0C0284761663656900776E4B /* Quick-How-To-Button.png */,
->>>>>>> master
 				0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */,
 				0C76C55D1663523D00C548BC /* alien-invasion.jpg */,
 				7896B8E216FC0EDF00D3BC67 /* background.jpg */,
@@ -442,7 +439,7 @@
 				0CD02CE216646F2F00A9EB9F /* medal.png */,
 				78E259E8170156780032921B /* miniboss.png */,
 				78E259F6170186DF0032921B /* panira1.png */,
-				78E259FA1701989D0032921B /* panira2.png */,
+				785C561A1702DA6B008B9939 /* panira3.png */,
 				0C2E141B165DD7A300F089AF /* player.png */,
 				7896B90416FC5B5700D3BC67 /* playerkoala.png */,
 				78FEB20A17004DB900EB437D /* polarbear.png */,
@@ -690,7 +687,6 @@
 				0C240C811665B6B200991CC8 /* bombSound.wav in Resources */,
 				0C240C831665C15300991CC8 /* appIcon.png in Resources */,
 				0C240C851665C1D800991CC8 /* appIconRetina.png in Resources */,
-<<<<<<< HEAD
 				7896B8E316FC0EE000D3BC67 /* background.jpg in Resources */,
 				7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */,
 				7896B90316FC508F00D3BC67 /* suicidepanda.png in Resources */,
@@ -698,7 +694,6 @@
 				78FEB1E61700260400EB437D /* gameoverscreen.png in Resources */,
 				78FEB1EC17002CFD00EB437D /* bomb.png in Resources */,
 				78FEB20B17004DB900EB437D /* polarbear.png in Resources */,
-<<<<<<< HEAD
 				78E259CF170136560032921B /* speedybear.png in Resources */,
 				78E259DF1701475A0032921B /* buttonpressed.png in Resources */,
 				78E259E11701476E0032921B /* buttons.png in Resources */,
@@ -711,18 +706,14 @@
 				78E259EF17016E3F0032921B /* bomber.png in Resources */,
 				78E259F1170179200032921B /* ammo2.png in Resources */,
 				78E259F7170186DF0032921B /* panira1.png in Resources */,
-				78E259FB1701989D0032921B /* panira2.png in Resources */,
 				78EF68C617027C2800CD4938 /* greenleafbutton.png in Resources */,
 				78EF68C717027C2800CD4938 /* greenleafbuttonpressed.png in Resources */,
 				78EF68CC1702827B00CD4938 /* scoresbutton.png in Resources */,
 				78EF68CD1702827B00CD4938 /* scoresbuttonpressed.png in Resources */,
 				78EF68CE1702827B00CD4938 /* howtobuttonpressed.png in Resources */,
 				78EF68CF1702827B00CD4938 /* howtobutton.png in Resources */,
-=======
-=======
 				0C720B8F1701465400992546 /* shield.png in Resources */,
->>>>>>> 438ae9730ca83d93a61e843e5b1cd6338c5a3f24
->>>>>>> master
+				785C561B1702DA6B008B9939 /* panira3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
