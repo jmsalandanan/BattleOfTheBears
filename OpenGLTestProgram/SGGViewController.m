@@ -434,7 +434,7 @@
 
 
 -(void)addBomb:(float )bombX : (float ) bombY {
-    NSString * bomb = ([enemyType isEqualToString:@"firstboss"]? @"panira1.png": ([enemyType isEqualToString:@"secondboss"]? @"panira2.png": @"bomb.png"));
+    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"panira1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"panira2.png": @"bomb.png"));
     ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
     alienBomb.position = GLKVector2Make(bombX, bombY);
