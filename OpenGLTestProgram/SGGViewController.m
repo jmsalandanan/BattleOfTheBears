@@ -23,6 +23,7 @@
 @property (strong) ProtoSprite * backGround;
 @property (strong) ProtoSprite * playerHealthBar;
 @property (strong) ProtoSprite * playerScoreBar;
+@property (strong) ProtoSprite * shield;
 
 @property (assign) float timeSinceLastSpawn;
 @property (assign) float x;
@@ -36,9 +37,11 @@
 @property (strong) NSMutableArray *fastBomber;
 @property (strong) NSMutableArray *bomb;
 @property (strong) NSMutableArray *bossArr;
+@property (strong) NSMutableArray *powerUps;
 
 @property (assign) int playerScore;
 @property (assign) int playerHealth;
+@property (assign) int playerSpecialAmmo;
 @property (assign) int enemyCounter;
 @property (assign) int  bossHealth;
 @property (assign) int actualVelocity;
@@ -49,17 +52,20 @@
 
 @property (strong)UILabel *scoreLabel;
 @property (strong)UILabel *healthLabel;
+@property (strong)UILabel *specialAmmoLabel;
 @property (strong)UIButton *pauseButton;
 @property (strong)UIButton *specialButton;
 
 @property (assign) BOOL isBossStage;
 @property (assign) BOOL isPaused;
+@property (assign) BOOL isShielded;
 
 @property (strong)UIImageView *shootAnimation;
 @property (strong)UIImageView *explodeAnimation;
 @property (strong)UIImageView *gunAnimation;
 @property (strong)UIImageView *bombAnimation;
 @property (strong)UIImageView *teleportAnimation;
+@property (strong)UIImageView *shieldAnimation;
 @property (strong)UIView *v;
 
 @end
@@ -83,17 +89,21 @@
 @synthesize backGround;
 @synthesize playerScore;
 @synthesize playerHealth;
+@synthesize playerSpecialAmmo;
 @synthesize enemyCounter;
 @synthesize isBossStage;
 @synthesize bossHealth;
 @synthesize bossArr;
 @synthesize gunAnimation;
+@synthesize shieldAnimation;
 @synthesize scoreLabel;
 @synthesize healthLabel;
+@synthesize specialAmmoLabel;
 @synthesize pauseButton;
 @synthesize isPaused;
 @synthesize v;
 @synthesize specialButton;
+@synthesize isShielded;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -124,6 +134,7 @@
     healthLabel = [[UILabel alloc]initWithFrame:CGRectMake(450, 275, 40, 40)];
     pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 230, 80, 40)];
     specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 200, 80, 40)];
+    specialAmmoLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,200,40,40)];
     [pauseButton addTarget: self
                action: @selector(pauseButtonPressed:)
      forControlEvents: UIControlEventTouchDown];
@@ -131,6 +142,7 @@
     
     [scoreLabel setText:@"0"];
     [healthLabel setText:@"5"];
+    [specialAmmoLabel setText:@"0"];
     [pauseButton setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
     [specialButton setImage:[UIImage imageNamed:@"boss.gif"] forState:UIControlStateNormal];
     
@@ -139,7 +151,9 @@
     
     self.player = [[ProtoSprite alloc] initWithFile:@"player.png" effect:self.effect];
     self.player.position = GLKVector2Make(190, 0);
-    
+
+    self.shield = [[ProtoSprite alloc]initWithFile:@"shield.png" effect:self.effect];
+    self.shield.position = GLKVector2Make(900, 900);
     self.playerHealthBar = [[ProtoSprite alloc]initWithFile:@"healthbar.png" effect:self.effect];
     self.playerHealthBar.position = GLKVector2Make(440,10);
     
@@ -152,18 +166,23 @@
     [scoreLabel setBackgroundColor:[UIColor clearColor]];
     [scoreLabel setTextColor:[UIColor whiteColor]];
     
+    [specialAmmoLabel setBackgroundColor:[UIColor clearColor]];
+    [specialAmmoLabel setTextColor:[UIColor whiteColor]];
+    
     [self.children addObject:self.backGround];
     [self.children addObject:self.player];
+    [self.children addObject:self.shield];
     [self.children addObject:self.playerHealthBar];
     [self.children addObject:self.playerScoreBar];
     UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
     v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
     [wnd addSubview: v];
-    
+        [view addSubview:specialButton];
     [view addSubview:scoreLabel];
+    [view addSubview:specialAmmoLabel];
     [view addSubview:healthLabel];
     [view addSubview:pauseButton];
-    [view addSubview:specialButton];
+
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
     [self.view addGestureRecognizer:tapRecognizer];
@@ -176,6 +195,7 @@
     self.fastBomber = [NSMutableArray array];
     self.bomb = [NSMutableArray array];
     self.bossArr = [NSMutableArray array];
+    self.powerUps = [NSMutableArray array];
     //***********************************************
     
     //BombAnimation
@@ -203,6 +223,10 @@
     shootAnimation.contentMode = UIViewContentModeBottomLeft;
     [self.view addSubview:shootAnimation];
     [shootAnimation setAnimationDuration:0.3];
+    //shield
+    shieldAnimation = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shield.png"]];
+    
+    //**********
     
     //***********************************************
     //BombAnimation
@@ -439,7 +463,54 @@
     [SoundLayer playSound:@"bombDrop.wav"];
     [self.children addObject:alienBomb];
     [self.bomb addObject:alienBomb];
-}   
+}
+
+-(void)addShield{
+
+    self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+
+}
+-(void)addPowerup:(float )powerUpX : (float ) powerUpY {
+    int powerupRandomizer = arc4random_uniform(3);
+    NSString *powerUpSprite;
+    if(powerupRandomizer == 0)
+    {
+        powerUpSprite = @"healthbar.png";
+    }
+    if(powerupRandomizer == 1)
+    {
+        powerUpSprite =@"shield.png";
+    }
+    if(powerupRandomizer == 2)
+    {
+        powerUpSprite=@"ammo.png";
+    }
+
+
+    NSLog(@"%@",powerUpSprite);
+    ProtoSprite * powerUp = [[ProtoSprite alloc] initWithFile:powerUpSprite effect:self.effect];
+    if(powerUpSprite == @"healthbar.png"){
+        powerUp.specialKey =@"health";
+
+    }
+    if(powerUpSprite == @"shield.png"){
+        powerUp.specialKey = @"shield";
+
+    }
+    
+    if(powerUpSprite == @"ammo.png"){
+        powerUp.specialKey =@"ammo";
+
+    }
+    
+
+    powerUp.moveVelocity = GLKVector2Make(0, -50);
+    powerUp.position = GLKVector2Make(powerUpX, powerUpY);
+    [SoundLayer playSound:@"bombDrop.wav"];
+    [self.children addObject:powerUp];
+    [self.powerUps addObject:powerUp];
+}
+
 -(void)addBoss{
     _levelCount += 1;
     NSLog(@"%d",_levelCount);
@@ -466,7 +537,6 @@
     boss.moveVelocity = GLKVector2Make(-300,0);
     }
 }
-
 -(void)firstBoss{
 for(ProtoSprite *boss in self.bossArr)
 {
@@ -527,9 +597,6 @@ for(ProtoSprite *boss in self.bossArr)
         
     }
 }
-
-
-
 -(void)thirdBoss{
     for(ProtoSprite *boss in self.bossArr)
     {
@@ -555,8 +622,7 @@ for(ProtoSprite *boss in self.bossArr)
 - (void)update {
    //int temp;
     NSMutableArray * projectilesToDelete = [NSMutableArray array];
-            NSMutableArray * targetsToDelete = [NSMutableArray array];
-
+    NSMutableArray * targetsToDelete = [NSMutableArray array];
 
         if(_levelCount == 1)
         {
@@ -570,7 +636,6 @@ for(ProtoSprite *boss in self.bossArr)
         {
             [self thirdBoss];
         }
-
   
     //checks if bomb's coordinates reaches ground.
     for(ProtoSprite *alienBomb in self.bomb)
@@ -592,7 +657,15 @@ for(ProtoSprite *boss in self.bossArr)
             [SoundLayer playSound:@"bombSound.wav"];
             [SoundLayer playSound:@"playerDie.wav"];
             [self flashScreen];
-            playerHealth -=1;
+            if(isShielded)
+            {
+            isShielded = false;
+            self.shield.position = GLKVector2Make(700,700);
+            }
+            else
+            {
+               playerHealth -=1;
+            }
             [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(alienBomb.position.x-10, 0, 0, 320)];
@@ -610,11 +683,99 @@ for(ProtoSprite *boss in self.bossArr)
                 //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
                 endGameViewController.temp = playerScore;
                 [self presentModalViewController:endGameViewController animated:YES];
-                NSLog(@"Game Ends");
             }
             break;
         }
     }
+    for(ProtoSprite *powerUp in self.powerUps)
+    {
+        if(powerUp.position.y<=10)
+        {
+            [self.powerUps removeObject:powerUp];
+            [self.children removeObject:powerUp];
+            break;
+        }
+        if(CGRectIntersectsRect(powerUp.boundingBox, self.player.boundingBox))
+        {
+            [self flashScreen];
+            if(powerUp.specialKey == @"health")
+            {
+            playerHealth +=1;
+            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
+            }
+            
+            if(powerUp.specialKey == @"shield")
+            {
+                if(isShielded)
+                {
+                    playerScore +=100;
+                }
+            isShielded = TRUE;
+            [self addShield];
+            }
+            if(powerUp.specialKey == @"ammo")
+            {
+              NSLog(@"Ammo picked up");
+              playerSpecialAmmo+=1;
+              [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
+            }
+            [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+            [self.powerUps removeObject:powerUp];
+            [self.children removeObject:powerUp];
+
+            break;
+        }
+    }
+    
+    
+    
+    //Checks if every instance of target reaches the end of the screen, therefore destroying it.
+    for(ProtoSprite *target in self.targets)
+    {
+        if(target.position.x<=-800)
+        {
+            [self.targets removeObject:target];
+            [self.children removeObject:target];
+            
+            return;
+        }
+        if(target.position.x>=550)
+        {
+            [self.targets removeObject:target];
+            [self.children removeObject:target];
+            
+            return;
+        }
+        
+    }
+    
+    //AI behavior of bombers on when to drop bomb.
+    for(ProtoSprite *target2 in self.bomber)
+    {
+        if(target2.position.x<=self.player.position.x+80&&!target2.isAttacking)
+        {
+            int rand = arc4random_uniform(10);
+            if(rand==3)
+            {
+                target2.isAttacking = TRUE;
+                [self addBomb:target2.position.x :target2.position.y];
+            }
+        }
+        if(target2.position.x<=-50)
+        {
+            [self.bomber removeObject:target2];
+            [self.children removeObject:target2];
+            return;
+        }
+        if(target2.position.y>=550)
+        {
+            [self.bomber removeObject:target2];
+            [self.children removeObject:target2];
+            return;
+        }
+    }
+
+
     //Check suicide bombers if they reach ground or collide with player
     for(ProtoSprite *target3 in self.suicideBomber)
     {
@@ -634,7 +795,14 @@ for(ProtoSprite *boss in self.bossArr)
             [SoundLayer playSound:@"bombSound.wav"];
             [SoundLayer playSound:@"playerDie.wav"];
             [self flashScreen];
+            
+            if(!isShielded)
             playerHealth -=1;
+            else
+            {
+                isShielded = FALSE;
+            }
+
             [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(target3.position.x-10, 0, 0, 320)];
@@ -659,25 +827,7 @@ for(ProtoSprite *boss in self.bossArr)
 
 
     }
-    //Checks if every instance of target reaches the end of the screen, therefore destroying it.
-    for(ProtoSprite *target in self.targets)
-    {      
-        if(target.position.x<=-800)
-        {            
-            [self.targets removeObject:target];
-            [self.children removeObject:target];
-  
-            return;            
-        }
-        if(target.position.x>=550)
-        {
-            [self.targets removeObject:target];
-            [self.children removeObject:target];
-            
-            return;
-        }
 
-    }
         //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
     for(ProtoSprite *target4 in self.fastBomber)
     {
@@ -707,39 +857,13 @@ for(ProtoSprite *boss in self.bossArr)
         }
         
     }
-    //AI behavior of bombers on when to drop bomb.
-    for(ProtoSprite *target2 in self.bomber)
-        {
-            if(target2.position.x<=self.player.position.x+80&&!target2.isAttacking)
-            {
-                int rand = arc4random_uniform(10);
-                if(rand==3)
-                {
-                    target2.isAttacking = TRUE;
-                    [self addBomb:target2.position.x :target2.position.y];
-                }
-            }
-            if(target2.position.x<=-50)
-            {
-                [self.bomber removeObject:target2];
-                [self.children removeObject:target2];
-                return;
-            }
-            if(target2.position.y>=550)
-            {
-                [self.bomber removeObject:target2];
-                [self.children removeObject:target2];
-                return;
-            }
-        }
-
+  
     //Checks if player projectile reaches end of screen. If condition is met, projectile is removed and dealloced.
     for(ProtoSprite *projectile in self.projectiles){
             if(projectile.position.x>=480||projectile.position.x<=-20||projectile.position.y<=-340)
             {
                 [self.projectiles removeObject:projectile];
                 [self.children removeObject:projectile];
-                //NSLog(@"Projectile Destroyed (off screen)");
                 return;
             }
     }
@@ -812,7 +936,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [SoundLayer playSound:@"bombSound.wav"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
-                
+                [self addPowerup:target4.position.x :target4.position.y];
                 [explodeAnimation startAnimating];
                 [self.fastBomber removeObject:target4];
                 [self.children removeObject:target4];
@@ -870,13 +994,26 @@ for(ProtoSprite *boss in self.bossArr)
         for (ProtoSprite * target in targetsToDelete) {
             [self.targets removeObject:target];
             [self.children removeObject:target];
-            //NSLog(@"Targets Destroyed: %d",_targetsDestroyed);
-                            //NSLog(@"Speed: %d",actualVelocity);
         }        
         if (targetsToDelete.count > 0) {
             [projectilesToDelete addObject:projectile];
-           // NSLog(@"Projectile Destroyed (Collided)");
         }
+    }
+    for (ProtoSprite * projectile in projectilesToDelete) {
+        [self.projectiles removeObject:projectile];
+        [self.children removeObject:projectile];
+    }
+    for (ProtoSprite * target2 in targetsToDelete) {
+        [self.projectiles removeObject:target2];
+        [self.children removeObject:target2];
+    }
+    for (ProtoSprite * target3 in targetsToDelete) {
+        [self.projectiles removeObject:target3];
+        [self.children removeObject:target3];
+    }
+    for (ProtoSprite * target4 in targetsToDelete) {
+        [self.projectiles removeObject:target4];
+        [self.children removeObject:target4];
     }
     for (ProtoSprite * projectile in projectilesToDelete) {
         [self.projectiles removeObject:projectile];
@@ -895,7 +1032,7 @@ for(ProtoSprite *boss in self.bossArr)
          }
         if(r>25&&r<60)
          {
-        [self addBomber];
+             [self addBomber];
          }
          if(r>40&&r<60)
          {
@@ -958,7 +1095,7 @@ for(ProtoSprite *boss in self.bossArr)
 -(void)specialButtonPressed: (id)sender
 {
     int specialX = 50, specialY = 50;
-    if(gunAnimation.isAnimating == false)
+    if(gunAnimation.isAnimating == false &&playerSpecialAmmo!=0)
     {
     for(int shootCounter = 0; shootCounter <=5;shootCounter++)
     {
@@ -981,6 +1118,12 @@ for(ProtoSprite *boss in self.bossArr)
         [gunAnimation setFrame:CGRectMake(self.player.position.x-10, -60, 0, 320)];
         [gunAnimation startAnimating];
         [self flashScreen];
+        playerSpecialAmmo -=1;
+        [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
+    }
+    else
+    {
+        return;
     }
 }
 -(void) flashScreen
