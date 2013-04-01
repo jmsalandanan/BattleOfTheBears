@@ -291,11 +291,21 @@ static int firepower;
     gunAnimation = [[UIImageView alloc] initWithFrame:
                       CGRectMake(185, -60, 0, 320)];
     NSArray * imageGunArray = [[NSArray alloc]initWithObjects:
-                                 [UIImage imageNamed:@"s1.png"],
-                                 [UIImage imageNamed:@"s2.png"],
-                                 [UIImage imageNamed:@"s3.png"],
-                                 [UIImage imageNamed:@"s4.png"],
-                                 [UIImage imageNamed:@"s5.png"],
+                                 [UIImage imageNamed:@"gun1.png"],
+                                 [UIImage imageNamed:@"gun2.png"],
+                                 [UIImage imageNamed:@"gun3.png"],
+                                 [UIImage imageNamed:@"gun4.png"],
+                                 [UIImage imageNamed:@"gun5.png"],
+                                [UIImage imageNamed:@"gun6.png"],
+                                [UIImage imageNamed:@"gun7.png"],
+                                [UIImage imageNamed:@"gun8.png"],
+                                 [UIImage imageNamed:@"gun9.png"],
+                               [UIImage imageNamed:@"gun10.png"],
+                               [UIImage imageNamed:@"gun11.png"],
+                                  [UIImage imageNamed:@"gun12.png"],
+                                  [UIImage imageNamed:@"gun13.png"],
+                                 [UIImage imageNamed:@"gun14.png"],
+
                                  nil];
     gunAnimation.animationImages = imageGunArray;
     gunAnimation.contentMode = UIViewContentModeBottomLeft;
