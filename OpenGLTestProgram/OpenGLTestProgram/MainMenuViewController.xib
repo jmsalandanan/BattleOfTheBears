@@ -39,20 +39,25 @@
 					<object class="IBUIImageView" id="43774954">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{-19, -7}, {511, 329}}</string>
+						<string key="NSFrame">{{-15, -7}, {511, 329}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="275607916"/>
+						<reference key="NSNextKeyView" ref="497726663"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">mainbg.png</string>
+						</object>
 					</object>
 					<object class="IBUIButton" id="497726663">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{181, 173}, {118, 89}}</string>
+						<string key="NSFrame">{{331, 83.5}, {118, 63}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="275607916"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -70,13 +75,13 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
+						<object class="NSCustomResource" key="IBUIHighlightedImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">greenleafbuttonpressed.png</string>
+							<string key="NSResourceName">playbuttonpressed.png</string>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">greenleafbutton.png</string>
+							<string key="NSResourceName">playbutton.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="768651709">
 							<int key="type">2</int>
@@ -91,7 +96,7 @@
 					<object class="IBUIButton" id="275607916">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 249}, {34, 32}}</string>
+						<string key="NSFrame">{{330, 172}, {120, 43}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="385551818"/>
@@ -100,7 +105,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUIHighlightedTitle">How To</string>
 						<reference key="IBUIHighlightedTitleColor" ref="763537047"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -121,10 +125,10 @@
 					<object class="IBUIButton" id="385551818">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{61, 249}, {34, 31}}</string>
+						<string key="NSFrame">{{330, 232}, {120, 45}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="497726663"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -217,9 +221,9 @@
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="43774954"/>
+							<reference ref="275607916"/>
 							<reference ref="497726663"/>
 							<reference ref="385551818"/>
-							<reference ref="275607916"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -264,7 +268,7 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="1" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -316,12 +320,13 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="greenleafbutton.png">{355, 280}</string>
-			<string key="greenleafbuttonpressed.png">{355, 280}</string>
-			<string key="howtobutton.png">{117, 108}</string>
-			<string key="howtobuttonpressed.png">{117, 108}</string>
-			<string key="scoresbutton.png">{117, 108}</string>
-			<string key="scoresbuttonpressed.png">{117, 108}</string>
+			<string key="howtobutton.png">{120, 43}</string>
+			<string key="howtobuttonpressed.png">{120, 43}</string>
+			<string key="mainbg.png">{480, 320}</string>
+			<string key="playbutton.png">{120, 63}</string>
+			<string key="playbuttonpressed.png">{120, 63}</string>
+			<string key="scoresbutton.png">{120, 45}</string>
+			<string key="scoresbuttonpressed.png">{120, 45}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>
