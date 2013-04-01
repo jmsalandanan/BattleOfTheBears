@@ -17,8 +17,8 @@
 @synthesize playerScore;
 @synthesize nameField;
 @synthesize temp;
-@synthesize message;
-
+//@synthesize message;
+UITextField *message;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,28 +31,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [nameField setDelegate:self];
+//    [nameField setDelegate:self];
     [playerScore setText:[NSString stringWithFormat:@"%d",temp]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int score = [defaults integerForKey:@"score"];
     if(score>temp)
     {
-        [message setText:@"Game Over!"];
+//        [message setText:@"Game Over!"];
         [nameField setAlpha:0];
+//        [message setAlpha:0];
     }
     else
     {
-        [message setText:@"New High Score!!"];
+//        [message setText:@"New High Score!!"];
+        UIAlertView *highScore = [[UIAlertView alloc] initWithTitle:@"New High Score!" message:@"\n\n\n" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        message = [[UITextField alloc] initWithFrame:CGRectMake(12, 60, 260, 25)];
+        [message becomeFirstResponder];
+        [message setBackgroundColor:[UIColor whiteColor]];
+        [highScore addSubview:message];
+        [highScore show];
         [nameField setAlpha:1];
     }
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    nameField.text = message.text;
+}
+
 - (void)viewDidUnload
 {
     [self setPlayerScore:nil];
-    [self setNameField:nil];
-    [self setMessage:nil];
+//    [self setNameField:nil];
+    message=NULL;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
