@@ -1200,7 +1200,6 @@ for(ProtoSprite *boss in self.bossArr)
     
     [UIView animateWithDuration:1 animations:animationLabel completion:completionLabel];
     [UIView animateWithDuration:1 animations:animationLabel2 completion:completionLabel2];
-    //[labelText removeFromSuperview];
 }
 
 
