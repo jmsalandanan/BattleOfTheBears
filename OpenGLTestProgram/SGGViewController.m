@@ -131,8 +131,9 @@ static int firepower;
     
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0/30.0];
-    [[UIAccelerometer sharedAccelerometer] setDelegate:self]; [super viewDidLoad];    
-    GLKView *view = (GLKView *)self.view;
+    [[UIAccelerometer sharedAccelerometer] setDelegate:self]; [super viewDidLoad];
+    [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"gamebgm.mp3"];
+        GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     [EAGLContext setCurrentContext:self.context];
     self.effect = [[GLKBaseEffect alloc] init];
@@ -270,10 +271,14 @@ static int firepower;
                      CGRectMake(185, -60, 0, 320)];
     
     NSArray * imageteleportArray  = [[NSArray alloc] initWithObjects:
-                                 [UIImage imageNamed:@"bomb1.png"],
-                                 [UIImage imageNamed:@"bomb2.png"],
-                                 [UIImage imageNamed:@"bomb3.png"],
-                                 [UIImage imageNamed:@"bomb4.png"],
+                                 [UIImage imageNamed:@"b1.png"],
+                                 [UIImage imageNamed:@"b2.png"],
+                                 [UIImage imageNamed:@"b3.png"],
+                                 [UIImage imageNamed:@"b4.png"],
+                                 [UIImage imageNamed:@"b5.png"],
+                                 [UIImage imageNamed:@"b6.png"],
+                                 [UIImage imageNamed:@"b7.png"],
+                                 [UIImage imageNamed:@"b8.png"],
                                  nil];
     teleportAnimation.animationImages = imageteleportArray;
     teleportAnimation.contentMode = UIViewContentModeBottomLeft;
@@ -286,20 +291,11 @@ static int firepower;
     gunAnimation = [[UIImageView alloc] initWithFrame:
                       CGRectMake(185, -60, 0, 320)];
     NSArray * imageGunArray = [[NSArray alloc]initWithObjects:
-                                 [UIImage imageNamed:@"gun1.png"],
-                                 [UIImage imageNamed:@"gun2.png"],
-                                 [UIImage imageNamed:@"gun3.png"],
-                                 [UIImage imageNamed:@"gun4.png"],
-                                 [UIImage imageNamed:@"gun5.png"],
-                                 [UIImage imageNamed:@"gun6.png"],
-                                 [UIImage imageNamed:@"gun7.png"],
-                                 [UIImage imageNamed:@"gun8.png"],
-                                 [UIImage imageNamed:@"gun9.png"],
-                                 [UIImage imageNamed:@"gun10.png"],
-                                 [UIImage imageNamed:@"gun11.png"],
-                                 [UIImage imageNamed:@"gun12.png"],
-                                 [UIImage imageNamed:@"gun13.png"],
-                                 [UIImage imageNamed:@"gun14.png"],
+                                 [UIImage imageNamed:@"s1.png"],
+                                 [UIImage imageNamed:@"s2.png"],
+                                 [UIImage imageNamed:@"s3.png"],
+                                 [UIImage imageNamed:@"s4.png"],
+                                 [UIImage imageNamed:@"s5.png"],
                                  nil];
     gunAnimation.animationImages = imageGunArray;
     gunAnimation.contentMode = UIViewContentModeBottomLeft;
@@ -344,7 +340,7 @@ static int firepower;
     GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
     if(!gunAnimation.isAnimating)
     {
-    [SoundLayer playSound:@"gunSound.wav"];
+    [SoundLayer playSound:@"playershoot1.mp3"];
         NSString *ammo = (firepower == 0? @"ammo1.png": (firepower % 2 == 0?@"ammo.png":@"ammo2.png"));
     ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:ammo effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
@@ -502,7 +498,7 @@ static int firepower;
     }
     if(powerupRandomizer == 2)
     {
-        powerUpSprite=@"powerupweapon.png";
+        powerUpSprite=@"ammo.png";
     }
 
 
@@ -595,6 +591,7 @@ for(ProtoSprite *boss in self.bossArr)
             if(attackCounter ==10)
             {
                 NSLog(@"Teleport!");
+                [SoundLayer playSound:@"Teleport2.mp3"];
                 int teleportRandCoordX = arc4random_uniform(320);
                 int teleportRandCoordY = arc4random_uniform(120);
                 boss.position = GLKVector2Make(teleportRandCoordX,teleportRandCoordY+150);
@@ -663,7 +660,7 @@ for(ProtoSprite *boss in self.bossArr)
     {
         if(alienBomb.position.y<=10)
         {
-            [SoundLayer playSound:@"shipDestroySound.wav"];
+            [SoundLayer playSound:@"bombground.mp3"];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(alienBomb.position.x-10, 0, 0, 320)];
             [shootAnimation startAnimating];
@@ -675,8 +672,8 @@ for(ProtoSprite *boss in self.bossArr)
     //check if bomb's coordinates collides w/player, reduces player health by 1 point
         if(CGRectIntersectsRect(alienBomb.boundingBox, self.player.boundingBox))
         {
-            [SoundLayer playSound:@"bombSound.wav"];
-            [SoundLayer playSound:@"playerDie.wav"];
+            [SoundLayer playSound:@"bearHit.mp3"];
+            [SoundLayer playSound:@"playerHit.mp3"];
             [self flashScreen];
             if(isShielded)
             {
@@ -804,7 +801,7 @@ for(ProtoSprite *boss in self.bossArr)
     {
         if(target3.position.y<=10)
         {
-            [SoundLayer playSound:@"shipDestroySound.wav"];
+            [SoundLayer playSound:@"bombground.mp3"];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(target3.position.x-10, 0, 0, 320)];
             [shootAnimation startAnimating];
@@ -815,14 +812,15 @@ for(ProtoSprite *boss in self.bossArr)
         }
         if(CGRectIntersectsRect(target3.boundingBox, self.player.boundingBox))
         {
-            [SoundLayer playSound:@"bombSound.wav"];
-            [SoundLayer playSound:@"playerDie.wav"];
+            [SoundLayer playSound:@"bombground.mp3"];
+            [SoundLayer playSound:@"bearHit2.mp3"];
             [self flashScreen];
             
             if(!isShielded)
             playerHealth -=1;
             else
             {
+                self.shield.position = GLKVector2Make(700,700);
                 isShielded = FALSE;
             }
 
@@ -900,7 +898,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=target.position.x;
             y=-target.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, target.boundingBox)) {                
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 playerScore += (15*playerMultiplier);
@@ -922,7 +920,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=target2.position.x;
             y=-target2.position.y;            
             if (CGRectIntersectsRect(projectile.boundingBox, target2.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                  playerMultiplier +=1;
@@ -946,7 +944,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=target3.position.x;
             y=-target3.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, target3.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];                
                 [explodeAnimation startAnimating];
@@ -970,7 +968,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=target4.position.x;
             y=-target4.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, target4.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 [self addPowerup:target4.position.x :target4.position.y];
@@ -995,7 +993,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=alienBomb.position.x;
             y=-alienBomb.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, alienBomb.boundingBox)) {
-                [SoundLayer playSound:@"shipDestroySound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 NSLog(@"Bomb Destroyed");
                 [self.view addSubview:bombAnimation];
                 [bombAnimation setAnimationRepeatCount:1];
@@ -1014,7 +1012,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=boss.position.x;
             y=-boss.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, boss.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [projectilesToDelete addObject:projectile];
                 bossHealth--;
@@ -1087,11 +1085,11 @@ for(ProtoSprite *boss in self.bossArr)
          }
          if(r>40&&r<60)
          {
-        [self addSuicideBomber];
+             [self addSuicideBomber];
          }
         if(r>60)
         {
-            [self addFastBomber];
+             [self addFastBomber];
         }
      }
     }
@@ -1155,7 +1153,7 @@ for(ProtoSprite *boss in self.bossArr)
         GLKVector2 normalizedOffset = GLKVector2Normalize(offset);
         static float POINTS_PER_SECOND = 480;
         GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
-            [SoundLayer playSound:@"gunSound.wav"];
+            [SoundLayer playSound:@"playershoot1.mp3"];
             ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
             sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
             sprite.moveVelocity = moveVelocity;
