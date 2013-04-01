@@ -109,7 +109,12 @@
 @synthesize isPaused;
 @synthesize v;
 @synthesize specialButton;
+
+    static NSString * enemyType;
+static int firepower;
+
 @synthesize isShielded;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -136,7 +141,7 @@
     GLKMatrix4 projectionMatrix = GLKMatrix4MakeOrtho(0, 480, 0, 320, -1024, 1024);
     self.effect.transform.projectionMatrix = projectionMatrix;
     self.children = [NSMutableArray array];
-    scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(45,280,40,40)];
+    scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(45,280,80,40)];
     healthLabel = [[UILabel alloc]initWithFrame:CGRectMake(450, 275, 40, 40)];
     pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 230, 80, 40)];
     specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 200, 80, 40)];
@@ -157,7 +162,7 @@
     self.backGround = [[ProtoSprite alloc] initWithFile:@"background.jpg" effect:self.effect];
     self.backGround.position = GLKVector2Make(0, 0);
     
-    self.player = [[ProtoSprite alloc] initWithFile:@"player.png" effect:self.effect];
+    self.player = [[ProtoSprite alloc] initWithFile:@"playerkoala.png" effect:self.effect];
     self.player.position = GLKVector2Make(190, 0);
 
     self.shield = [[ProtoSprite alloc]initWithFile:@"shield.png" effect:self.effect];
@@ -340,7 +345,8 @@
     if(!gunAnimation.isAnimating)
     {
     [SoundLayer playSound:@"gunSound.wav"];
-    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
+        NSString *ammo = (firepower == 0? @"ammo1.png": (firepower % 2 == 0?@"ammo.png":@"ammo2.png"));
+    ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:ammo effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
     sprite.moveVelocity = moveVelocity;
     [self.children addObject:sprite];
@@ -369,7 +375,7 @@
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
-    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"enemy.png" effect:self.effect];
+    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"polarbear.png" effect:self.effect];
     target.isAttacking = FALSE;
     [self.children addObject:target];
     BOOL originRand = arc4random_uniform(2);
@@ -422,7 +428,7 @@
 }
 
 -(void)addSuicideBomber{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];    
     int rangeY3 = arc4random_uniform(320);
 
@@ -435,7 +441,7 @@
 }
 
 -(void)addBossSuicideBomber:(float )originX : (float ) originY{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];
     
     target3.position = GLKVector2Make(originX, originY);
@@ -447,7 +453,7 @@
 }
 
 -(void)addFastBomber{
-    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"boss.gif" effect:self.effect];
+    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"speedybear.png" effect:self.effect];
     [self.children addObject:target4];
     BOOL originRand = arc4random_uniform(2);
     
@@ -469,7 +475,8 @@
 
 
 -(void)addBomb:(float )bombX : (float ) bombY {
-    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:@"bomb.png" effect:self.effect];
+    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"panira1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"panira3.png": @"bomb.png"));
+    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
     alienBomb.position = GLKVector2Make(bombX, bombY);
     [SoundLayer playSound:@"bombDrop.wav"];
@@ -495,7 +502,7 @@
     }
     if(powerupRandomizer == 2)
     {
-        powerUpSprite=@"ammo.png";
+        powerUpSprite=@"powerupweapon.png";
     }
 
 
@@ -510,7 +517,7 @@
 
     }
     
-    if(powerUpSprite == @"ammo.png"){
+    if(powerUpSprite == @"powerupweapon.png"){
         powerUp.specialKey =@"ammo";
 
     }
@@ -530,15 +537,17 @@
     {
     NSString *bossSprite;
         if (_levelCount == 1) {
-            bossSprite = @"bomber.png";
-            bossHealth = 10; 
+            bossSprite = @"miniboss.png";
+            bossHealth = 10;
+            enemyType = @"firstboss";
         }
         if (_levelCount == 2) {
-            bossSprite = @"boss.gif";
+            bossSprite = @"transporter.png";
             bossHealth = 20;
+            enemyType = @"secondboss";
         }
         if (_levelCount == 3) {
-            bossSprite = @"boss.gif";
+            bossSprite = @"giantpanda.png";
             bossHealth = 30;
         }
     ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
@@ -725,10 +734,12 @@ for(ProtoSprite *boss in self.bossArr)
             isShielded = TRUE;
             [self addShield];
             }
+            //dito
             if(powerUp.specialKey == @"ammo")
             {
               NSLog(@"Ammo picked up");
               playerSpecialAmmo+=1;
+                firepower++;
               [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
             }
             [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
@@ -1012,6 +1023,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [self performSelector:@selector(explodeAnimationDone) withObject:nil afterDelay:0.3];
                 if(bossHealth<=0){
                     playerScore +=100;
+                    enemyType = @"";
                 [self.bossArr removeObject:boss];
                 [self.children removeObject:boss];
                     if(_levelCount == 3)
@@ -1156,6 +1168,9 @@ for(ProtoSprite *boss in self.bossArr)
         gunAnimation.animationRepeatCount = 1;
         [gunAnimation setFrame:CGRectMake(self.player.position.x-10, -60, 0, 320)];
         [gunAnimation startAnimating];
+
+//        [self flashScreen];
+
         [self flashScreen];
         playerSpecialAmmo -=1;
         [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
@@ -1163,6 +1178,7 @@ for(ProtoSprite *boss in self.bossArr)
     else
     {
         return;
+
     }
 }
 -(void) flashScreen

@@ -10,9 +10,9 @@
 
 @interface EndGameViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *playerScore;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
+//@property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (assign) int temp;
-@property (weak, nonatomic) IBOutlet UILabel *message;
+@property (weak, nonatomic) IBOutlet UILabel *nameField;
 - (IBAction)retryButtonPressed:(id)sender;
 - (IBAction)mainMenuButtonPressed:(id)sender;
 
