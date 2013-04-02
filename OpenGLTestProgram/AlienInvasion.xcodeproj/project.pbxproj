@@ -56,10 +56,6 @@
 		0C76C5571663447500C548BC /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5561663447500C548BC /* GameViewController.xib */; };
 		0C76C55B1663517F00C548BC /* EndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C76C5591663517E00C548BC /* EndGameViewController.m */; };
 		0C76C55C1663517F00C548BC /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55A1663517E00C548BC /* EndGameViewController.xib */; };
-<<<<<<< HEAD
-=======
-		0C76C55E1663523D00C548BC /* alien-invasion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55D1663523D00C548BC /* alien-invasion.jpg */; };
-		0C76C5621663583300C548BC /* Alien Invasion new header large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */; };
 		0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C814379170A72AC003420F4 /* Menu.mp3 */; };
 		0C81437C170A8D53003420F4 /* powerupweapon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81437B170A8D53003420F4 /* powerupweapon.png */; };
 		0C8143B6170AAFA5003420F4 /* sh5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AB170AAFA5003420F4 /* sh5.png */; };
@@ -70,7 +66,6 @@
 		0C8143BB170AAFA5003420F4 /* sh4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B0170AAFA5003420F4 /* sh4.png */; };
 		0C8143BC170AAFA5003420F4 /* sh3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B1170AAFA5003420F4 /* sh3.png */; };
 		0C8143BD170AAFA5003420F4 /* sh2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B2170AAFA5003420F4 /* sh2.png */; };
-		0C8143BE170AAFA5003420F4 /* shield.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B3170AAFA5003420F4 /* shield.gif */; };
 		0C8143BF170AAFA5003420F4 /* sh10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B4170AAFA5003420F4 /* sh10.png */; };
 		0C8143C0170AAFA5003420F4 /* sh9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B5170AAFA5003420F4 /* sh9.png */; };
 		0C85D8BC17092CA100AE2CC8 /* bearHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */; };
@@ -96,7 +91,6 @@
 		0C85D8DF1709779F00AE2CC8 /* s3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8DA1709779F00AE2CC8 /* s3.png */; };
 		0C85D8E01709779F00AE2CC8 /* s4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8DB1709779F00AE2CC8 /* s4.png */; };
 		0C85D8E11709779F00AE2CC8 /* s5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8DC1709779F00AE2CC8 /* s5.png */; };
->>>>>>> master
 		0CD02CD416645CDA00A9EB9F /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */; };
 		0CD02CD516645CDA00A9EB9F /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CD316645CDA00A9EB9F /* HighScoreViewController.xib */; };
 		0CD02CDD16646AD500A9EB9F /* healthbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CDC16646AD500A9EB9F /* healthbar.png */; };
@@ -238,10 +232,6 @@
 		0C76C5581663517E00C548BC /* EndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameViewController.h; sourceTree = "<group>"; };
 		0C76C5591663517E00C548BC /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameViewController.m; sourceTree = "<group>"; };
 		0C76C55A1663517E00C548BC /* EndGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndGameViewController.xib; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		0C76C55D1663523D00C548BC /* alien-invasion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "alien-invasion.jpg"; sourceTree = "<group>"; };
-		0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Alien Invasion new header large.jpg"; sourceTree = "<group>"; };
 		0C814379170A72AC003420F4 /* Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Menu.mp3; sourceTree = "<group>"; };
 		0C81437B170A8D53003420F4 /* powerupweapon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerupweapon.png; sourceTree = "<group>"; };
 		0C8143AB170AAFA5003420F4 /* sh5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh5.png; sourceTree = "<group>"; };
@@ -252,7 +242,6 @@
 		0C8143B0170AAFA5003420F4 /* sh4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh4.png; sourceTree = "<group>"; };
 		0C8143B1170AAFA5003420F4 /* sh3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh3.png; sourceTree = "<group>"; };
 		0C8143B2170AAFA5003420F4 /* sh2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh2.png; sourceTree = "<group>"; };
-		0C8143B3170AAFA5003420F4 /* shield.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shield.gif; sourceTree = "<group>"; };
 		0C8143B4170AAFA5003420F4 /* sh10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh10.png; sourceTree = "<group>"; };
 		0C8143B5170AAFA5003420F4 /* sh9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh9.png; sourceTree = "<group>"; };
 		0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bearHit.mp3; sourceTree = "<group>"; };
@@ -278,7 +267,6 @@
 		0C85D8DA1709779F00AE2CC8 /* s3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s3.png; sourceTree = "<group>"; };
 		0C85D8DB1709779F00AE2CC8 /* s4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s4.png; sourceTree = "<group>"; };
 		0C85D8DC1709779F00AE2CC8 /* s5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s5.png; sourceTree = "<group>"; };
->>>>>>> master
 		0CD02CD116645CDA00A9EB9F /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		0CD02CD216645CDA00A9EB9F /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
 		0CD02CD316645CDA00A9EB9F /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
@@ -424,6 +412,52 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		0C203B08170AD37700463099 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				0C720B8E1701465400992546 /* shield.png */,
+				7811426E170AA0F00042F754 /* medal.png */,
+				0C81437B170A8D53003420F4 /* powerupweapon.png */,
+				78114266170A94600042F754 /* homebuttonpressed.png */,
+				78114267170A94600042F754 /* homebutton.png */,
+				78114260170A90DD0042F754 /* scoresbg.png */,
+				78E7F2B1170A7EB5000F7805 /* howtobg.png */,
+				78E7F2AD170A7A67000F7805 /* mainbg.png */,
+				78F8165C17095F180025EBCC /* backbuttonpressed.png */,
+				78F8165D17095F180025EBCC /* backbutton.png */,
+				78E259EA170158C50032921B /* ammo.png */,
+				7896B90016FC4F9F00D3BC67 /* ammo1.png */,
+				78E259F01701791C0032921B /* ammo2.png */,
+				0C240C821665C15300991CC8 /* appIcon.png */,
+				0C240C841665C1D800991CC8 /* appIconRetina.png */,
+				78FEB1EB17002CFD00EB437D /* bomb.png */,
+				78E259EE17016E3F0032921B /* bomber.png */,
+				78E259DE1701475A0032921B /* buttonpressed.png */,
+				78E259E01701476E0032921B /* buttons.png */,
+				0CFFAC19165C615400425148 /* enemy.png */,
+				78F81666170964010025EBCC /* gameoverscreen.png */,
+				78E259EC17015B420032921B /* giantpanda.png */,
+				0CD02CDC16646AD500A9EB9F /* healthbar.png */,
+				78E259E8170156780032921B /* miniboss.png */,
+				78E259F6170186DF0032921B /* panira1.png */,
+				785C561A1702DA6B008B9939 /* panira3.png */,
+				78F8164C1709337C0025EBCC /* playbutton.png */,
+				78F8164D1709337C0025EBCC /* playbuttonpressed.png */,
+				78F8164E1709337C0025EBCC /* howtobutton.png */,
+				78F8164F1709337C0025EBCC /* howtobuttonpressed.png */,
+				7896B90416FC5B5700D3BC67 /* playerkoala.png */,
+				78FEB20A17004DB900EB437D /* polarbear.png */,
+				78F81644170930A40025EBCC /* powerupweapon.png */,
+				78F81648170932AC0025EBCC /* scoresbutton.png */,
+				78F81649170932AC0025EBCC /* scoresbuttonpressed.png */,
+				78E259CE170136560032921B /* speedybear.png */,
+				7896B90216FC508F00D3BC67 /* suicidepanda.png */,
+				78E259E6170154300032921B /* transporter.png */,
+				78114270170AB2190042F754 /* specialammo.png */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 		0C21FDB1164CA2F2006152B9 = {
 			isa = PBXGroup;
 			children = (
@@ -489,53 +523,9 @@
 		0C21FDE9164CABED006152B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				78114270170AB2190042F754 /* specialammo.png */,
-				0C240C841665C1D800991CC8 /* appIconRetina.png */,
-				0C240C821665C15300991CC8 /* appIcon.png */,
+				0C203B08170AD37700463099 /* Sprites */,
 				0C010F261662FA530063670B /* sounds */,
 				0CF5BD00165E11750070B404 /* animation */,
-				0C720B8E1701465400992546 /* shield.png */,
-<<<<<<< HEAD
-				7811426E170AA0F00042F754 /* medal.png */,
-=======
-				0C81437B170A8D53003420F4 /* powerupweapon.png */,
->>>>>>> master
-				0CD02CDC16646AD500A9EB9F /* healthbar.png */,
-				78114266170A94600042F754 /* homebuttonpressed.png */,
-				78114267170A94600042F754 /* homebutton.png */,
-				78114260170A90DD0042F754 /* scoresbg.png */,
-				78E7F2B1170A7EB5000F7805 /* howtobg.png */,
-				78E7F2AD170A7A67000F7805 /* mainbg.png */,
-				78F8165C17095F180025EBCC /* backbuttonpressed.png */,
-				78F8165D17095F180025EBCC /* backbutton.png */,
-				78E259EA170158C50032921B /* ammo.png */,
-				7896B90016FC4F9F00D3BC67 /* ammo1.png */,
-				78E259F01701791C0032921B /* ammo2.png */,
-				0C240C821665C15300991CC8 /* appIcon.png */,
-				0C240C841665C1D800991CC8 /* appIconRetina.png */,
-				78FEB1EB17002CFD00EB437D /* bomb.png */,
-				78E259EE17016E3F0032921B /* bomber.png */,
-				78E259DE1701475A0032921B /* buttonpressed.png */,
-				78E259E01701476E0032921B /* buttons.png */,
-				0CFFAC19165C615400425148 /* enemy.png */,
-				78F81666170964010025EBCC /* gameoverscreen.png */,
-				78E259EC17015B420032921B /* giantpanda.png */,
-				0CD02CDC16646AD500A9EB9F /* healthbar.png */,
-				78E259E8170156780032921B /* miniboss.png */,
-				78E259F6170186DF0032921B /* panira1.png */,
-				785C561A1702DA6B008B9939 /* panira3.png */,
-				78F8164C1709337C0025EBCC /* playbutton.png */,
-				78F8164D1709337C0025EBCC /* playbuttonpressed.png */,
-				78F8164E1709337C0025EBCC /* howtobutton.png */,
-				78F8164F1709337C0025EBCC /* howtobuttonpressed.png */,
-				7896B90416FC5B5700D3BC67 /* playerkoala.png */,
-				78FEB20A17004DB900EB437D /* polarbear.png */,
-				78F81644170930A40025EBCC /* powerupweapon.png */,
-				78F81648170932AC0025EBCC /* scoresbutton.png */,
-				78F81649170932AC0025EBCC /* scoresbuttonpressed.png */,
-				78E259CE170136560032921B /* speedybear.png */,
-				7896B90216FC508F00D3BC67 /* suicidepanda.png */,
-				78E259E6170154300032921B /* transporter.png */,
 				0CF5BD00165E11750070B404 /* animation */,
 				0C010F261662FA530063670B /* sounds */,
 			);
@@ -609,7 +599,6 @@
 				0C8143B0170AAFA5003420F4 /* sh4.png */,
 				0C8143B1170AAFA5003420F4 /* sh3.png */,
 				0C8143B2170AAFA5003420F4 /* sh2.png */,
-				0C8143B3170AAFA5003420F4 /* shield.gif */,
 				0C8143B4170AAFA5003420F4 /* sh10.png */,
 				0C8143B5170AAFA5003420F4 /* sh9.png */,
 				0C85D8D81709779F00AE2CC8 /* s1.png */,
@@ -808,7 +797,6 @@
 				78E259F7170186DF0032921B /* panira1.png in Resources */,
 				0C720B8F1701465400992546 /* shield.png in Resources */,
 				785C561B1702DA6B008B9939 /* panira3.png in Resources */,
-<<<<<<< HEAD
 				78F81645170930A40025EBCC /* powerupweapon.png in Resources */,
 				78F8164A170932AC0025EBCC /* scoresbutton.png in Resources */,
 				78F8164B170932AC0025EBCC /* scoresbuttonpressed.png in Resources */,
@@ -826,9 +814,6 @@
 				78114269170A94600042F754 /* homebutton.png in Resources */,
 				7811426F170AA0F00042F754 /* medal.png in Resources */,
 				78114271170AB2190042F754 /* specialammo.png in Resources */,
-=======
-				78F816311709161C0025EBCC /* greenleafbutton.png in Resources */,
-				78F816331709166F0025EBCC /* greenleafbuttonpressed.png in Resources */,
 				0C85D8BC17092CA100AE2CC8 /* bearHit.mp3 in Resources */,
 				0C85D8BD17092CA100AE2CC8 /* bearHit2.mp3 in Resources */,
 				0C85D8BE17092CA100AE2CC8 /* bombground.mp3 in Resources */,
@@ -862,10 +847,8 @@
 				0C8143BB170AAFA5003420F4 /* sh4.png in Resources */,
 				0C8143BC170AAFA5003420F4 /* sh3.png in Resources */,
 				0C8143BD170AAFA5003420F4 /* sh2.png in Resources */,
-				0C8143BE170AAFA5003420F4 /* shield.gif in Resources */,
 				0C8143BF170AAFA5003420F4 /* sh10.png in Resources */,
 				0C8143C0170AAFA5003420F4 /* sh9.png in Resources */,
->>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
