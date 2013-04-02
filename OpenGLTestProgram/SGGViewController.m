@@ -508,7 +508,7 @@ static int firepower;
     }
     if(powerupRandomizer == 2)
     {
-        powerUpSprite=@"ammo.png";
+        powerUpSprite=@"powerupweapon.png";
     }
 
 
@@ -912,6 +912,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 playerScore += (15*playerMultiplier);
+                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 NSLog(@"%d - Player Multiplier",playerMultiplier);
@@ -919,7 +920,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [explodeAnimation startAnimating];
                 [targetsToDelete addObject:target];
                 NSLog(@"at %f,%f",target.position.x,target.position.y);
-                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
+
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             }
         }
@@ -933,6 +934,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
+                [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
                  playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [explodeAnimation startAnimating];
@@ -940,7 +942,7 @@ for(ProtoSprite *boss in self.bossArr)
                 playerScore += (30 *playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
  
-                [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
+
                 [projectilesToDelete addObject:projectile];
                 [self.bomber removeObject:target2];
                 [self.children removeObject:target2];
@@ -963,8 +965,9 @@ for(ProtoSprite *boss in self.bossArr)
                 [self addBomb:target3.position.x + 50:target3.position.y];
                 playerScore += (50*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+                [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
                 playerMultiplier +=1;
-                    [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
+
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [projectilesToDelete addObject:projectile];
                 [self.suicideBomber removeObject:target3];
