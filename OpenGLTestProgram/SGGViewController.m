@@ -144,7 +144,7 @@ static int firepower;
     scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(45,280,80,40)];
     healthLabel = [[UILabel alloc]initWithFrame:CGRectMake(450, 275, 40, 40)];
     pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(435, 235, 39, 40)];
-    specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 200, 80, 40)];
+    specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 195, 80, 40)];
     specialAmmoLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,200,40,40)];
     multiplierLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,150,40,40)];
     [pauseButton addTarget: self
