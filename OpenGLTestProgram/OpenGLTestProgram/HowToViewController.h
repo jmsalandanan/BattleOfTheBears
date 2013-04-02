@@ -11,5 +11,4 @@
 @interface HowToViewController : UIViewController
 
 - (IBAction)backButtonPressed:(id)sender;
-
 @end

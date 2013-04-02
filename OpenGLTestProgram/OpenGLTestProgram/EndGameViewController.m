@@ -43,10 +43,13 @@ UITextField *message;
     else
     {
         UIAlertView *highScore = [[UIAlertView alloc] initWithTitle:@"New High Score!" message:@"\n\n\n" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+<<<<<<< HEAD
         message = [[UITextField alloc] initWithFrame:CGRectMake(12, 60, 260, 25)];
         [message becomeFirstResponder];
         [message setBackgroundColor:[UIColor whiteColor]];
 
+=======
+>>>>>>> parent of 3afd437... Merge pull request #4 from carmelatortoza/carmi
         highScore.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *message = [highScore textFieldAtIndex:0];
         [highScore textFieldAtIndex:0].delegate = self;
