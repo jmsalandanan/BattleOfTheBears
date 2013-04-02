@@ -45,18 +45,30 @@ UITextField *message;
     {
 //        [message setText:@"New High Score!!"];
         UIAlertView *highScore = [[UIAlertView alloc] initWithTitle:@"New High Score!" message:@"\n\n\n" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        message = [[UITextField alloc] initWithFrame:CGRectMake(12, 60, 260, 25)];
-        [message becomeFirstResponder];
-        [message setBackgroundColor:[UIColor whiteColor]];
+        highScore.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *message = [highScore textFieldAtIndex:0];
+        [highScore textFieldAtIndex:0].delegate = self;
         [highScore addSubview:message];
-        [highScore show];
+        [message becomeFirstResponder];
+        message.keyboardType = UIKeyboardTypeAlphabet;
+        message.keyboardAppearance = UIKeyboardAppearanceAlert;
+        message.autocorrectionType = UITextAutocorrectionTypeNo;
+        [highScore performSelector:@selector(show) withObject:nil afterDelay:0];
+        NSLog(@"%@",message.text);
         [nameField setAlpha:1];
     }
-    // Do any additional setup after loading the view from its nib.
+
 }
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UITextField *message = [actionSheet textFieldAtIndex:0];
     nameField.text = message.text;
+}
+
+#pragma mark - UIAlertViewDelegate Methods
+
+- (void)didPresentAlertView:(UIAlertView *)alertView {
+    [[alertView textFieldAtIndex:0] becomeFirstResponder];
 }
 
 - (void)viewDidUnload

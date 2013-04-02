@@ -63,13 +63,13 @@
 		0C76C55C1663517F00C548BC /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55A1663517E00C548BC /* EndGameViewController.xib */; };
 		0C76C55E1663523D00C548BC /* alien-invasion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55D1663523D00C548BC /* alien-invasion.jpg */; };
 		0C76C5621663583300C548BC /* Alien Invasion new header large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */; };
+		0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C814379170A72AC003420F4 /* Menu.mp3 */; };
 		0C85D8BC17092CA100AE2CC8 /* bearHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */; };
 		0C85D8BD17092CA100AE2CC8 /* bearHit2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B217092CA100AE2CC8 /* bearHit2.mp3 */; };
 		0C85D8BE17092CA100AE2CC8 /* bombground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B317092CA100AE2CC8 /* bombground.mp3 */; };
 		0C85D8BF17092CA100AE2CC8 /* gamebgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B417092CA100AE2CC8 /* gamebgm.mp3 */; };
 		0C85D8C017092CA100AE2CC8 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B517092CA100AE2CC8 /* gameover.mp3 */; };
 		0C85D8C117092CA100AE2CC8 /* Large Thump Or Bump-SoundBible.com-395560493.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B617092CA100AE2CC8 /* Large Thump Or Bump-SoundBible.com-395560493.mp3 */; };
-		0C85D8C217092CA100AE2CC8 /* Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B717092CA100AE2CC8 /* Menu.mp3 */; };
 		0C85D8C317092CA100AE2CC8 /* Teleport2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B817092CA100AE2CC8 /* Teleport2.mp3 */; };
 		0C85D8C417092CA100AE2CC8 /* PlayerHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B917092CA100AE2CC8 /* PlayerHit.mp3 */; };
 		0C85D8C517092CA100AE2CC8 /* playershoot1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8BA17092CA100AE2CC8 /* playershoot1.mp3 */; };
@@ -229,13 +229,13 @@
 		0C76C55A1663517E00C548BC /* EndGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndGameViewController.xib; sourceTree = "<group>"; };
 		0C76C55D1663523D00C548BC /* alien-invasion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "alien-invasion.jpg"; sourceTree = "<group>"; };
 		0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Alien Invasion new header large.jpg"; sourceTree = "<group>"; };
+		0C814379170A72AC003420F4 /* Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Menu.mp3; sourceTree = "<group>"; };
 		0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bearHit.mp3; sourceTree = "<group>"; };
 		0C85D8B217092CA100AE2CC8 /* bearHit2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bearHit2.mp3; sourceTree = "<group>"; };
 		0C85D8B317092CA100AE2CC8 /* bombground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bombground.mp3; sourceTree = "<group>"; };
 		0C85D8B417092CA100AE2CC8 /* gamebgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamebgm.mp3; sourceTree = "<group>"; };
 		0C85D8B517092CA100AE2CC8 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover.mp3; sourceTree = "<group>"; };
 		0C85D8B617092CA100AE2CC8 /* Large Thump Or Bump-SoundBible.com-395560493.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Large Thump Or Bump-SoundBible.com-395560493.mp3"; sourceTree = "<group>"; };
-		0C85D8B717092CA100AE2CC8 /* Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Menu.mp3; sourceTree = "<group>"; };
 		0C85D8B817092CA100AE2CC8 /* Teleport2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Teleport2.mp3; sourceTree = "<group>"; };
 		0C85D8B917092CA100AE2CC8 /* PlayerHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlayerHit.mp3; sourceTree = "<group>"; };
 		0C85D8BA17092CA100AE2CC8 /* playershoot1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = playershoot1.mp3; sourceTree = "<group>"; };
@@ -365,13 +365,13 @@
 		0C010F261662FA530063670B /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				0C814379170A72AC003420F4 /* Menu.mp3 */,
 				0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */,
 				0C85D8B217092CA100AE2CC8 /* bearHit2.mp3 */,
 				0C85D8B317092CA100AE2CC8 /* bombground.mp3 */,
 				0C85D8B417092CA100AE2CC8 /* gamebgm.mp3 */,
 				0C85D8B517092CA100AE2CC8 /* gameover.mp3 */,
 				0C85D8B617092CA100AE2CC8 /* Large Thump Or Bump-SoundBible.com-395560493.mp3 */,
-				0C85D8B717092CA100AE2CC8 /* Menu.mp3 */,
 				0C85D8B817092CA100AE2CC8 /* Teleport2.mp3 */,
 				0C85D8B917092CA100AE2CC8 /* PlayerHit.mp3 */,
 				0C85D8BA17092CA100AE2CC8 /* playershoot1.mp3 */,
@@ -792,7 +792,6 @@
 				0C85D8BF17092CA100AE2CC8 /* gamebgm.mp3 in Resources */,
 				0C85D8C017092CA100AE2CC8 /* gameover.mp3 in Resources */,
 				0C85D8C117092CA100AE2CC8 /* Large Thump Or Bump-SoundBible.com-395560493.mp3 in Resources */,
-				0C85D8C217092CA100AE2CC8 /* Menu.mp3 in Resources */,
 				0C85D8C317092CA100AE2CC8 /* Teleport2.mp3 in Resources */,
 				0C85D8C417092CA100AE2CC8 /* PlayerHit.mp3 in Resources */,
 				0C85D8C517092CA100AE2CC8 /* playershoot1.mp3 in Resources */,
@@ -810,6 +809,7 @@
 				0C85D8DF1709779F00AE2CC8 /* s3.png in Resources */,
 				0C85D8E01709779F00AE2CC8 /* s4.png in Resources */,
 				0C85D8E11709779F00AE2CC8 /* s5.png in Resources */,
+				0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
