@@ -48,6 +48,7 @@ UITextField *message;
         message = [[UITextField alloc] initWithFrame:CGRectMake(12, 60, 260, 25)];
         [message becomeFirstResponder];
         [message setBackgroundColor:[UIColor whiteColor]];
+//        highScore.transform = CGAffineTransformMakeTranslation(120.0f, 0.0f);
         [highScore addSubview:message];
         [highScore show];
         [nameField setAlpha:1];

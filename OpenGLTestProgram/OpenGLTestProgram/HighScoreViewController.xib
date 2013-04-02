@@ -43,7 +43,6 @@
 						<string key="NSFrameSize">{480, 300}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -55,7 +54,7 @@
 					<object class="IBUILabel" id="316291694">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{89, 101}, {142, 36}}</string>
+						<string key="NSFrame">{{92, 131}, {142, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="942060071"/>
@@ -71,28 +70,32 @@
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIShadowColor" id="1058787925">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MAA</bytes>
+						</object>
+						<string key="IBUIShadowOffset">{0, 0}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUITextAlignment">2</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="62534677">
+						<float key="IBUIMinimumFontSize">12</float>
+						<int key="IBUITextAlignment">1</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="980929750">
 							<string key="name">Chalkduster</string>
 							<string key="family">Chalkduster</string>
 							<int key="traits">0</int>
-							<double key="pointSize">19</double>
+							<double key="pointSize">30</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="378652413">
+						<object class="NSFont" key="IBUIFont" id="625738623">
 							<string key="NSName">Chalkduster</string>
-							<double key="NSSize">19</double>
+							<double key="NSSize">30</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
 					<object class="IBUILabel" id="942060071">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{249, 101}, {142, 36}}</string>
+						<string key="NSFrame">{{240, 131}, {142, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -102,15 +105,19 @@
 						<string key="IBUIText">Score</string>
 						<reference key="IBUITextColor" ref="540182573"/>
 						<nil key="IBUIHighlightedColor"/>
+						<reference key="IBUIShadowColor" ref="1058787925"/>
+						<string key="IBUIShadowOffset">{0, 0}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<float key="IBUIMinimumFontSize">10</float>
-						<reference key="IBUIFontDescription" ref="62534677"/>
-						<reference key="IBUIFont" ref="378652413"/>
+						<float key="IBUIMinimumFontSize">12</float>
+						<int key="IBUITextAlignment">1</int>
+						<reference key="IBUIFontDescription" ref="980929750"/>
+						<reference key="IBUIFont" ref="625738623"/>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUIButton" id="47617347">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{12, 245.5}, {88, 32}}</string>
+						<string key="NSFrame">{{12, 252.5}, {88, 32}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
