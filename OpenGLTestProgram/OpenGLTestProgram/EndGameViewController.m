@@ -45,16 +45,16 @@ UITextField *message;
     {
 //        [message setText:@"New High Score!!"];
         UIAlertView *highScore = [[UIAlertView alloc] initWithTitle:@"New High Score!" message:@"\n\n\n" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-<<<<<<< HEAD
+
         message = [[UITextField alloc] initWithFrame:CGRectMake(12, 60, 260, 25)];
         [message becomeFirstResponder];
         [message setBackgroundColor:[UIColor whiteColor]];
 //        highScore.transform = CGAffineTransformMakeTranslation(120.0f, 0.0f);
-=======
+
         highScore.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *message = [highScore textFieldAtIndex:0];
         [highScore textFieldAtIndex:0].delegate = self;
->>>>>>> master
+
         [highScore addSubview:message];
         [message becomeFirstResponder];
         message.keyboardType = UIKeyboardTypeAlphabet;
