@@ -194,9 +194,9 @@ static int firepower;
     UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
     v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
     [wnd addSubview: v];
-        [view addSubview:specialButton];
+    [view addSubview:specialButton];
     [view addSubview:scoreLabel];
-        [view addSubview:multiplierLabel];
+    [view addSubview:multiplierLabel];
     [view addSubview:specialAmmoLabel];
     [view addSubview:healthLabel];
     [view addSubview:pauseButton];
@@ -335,6 +335,27 @@ static int firepower;
     [explodeAnimation setAnimationDuration:0.2];
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:explodeAnimation];
+    
+    //Shield Animation
+    shieldAnimation = [[UIImageView alloc]initWithFrame:CGRectMake(50,50,0,320)];
+    NSArray *shieldArray = [[NSArray alloc]initWithObjects:
+                            [UIImage imageNamed:@"sh1.png"],
+                            [UIImage imageNamed:@"sh2.png"],
+                            [UIImage imageNamed:@"sh3.png"],
+                            [UIImage imageNamed:@"sh4.png"],
+                            [UIImage imageNamed:@"sh5.png"],
+                            [UIImage imageNamed:@"sh6.png"],
+                            [UIImage imageNamed:@"sh7.png"],
+                            [UIImage imageNamed:@"sh8.png"],
+                            [UIImage imageNamed:@"sh9.png"],
+                            [UIImage imageNamed:@"sh10.png"],
+                            nil];
+    shieldAnimation.animationImages = shieldArray;
+    shieldAnimation.contentMode = UIViewContentModeBottomLeft;
+    [explodeAnimation setAnimationDuration:0.2];
+    explodeAnimation.animationRepeatCount = 1;
+    [self.view addSubview:shieldAnimation];
+
     //***********************************************
     playerHealth = 5;
     [self flashScreen];
@@ -492,7 +513,12 @@ static int firepower;
 
 -(void)addShield{
 
-    self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    //self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    //[self.view addSubview:shieldAnimation];
+    shieldAnimation.animationDuration = .3;
+    shieldAnimation.animationRepeatCount = 0;
+    [shieldAnimation setFrame:CGRectMake(self.player.position.x - 20, self.player.position.y, 0, 320)];
+    [shieldAnimation startAnimating];
 
 }
 -(void)addPowerup:(float )powerUpX : (float ) powerUpY {
@@ -688,7 +714,7 @@ for(ProtoSprite *boss in self.bossArr)
             if(isShielded)
             {
             isShielded = false;
-            self.shield.position = GLKVector2Make(700,700);
+            [shieldAnimation stopAnimating];
             }
             else
             {
@@ -830,8 +856,9 @@ for(ProtoSprite *boss in self.bossArr)
             playerHealth -=1;
             else
             {
-                self.shield.position = GLKVector2Make(700,700);
+                //self.shield.position = GLKVector2Make(700,700);
                 isShielded = FALSE;
+                [shieldAnimation stopAnimating];
             }
 
             [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
@@ -1027,10 +1054,11 @@ for(ProtoSprite *boss in self.bossArr)
             if (CGRectIntersectsRect(projectile.boundingBox, boss.boundingBox)) {
                 [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
-                [projectilesToDelete addObject:projectile];
-                bossHealth--;
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 [explodeAnimation startAnimating];
+                [projectilesToDelete addObject:projectile];
+                bossHealth--;
+ 
                 [self performSelector:@selector(explodeAnimationDone) withObject:nil afterDelay:0.3];
                 if(bossHealth<=0){
                     playerScore +=100;
@@ -1094,11 +1122,13 @@ for(ProtoSprite *boss in self.bossArr)
          }
         if(r>25&&r<60)
          {
-             [self addBomber];
+             //[self addBomber];
+                          [self addFastBomber];
          }
          if(r>40&&r<60)
          {
-             [self addSuicideBomber];
+             //[self addSuicideBomber];
+                          [self addFastBomber];
          }
         if(r>60)
         {

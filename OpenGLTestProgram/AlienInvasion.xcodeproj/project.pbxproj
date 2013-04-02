@@ -64,6 +64,18 @@
 		0C76C55E1663523D00C548BC /* alien-invasion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C55D1663523D00C548BC /* alien-invasion.jpg */; };
 		0C76C5621663583300C548BC /* Alien Invasion new header large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */; };
 		0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C814379170A72AC003420F4 /* Menu.mp3 */; };
+		0C81437C170A8D53003420F4 /* powerupweapon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81437B170A8D53003420F4 /* powerupweapon.png */; };
+		0C8143B6170AAFA5003420F4 /* sh5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AB170AAFA5003420F4 /* sh5.png */; };
+		0C8143B7170AAFA5003420F4 /* sh1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AC170AAFA5003420F4 /* sh1.png */; };
+		0C8143B8170AAFA5003420F4 /* sh8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AD170AAFA5003420F4 /* sh8.png */; };
+		0C8143B9170AAFA5003420F4 /* sh7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AE170AAFA5003420F4 /* sh7.png */; };
+		0C8143BA170AAFA5003420F4 /* sh6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AF170AAFA5003420F4 /* sh6.png */; };
+		0C8143BB170AAFA5003420F4 /* sh4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B0170AAFA5003420F4 /* sh4.png */; };
+		0C8143BC170AAFA5003420F4 /* sh3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B1170AAFA5003420F4 /* sh3.png */; };
+		0C8143BD170AAFA5003420F4 /* sh2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B2170AAFA5003420F4 /* sh2.png */; };
+		0C8143BE170AAFA5003420F4 /* shield.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B3170AAFA5003420F4 /* shield.gif */; };
+		0C8143BF170AAFA5003420F4 /* sh10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B4170AAFA5003420F4 /* sh10.png */; };
+		0C8143C0170AAFA5003420F4 /* sh9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143B5170AAFA5003420F4 /* sh9.png */; };
 		0C85D8BC17092CA100AE2CC8 /* bearHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */; };
 		0C85D8BD17092CA100AE2CC8 /* bearHit2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B217092CA100AE2CC8 /* bearHit2.mp3 */; };
 		0C85D8BE17092CA100AE2CC8 /* bombground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C85D8B317092CA100AE2CC8 /* bombground.mp3 */; };
@@ -230,6 +242,18 @@
 		0C76C55D1663523D00C548BC /* alien-invasion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "alien-invasion.jpg"; sourceTree = "<group>"; };
 		0C76C5611663583300C548BC /* Alien Invasion new header large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Alien Invasion new header large.jpg"; sourceTree = "<group>"; };
 		0C814379170A72AC003420F4 /* Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Menu.mp3; sourceTree = "<group>"; };
+		0C81437B170A8D53003420F4 /* powerupweapon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerupweapon.png; sourceTree = "<group>"; };
+		0C8143AB170AAFA5003420F4 /* sh5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh5.png; sourceTree = "<group>"; };
+		0C8143AC170AAFA5003420F4 /* sh1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh1.png; sourceTree = "<group>"; };
+		0C8143AD170AAFA5003420F4 /* sh8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh8.png; sourceTree = "<group>"; };
+		0C8143AE170AAFA5003420F4 /* sh7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh7.png; sourceTree = "<group>"; };
+		0C8143AF170AAFA5003420F4 /* sh6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh6.png; sourceTree = "<group>"; };
+		0C8143B0170AAFA5003420F4 /* sh4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh4.png; sourceTree = "<group>"; };
+		0C8143B1170AAFA5003420F4 /* sh3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh3.png; sourceTree = "<group>"; };
+		0C8143B2170AAFA5003420F4 /* sh2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh2.png; sourceTree = "<group>"; };
+		0C8143B3170AAFA5003420F4 /* shield.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shield.gif; sourceTree = "<group>"; };
+		0C8143B4170AAFA5003420F4 /* sh10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh10.png; sourceTree = "<group>"; };
+		0C8143B5170AAFA5003420F4 /* sh9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh9.png; sourceTree = "<group>"; };
 		0C85D8B117092CA100AE2CC8 /* bearHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bearHit.mp3; sourceTree = "<group>"; };
 		0C85D8B217092CA100AE2CC8 /* bearHit2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bearHit2.mp3; sourceTree = "<group>"; };
 		0C85D8B317092CA100AE2CC8 /* bombground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bombground.mp3; sourceTree = "<group>"; };
@@ -465,6 +489,7 @@
 				0C2E141B165DD7A300F089AF /* player.png */,
 				0C240C711665A1BA00991CC8 /* home.png */,
 				0C720B8E1701465400992546 /* shield.png */,
+				0C81437B170A8D53003420F4 /* powerupweapon.png */,
 				0CD02CDC16646AD500A9EB9F /* healthbar.png */,
 				0CD02CE216646F2F00A9EB9F /* medal.png */,
 				0C0284731663624D00776E4B /* start-button.png */,
@@ -572,6 +597,17 @@
 		0CF5BD00165E11750070B404 /* animation */ = {
 			isa = PBXGroup;
 			children = (
+				0C8143AB170AAFA5003420F4 /* sh5.png */,
+				0C8143AC170AAFA5003420F4 /* sh1.png */,
+				0C8143AD170AAFA5003420F4 /* sh8.png */,
+				0C8143AE170AAFA5003420F4 /* sh7.png */,
+				0C8143AF170AAFA5003420F4 /* sh6.png */,
+				0C8143B0170AAFA5003420F4 /* sh4.png */,
+				0C8143B1170AAFA5003420F4 /* sh3.png */,
+				0C8143B2170AAFA5003420F4 /* sh2.png */,
+				0C8143B3170AAFA5003420F4 /* shield.gif */,
+				0C8143B4170AAFA5003420F4 /* sh10.png */,
+				0C8143B5170AAFA5003420F4 /* sh9.png */,
 				0C85D8D81709779F00AE2CC8 /* s1.png */,
 				0C85D8D91709779F00AE2CC8 /* s2.png */,
 				0C85D8DA1709779F00AE2CC8 /* s3.png */,
@@ -810,6 +846,18 @@
 				0C85D8E01709779F00AE2CC8 /* s4.png in Resources */,
 				0C85D8E11709779F00AE2CC8 /* s5.png in Resources */,
 				0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */,
+				0C81437C170A8D53003420F4 /* powerupweapon.png in Resources */,
+				0C8143B6170AAFA5003420F4 /* sh5.png in Resources */,
+				0C8143B7170AAFA5003420F4 /* sh1.png in Resources */,
+				0C8143B8170AAFA5003420F4 /* sh8.png in Resources */,
+				0C8143B9170AAFA5003420F4 /* sh7.png in Resources */,
+				0C8143BA170AAFA5003420F4 /* sh6.png in Resources */,
+				0C8143BB170AAFA5003420F4 /* sh4.png in Resources */,
+				0C8143BC170AAFA5003420F4 /* sh3.png in Resources */,
+				0C8143BD170AAFA5003420F4 /* sh2.png in Resources */,
+				0C8143BE170AAFA5003420F4 /* shield.gif in Resources */,
+				0C8143BF170AAFA5003420F4 /* sh10.png in Resources */,
+				0C8143C0170AAFA5003420F4 /* sh9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
