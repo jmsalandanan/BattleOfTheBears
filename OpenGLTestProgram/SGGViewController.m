@@ -131,8 +131,9 @@ static int firepower;
     
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0/30.0];
-    [[UIAccelerometer sharedAccelerometer] setDelegate:self]; [super viewDidLoad];    
-    GLKView *view = (GLKView *)self.view;
+    [[UIAccelerometer sharedAccelerometer] setDelegate:self]; [super viewDidLoad];
+    [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"gamebgm.mp3"];
+        GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     [EAGLContext setCurrentContext:self.context];
     self.effect = [[GLKBaseEffect alloc] init];
@@ -193,9 +194,9 @@ static int firepower;
     UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
     v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
     [wnd addSubview: v];
-        [view addSubview:specialButton];
+    [view addSubview:specialButton];
     [view addSubview:scoreLabel];
-        [view addSubview:multiplierLabel];
+    [view addSubview:multiplierLabel];
     [view addSubview:specialAmmoLabel];
     [view addSubview:healthLabel];
     [view addSubview:pauseButton];
@@ -270,10 +271,14 @@ static int firepower;
                      CGRectMake(185, -60, 0, 320)];
     
     NSArray * imageteleportArray  = [[NSArray alloc] initWithObjects:
-                                 [UIImage imageNamed:@"bomb1.png"],
-                                 [UIImage imageNamed:@"bomb2.png"],
-                                 [UIImage imageNamed:@"bomb3.png"],
-                                 [UIImage imageNamed:@"bomb4.png"],
+                                 [UIImage imageNamed:@"b1.png"],
+                                 [UIImage imageNamed:@"b2.png"],
+                                 [UIImage imageNamed:@"b3.png"],
+                                 [UIImage imageNamed:@"b4.png"],
+                                 [UIImage imageNamed:@"b5.png"],
+                                 [UIImage imageNamed:@"b6.png"],
+                                 [UIImage imageNamed:@"b7.png"],
+                                 [UIImage imageNamed:@"b8.png"],
                                  nil];
     teleportAnimation.animationImages = imageteleportArray;
     teleportAnimation.contentMode = UIViewContentModeBottomLeft;
@@ -300,6 +305,7 @@ static int firepower;
                                  [UIImage imageNamed:@"gun12.png"],
                                  [UIImage imageNamed:@"gun13.png"],
                                  [UIImage imageNamed:@"gun14.png"],
+
                                  nil];
     gunAnimation.animationImages = imageGunArray;
     gunAnimation.contentMode = UIViewContentModeBottomLeft;
@@ -329,6 +335,27 @@ static int firepower;
     [explodeAnimation setAnimationDuration:0.2];
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:explodeAnimation];
+    
+    //Shield Animation
+    shieldAnimation = [[UIImageView alloc]initWithFrame:CGRectMake(50,50,0,320)];
+    NSArray *shieldArray = [[NSArray alloc]initWithObjects:
+                            [UIImage imageNamed:@"sh1.png"],
+                            [UIImage imageNamed:@"sh2.png"],
+                            [UIImage imageNamed:@"sh3.png"],
+                            [UIImage imageNamed:@"sh4.png"],
+                            [UIImage imageNamed:@"sh5.png"],
+                            [UIImage imageNamed:@"sh6.png"],
+                            [UIImage imageNamed:@"sh7.png"],
+                            [UIImage imageNamed:@"sh8.png"],
+                            [UIImage imageNamed:@"sh9.png"],
+                            [UIImage imageNamed:@"sh10.png"],
+                            nil];
+    shieldAnimation.animationImages = shieldArray;
+    shieldAnimation.contentMode = UIViewContentModeBottomLeft;
+    [explodeAnimation setAnimationDuration:0.2];
+    explodeAnimation.animationRepeatCount = 1;
+    [self.view addSubview:shieldAnimation];
+
     //***********************************************
     playerHealth = 5;
     [self flashScreen];
@@ -344,7 +371,7 @@ static int firepower;
     GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
     if(!gunAnimation.isAnimating)
     {
-    [SoundLayer playSound:@"gunSound.wav"];
+    [SoundLayer playSound:@"playershoot1.mp3"];
         NSString *ammo = (firepower == 0? @"ammo1.png": (firepower % 2 == 0?@"ammo.png":@"ammo2.png"));
     ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:ammo effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
@@ -475,7 +502,7 @@ static int firepower;
 
 
 -(void)addBomb:(float )bombX : (float ) bombY {
-    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"panira3.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"panira1.png": @"bomb.png"));
+    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"panira1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"panira3.png": @"bomb.png"));
     ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
     alienBomb.position = GLKVector2Make(bombX, bombY);
@@ -486,7 +513,12 @@ static int firepower;
 
 -(void)addShield{
 
-    self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    //self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    //[self.view addSubview:shieldAnimation];
+    shieldAnimation.animationDuration = .3;
+    shieldAnimation.animationRepeatCount = 0;
+    [shieldAnimation setFrame:CGRectMake(self.player.position.x - 20, self.player.position.y, 0, 320)];
+    [shieldAnimation startAnimating];
 
 }
 -(void)addPowerup:(float )powerUpX : (float ) powerUpY {
@@ -595,6 +627,7 @@ for(ProtoSprite *boss in self.bossArr)
             if(attackCounter ==10)
             {
                 NSLog(@"Teleport!");
+                [SoundLayer playSound:@"Teleport2.mp3"];
                 int teleportRandCoordX = arc4random_uniform(320);
                 int teleportRandCoordY = arc4random_uniform(120);
                 boss.position = GLKVector2Make(teleportRandCoordX,teleportRandCoordY+150);
@@ -663,7 +696,7 @@ for(ProtoSprite *boss in self.bossArr)
     {
         if(alienBomb.position.y<=10)
         {
-            [SoundLayer playSound:@"shipDestroySound.wav"];
+            [SoundLayer playSound:@"bombground.mp3"];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(alienBomb.position.x-10, 0, 0, 320)];
             [shootAnimation startAnimating];
@@ -675,13 +708,13 @@ for(ProtoSprite *boss in self.bossArr)
     //check if bomb's coordinates collides w/player, reduces player health by 1 point
         if(CGRectIntersectsRect(alienBomb.boundingBox, self.player.boundingBox))
         {
-            [SoundLayer playSound:@"bombSound.wav"];
-            [SoundLayer playSound:@"playerDie.wav"];
+            [SoundLayer playSound:@"bearHit.mp3"];
+            [SoundLayer playSound:@"playerHit.mp3"];
             [self flashScreen];
             if(isShielded)
             {
             isShielded = false;
-            self.shield.position = GLKVector2Make(700,700);
+            [shieldAnimation stopAnimating];
             }
             else
             {
@@ -804,7 +837,7 @@ for(ProtoSprite *boss in self.bossArr)
     {
         if(target3.position.y<=10)
         {
-            [SoundLayer playSound:@"shipDestroySound.wav"];
+            [SoundLayer playSound:@"bombground.mp3"];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(target3.position.x-10, 0, 0, 320)];
             [shootAnimation startAnimating];
@@ -815,15 +848,17 @@ for(ProtoSprite *boss in self.bossArr)
         }
         if(CGRectIntersectsRect(target3.boundingBox, self.player.boundingBox))
         {
-            [SoundLayer playSound:@"bombSound.wav"];
-            [SoundLayer playSound:@"playerDie.wav"];
+            [SoundLayer playSound:@"bombground.mp3"];
+            [SoundLayer playSound:@"bearHit2.mp3"];
             [self flashScreen];
             
             if(!isShielded)
             playerHealth -=1;
             else
             {
+                //self.shield.position = GLKVector2Make(700,700);
                 isShielded = FALSE;
+                [shieldAnimation stopAnimating];
             }
 
             [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
@@ -851,7 +886,7 @@ for(ProtoSprite *boss in self.bossArr)
 
     }
 
-        //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
+    //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
     for(ProtoSprite *target4 in self.fastBomber)
     {
         if(target4.position.x<=self.player.position.x+80&&!target4.isAttacking)
@@ -900,10 +935,11 @@ for(ProtoSprite *boss in self.bossArr)
             x=target.position.x;
             y=-target.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, target.boundingBox)) {                
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 playerScore += (15*playerMultiplier);
+                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 NSLog(@"%d - Player Multiplier",playerMultiplier);
@@ -911,7 +947,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [explodeAnimation startAnimating];
                 [targetsToDelete addObject:target];
                 NSLog(@"at %f,%f",target.position.x,target.position.y);
-                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
+
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             }
         }
@@ -922,9 +958,10 @@ for(ProtoSprite *boss in self.bossArr)
             x=target2.position.x;
             y=-target2.position.y;            
             if (CGRectIntersectsRect(projectile.boundingBox, target2.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
+                [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
                  playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [explodeAnimation startAnimating];
@@ -932,7 +969,7 @@ for(ProtoSprite *boss in self.bossArr)
                 playerScore += (30 *playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
  
-                [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
+
                 [projectilesToDelete addObject:projectile];
                 [self.bomber removeObject:target2];
                 [self.children removeObject:target2];
@@ -946,7 +983,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=target3.position.x;
             y=-target3.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, target3.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];                
                 [explodeAnimation startAnimating];
@@ -955,8 +992,9 @@ for(ProtoSprite *boss in self.bossArr)
                 [self addBomb:target3.position.x + 50:target3.position.y];
                 playerScore += (50*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+                [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
                 playerMultiplier +=1;
-                    [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
+
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [projectilesToDelete addObject:projectile];
                 [self.suicideBomber removeObject:target3];
@@ -970,7 +1008,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=target4.position.x;
             y=-target4.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, target4.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 [self addPowerup:target4.position.x :target4.position.y];
@@ -995,7 +1033,7 @@ for(ProtoSprite *boss in self.bossArr)
             x=alienBomb.position.x;
             y=-alienBomb.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, alienBomb.boundingBox)) {
-                [SoundLayer playSound:@"shipDestroySound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 NSLog(@"Bomb Destroyed");
                 [self.view addSubview:bombAnimation];
                 [bombAnimation setAnimationRepeatCount:1];
@@ -1014,12 +1052,13 @@ for(ProtoSprite *boss in self.bossArr)
             x=boss.position.x;
             y=-boss.position.y;
             if (CGRectIntersectsRect(projectile.boundingBox, boss.boundingBox)) {
-                [SoundLayer playSound:@"bombSound.wav"];
+                [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
-                [projectilesToDelete addObject:projectile];
-                bossHealth--;
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                 [explodeAnimation startAnimating];
+                [projectilesToDelete addObject:projectile];
+                bossHealth--;
+ 
                 [self performSelector:@selector(explodeAnimationDone) withObject:nil afterDelay:0.3];
                 if(bossHealth<=0){
                     playerScore +=100;
@@ -1083,15 +1122,17 @@ for(ProtoSprite *boss in self.bossArr)
          }
         if(r>25&&r<60)
          {
-             [self addBomber];
+             //[self addBomber];
+                          [self addFastBomber];
          }
          if(r>40&&r<60)
          {
-        [self addSuicideBomber];
+             //[self addSuicideBomber];
+                          [self addFastBomber];
          }
         if(r>60)
         {
-            [self addFastBomber];
+             [self addFastBomber];
         }
      }
     }
@@ -1155,7 +1196,7 @@ for(ProtoSprite *boss in self.bossArr)
         GLKVector2 normalizedOffset = GLKVector2Normalize(offset);
         static float POINTS_PER_SECOND = 480;
         GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
-            [SoundLayer playSound:@"gunSound.wav"];
+            [SoundLayer playSound:@"playershoot1.mp3"];
             ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
             sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
             sprite.moveVelocity = moveVelocity;
@@ -1216,7 +1257,6 @@ for(ProtoSprite *boss in self.bossArr)
     
     [UIView animateWithDuration:1 animations:animationLabel completion:completionLabel];
     [UIView animateWithDuration:1 animations:animationLabel2 completion:completionLabel2];
-    //[labelText removeFromSuperview];
 }
 
 

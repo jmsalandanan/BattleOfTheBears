@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"menu.mp3"];
+    [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"Menu.mp3"];
     // Do any additional setup after loading the view from its nib.
 }
 

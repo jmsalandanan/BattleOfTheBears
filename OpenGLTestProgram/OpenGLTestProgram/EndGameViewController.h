@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EndGameViewController : UIViewController <UITextFieldDelegate>
+@interface EndGameViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *playerScore;
 //@property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (assign) int temp;
