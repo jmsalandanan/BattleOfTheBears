@@ -296,14 +296,14 @@ static int firepower;
                                  [UIImage imageNamed:@"gun3.png"],
                                  [UIImage imageNamed:@"gun4.png"],
                                  [UIImage imageNamed:@"gun5.png"],
-                                [UIImage imageNamed:@"gun6.png"],
-                                [UIImage imageNamed:@"gun7.png"],
-                                [UIImage imageNamed:@"gun8.png"],
+                                 [UIImage imageNamed:@"gun6.png"],
+                                 [UIImage imageNamed:@"gun7.png"],
+                                 [UIImage imageNamed:@"gun8.png"],
                                  [UIImage imageNamed:@"gun9.png"],
-                               [UIImage imageNamed:@"gun10.png"],
-                               [UIImage imageNamed:@"gun11.png"],
-                                  [UIImage imageNamed:@"gun12.png"],
-                                  [UIImage imageNamed:@"gun13.png"],
+                                 [UIImage imageNamed:@"gun10.png"],
+                                 [UIImage imageNamed:@"gun11.png"],
+                                 [UIImage imageNamed:@"gun12.png"],
+                                 [UIImage imageNamed:@"gun13.png"],
                                  [UIImage imageNamed:@"gun14.png"],
 
                                  nil];
@@ -859,7 +859,7 @@ for(ProtoSprite *boss in self.bossArr)
 
     }
 
-        //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
+    //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
     for(ProtoSprite *target4 in self.fastBomber)
     {
         if(target4.position.x<=self.player.position.x+80&&!target4.isAttacking)
