@@ -32,7 +32,7 @@ UITextField *message;
 {
     [super viewDidLoad];
 //    [nameField setDelegate:self];
-    [playerScore setText:[NSString stringWithFormat:@"%d",temp]];
+    [playerScore setText:[NSString stringWithFormat:@"Score: %d",temp]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int score = [defaults integerForKey:@"score"];
     if(score>temp)
@@ -131,7 +131,7 @@ UITextField *message;
     // Create strings and integer to store the text info
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [nameField text];
-    int score = [[playerScore text] integerValue];
+    int score = temp;
     [defaults setObject:name forKey:@"name"];
     [defaults setInteger:score forKey:@"score"];
     [defaults synchronize];
