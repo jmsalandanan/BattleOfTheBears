@@ -190,7 +190,7 @@
 		0C0CBBE91650C72200F32CDE /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		0C0CBBEA1650C72200F32CDE /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		0C0CBBEB1650C72200F32CDE /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		0C21FDBC164CA2F2006152B9 /* AlienInvasion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AlienInvasion.app; path = "Battle of the Bears.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C21FDBC164CA2F2006152B9 /* Battle of the Bears.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle of the Bears.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C21FDC0164CA2F2006152B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0C21FDC2164CA2F2006152B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0C21FDC4164CA2F2006152B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -406,7 +406,7 @@
 		0C21FDBD164CA2F2006152B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0C21FDBC164CA2F2006152B9 /* AlienInvasion.app */,
+				0C21FDBC164CA2F2006152B9 /* Battle of the Bears.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -644,7 +644,7 @@
 			);
 			name = AlienInvasion;
 			productName = OpenGLTestProgram;
-			productReference = 0C21FDBC164CA2F2006152B9 /* AlienInvasion.app */;
+			productReference = 0C21FDBC164CA2F2006152B9 /* Battle of the Bears.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
