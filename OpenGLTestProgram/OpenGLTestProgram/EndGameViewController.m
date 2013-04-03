@@ -31,28 +31,30 @@ UITextField *message;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [nameField setDelegate:self];
     [playerScore setText:[NSString stringWithFormat:@"%d",temp]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int score = [defaults integerForKey:@"score"];
     if(score>temp)
     {
-
+//        [message setText:@"Game Over!"];
         [nameField setAlpha:0];
-
+//        [message setAlpha:0];
     }
     else
     {
+//        [message setText:@"New High Score!!"];
         UIAlertView *highScore = [[UIAlertView alloc] initWithTitle:@"New High Score!" message:@"\n\n\n" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-<<<<<<< HEAD
+
         message = [[UITextField alloc] initWithFrame:CGRectMake(12, 60, 260, 25)];
         [message becomeFirstResponder];
         [message setBackgroundColor:[UIColor whiteColor]];
+//        highScore.transform = CGAffineTransformMakeTranslation(120.0f, 0.0f);
 
-=======
->>>>>>> parent of 3afd437... Merge pull request #4 from carmelatortoza/carmi
         highScore.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *message = [highScore textFieldAtIndex:0];
         [highScore textFieldAtIndex:0].delegate = self;
+
         [highScore addSubview:message];
         [message becomeFirstResponder];
         message.keyboardType = UIKeyboardTypeAlphabet;

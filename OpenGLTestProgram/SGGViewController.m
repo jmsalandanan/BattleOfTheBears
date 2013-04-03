@@ -144,8 +144,8 @@ static int firepower;
     self.children = [NSMutableArray array];
     scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(45,280,80,40)];
     healthLabel = [[UILabel alloc]initWithFrame:CGRectMake(450, 275, 40, 40)];
-    pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 230, 80, 40)];
-    specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 200, 80, 40)];
+    pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(435, 235, 39, 40)];
+    specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 195, 80, 40)];
     specialAmmoLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,200,40,40)];
     multiplierLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,150,40,40)];
     [pauseButton addTarget: self
@@ -155,10 +155,12 @@ static int firepower;
     playerMultiplier = 1;
     [scoreLabel setText:@"0"];
     [healthLabel setText:@"5"];
-    [multiplierLabel setText:@"1"];
+//    [multiplierLabel setText:@"1"];
     [specialAmmoLabel setText:@"0"];
-    [pauseButton setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
-    [specialButton setImage:[UIImage imageNamed:@"boss.gif"] forState:UIControlStateNormal];
+    [pauseButton setImage:[UIImage imageNamed:@"homebutton.png"] forState:UIControlStateNormal];
+    [pauseButton setImage:[UIImage imageNamed:@"homebuttonpressed.png"] forState:UIControlStateHighlighted];
+    [specialButton setImage:[UIImage imageNamed:@"specialammo.png"] forState:UIControlStateNormal];
+    [specialButton setEnabled:NO];
     
     self.backGround = [[ProtoSprite alloc] initWithFile:@"background.jpg" effect:self.effect];
     self.backGround.position = GLKVector2Make(0, 0);
@@ -176,15 +178,19 @@ static int firepower;
     
     [healthLabel setBackgroundColor:[UIColor clearColor]];
     [healthLabel setTextColor:[UIColor whiteColor]];
+    healthLabel.font = [UIFont fontWithName:@"Chalkduster" size:17.0];
     
     [multiplierLabel setBackgroundColor:[UIColor clearColor]];
     [multiplierLabel setTextColor:[UIColor whiteColor]];
+    multiplierLabel.font = [UIFont fontWithName:@"Chalkduster" size:17.0];
     
     [scoreLabel setBackgroundColor:[UIColor clearColor]];
     [scoreLabel setTextColor:[UIColor whiteColor]];
+    scoreLabel.font = [UIFont fontWithName:@"Chalkduster" size:17.0];
     
     [specialAmmoLabel setBackgroundColor:[UIColor clearColor]];
     [specialAmmoLabel setTextColor:[UIColor whiteColor]];
+    specialAmmoLabel.font = [UIFont fontWithName:@"Chalkduster" size:17.0];
     
     [self.children addObject:self.backGround];
     [self.children addObject:self.player];
@@ -336,7 +342,7 @@ static int firepower;
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:explodeAnimation];
     
-    //Shield Animation
+    /*Shield Animation
     shieldAnimation = [[UIImageView alloc]initWithFrame:CGRectMake(50,50,0,320)];
     NSArray *shieldArray = [[NSArray alloc]initWithObjects:
                             [UIImage imageNamed:@"sh1.png"],
@@ -355,7 +361,7 @@ static int firepower;
     [explodeAnimation setAnimationDuration:0.2];
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:shieldAnimation];
-
+*/
     //***********************************************
     playerHealth = 5;
     [self flashScreen];
@@ -513,12 +519,13 @@ static int firepower;
 
 -(void)addShield{
 
-    //self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
-    //[self.view addSubview:shieldAnimation];
+    self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    /*[self.view addSubview:shieldAnimation];
     shieldAnimation.animationDuration = .3;
     shieldAnimation.animationRepeatCount = 0;
     [shieldAnimation setFrame:CGRectMake(self.player.position.x - 20, self.player.position.y, 0, 320)];
     [shieldAnimation startAnimating];
+     */
 
 }
 -(void)addPowerup:(float )powerUpX : (float ) powerUpY {
@@ -735,6 +742,7 @@ for(ProtoSprite *boss in self.bossArr)
                 EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
                 endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                 //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
+                firepower = 0;
                 endGameViewController.temp = playerScore;
                 [self presentModalViewController:endGameViewController animated:YES];
             }
@@ -767,13 +775,15 @@ for(ProtoSprite *boss in self.bossArr)
             isShielded = TRUE;
             [self addShield];
             }
-            //dito
             if(powerUp.specialKey == @"ammo")
             {
               NSLog(@"Ammo picked up");
               playerSpecialAmmo+=1;
                 firepower++;
               [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
+                if(playerSpecialAmmo > 0) {
+                        [specialButton setEnabled:YES];
+                }
             }
             [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             [self.powerUps removeObject:powerUp];
@@ -922,7 +932,7 @@ for(ProtoSprite *boss in self.bossArr)
             {
                 NSLog(@"%f",projectile.position.y);
                 playerMultiplier = 1;
-                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
+                [multiplierLabel setText:(playerMultiplier == 1? [NSString stringWithFormat:@" "]: [NSString stringWithFormat:@"%d",playerMultiplier])];
                 [self.projectiles removeObject:projectile];
                 [self.children removeObject:projectile];
                 return;
@@ -1122,13 +1132,12 @@ for(ProtoSprite *boss in self.bossArr)
          }
         if(r>25&&r<60)
          {
-             //[self addBomber];
-                          [self addFastBomber];
+             [self addBomber];
+                   
          }
          if(r>40&&r<60)
          {
-             //[self addSuicideBomber];
-                          [self addFastBomber];
+             [self addSuicideBomber];
          }
         if(r>60)
         {
@@ -1164,7 +1173,8 @@ for(ProtoSprite *boss in self.bossArr)
     [self.children removeObject:gunAnimation];
 }
 - (void)viewDidUnload {
-    [self setScoreLabel:nil];    
+    [self setScoreLabel:nil];
+    firepower = 0;
     [super viewDidUnload];
 }
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
@@ -1215,6 +1225,9 @@ for(ProtoSprite *boss in self.bossArr)
         [self flashScreen];
         playerSpecialAmmo -=1;
         [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
+        if(playerSpecialAmmo == 0) {
+            [specialButton setEnabled:NO];
+        }
     }
     else
     {
@@ -1237,6 +1250,7 @@ for(ProtoSprite *boss in self.bossArr)
     // Create a blinking text
     UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake(coordinatex, coordinatey, 400, 50)];
     labelText.text = [NSString stringWithFormat:@"%d",val];
+    labelText.font = [UIFont fontWithName:@"Chalkduster" size:17.0];
     labelText.backgroundColor = [UIColor clearColor];
     labelText.textColor = [UIColor whiteColor];
     [self.view addSubview:labelText];
