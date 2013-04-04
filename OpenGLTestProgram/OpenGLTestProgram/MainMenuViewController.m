@@ -52,18 +52,21 @@
 
         SGGViewController *gameViewController = [[SGGViewController alloc]init];
         gameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentModalViewController:gameViewController animated:YES];    
+        //[self presentModalViewController:gameViewController animated:YES];
+        [self presentViewController:gameViewController animated:YES completion:nil];
 }
 
 - (IBAction)howToButtonPressed:(id)sender {
     HowToViewController *howToViewController = [[HowToViewController alloc]init];
     howToViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:howToViewController animated:YES];
+    //[self presentModalViewController:howToViewController animated:YES];
+    [self presentViewController:howToViewController animated:YES completion:nil];
 }
 
 - (IBAction)highScoreButtonPressed:(id)sender {
     HighScoreViewController *highScoreViewController = [[HighScoreViewController alloc]init];
     highScoreViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:highScoreViewController animated:YES];
+   // [self presentModalViewController:highScoreViewController animated:YES];
+    [self presentViewController:highScoreViewController animated:YES completion:nil];
 }
 @end

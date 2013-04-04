@@ -529,17 +529,17 @@ static int firepower;
 
     ProtoSprite * powerUp = [[ProtoSprite alloc] initWithFile:powerUpSprite effect:self.effect];
     
-        if(powerUpSprite == @"healthbar.png")
+        if([powerUpSprite isEqual:@"healthbar.png"])
         {
             powerUp.specialKey =@"health";
 
         }
-        if(powerUpSprite == @"shield.png")
+        if([powerUpSprite isEqual:@"shield.png" ])
         {
             powerUp.specialKey = @"shield";
 
         }
-        if(powerUpSprite == @"powerupweapon.png")
+        if([powerUpSprite isEqual:@"powerupweapon.png"])
         {
             powerUp.specialKey =@"ammo";
         }
@@ -735,7 +735,8 @@ for(ProtoSprite *boss in self.bossArr)
                     endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                     firepower = 0;
                     endGameViewController.temp = playerScore;
-                    [self presentModalViewController:endGameViewController animated:YES];
+                    //[self presentModalViewController:endGameViewController animated:YES];
+                    [self presentViewController:endGameViewController animated:YES completion:nil];
                 }
             break;
         }
@@ -751,13 +752,13 @@ for(ProtoSprite *boss in self.bossArr)
         if(CGRectIntersectsRect(powerUp.boundingBox, self.player.boundingBox))
         {
             [self flashScreen];
-            if(powerUp.specialKey == @"health")
+            if([powerUp.specialKey isEqual: @"health"])
             {
                 playerHealth +=1;
                 [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
             }
             
-            if(powerUp.specialKey == @"shield")
+            if([powerUp.specialKey isEqual: @"shield"])
             {
                 if(isShielded)
                 {
@@ -766,7 +767,7 @@ for(ProtoSprite *boss in self.bossArr)
                 isShielded = TRUE;
                 [self addShield];
             }
-            if(powerUp.specialKey == @"ammo")
+            if([powerUp.specialKey isEqual: @"ammo"])
             {
               NSLog(@"Ammo picked up");
               playerSpecialAmmo+=1;
@@ -870,7 +871,8 @@ for(ProtoSprite *boss in self.bossArr)
                 EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
                 endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                 endGameViewController.temp = playerScore;
-                [self presentModalViewController:endGameViewController animated:YES];
+                //[self presentModalViewController:endGameViewController animated:YES];
+                [self presentViewController:endGameViewController animated:YES completion:nil];
                 NSLog(@"Game Ends");
             }
             break;
@@ -938,7 +940,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [explodeAnimation startAnimating];
                 
                 playerScore += (15*playerMultiplier);
-                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
+                [self flashMultiplier:x+20 setCoordinateY:280-target.position.y setFlashScoreVal:(15*playerMultiplier)];
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
@@ -960,8 +962,7 @@ for(ProtoSprite *boss in self.bossArr)
                     [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
                     [explodeAnimation startAnimating];
 
-                    [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
-                    playerMultiplier +=1;
+                                [self flashMultiplier:x+20 setCoordinateY:280-target2.position.y setFlashScoreVal:(30*playerMultiplier)];                    playerMultiplier +=1;
                     playerScore += (30 *playerMultiplier);
                     [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                     [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
@@ -991,7 +992,7 @@ for(ProtoSprite *boss in self.bossArr)
                 
                 playerScore += (50*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
-                [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
+                [self flashMultiplier:x+20 setCoordinateY:280-target3.position.y setFlashScoreVal:(50*playerMultiplier)];
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
                 
@@ -1016,7 +1017,7 @@ for(ProtoSprite *boss in self.bossArr)
                 [self addPowerup:target4.position.x :target4.position.y];
                 
                 playerScore += (70*playerMultiplier);
-                [self flashMultiplier:x+20 :280 -target4.position.y :(70*playerMultiplier)];
+                [self flashMultiplier:x+20 setCoordinateY:280-target4.position.y setFlashScoreVal:(70*playerMultiplier)];
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
@@ -1075,7 +1076,8 @@ for(ProtoSprite *boss in self.bossArr)
                             EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
                             endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                             endGameViewController.temp = playerScore;
-                            [self presentModalViewController:endGameViewController animated:YES];
+                           // [self presentModalViewController:endGameViewController animated:YES];
+                            [self presentViewController:endGameViewController animated:YES completion:nil];
                         }
                     isBossStage =FALSE;
                     enemyCounter = 0;                    
@@ -1207,7 +1209,8 @@ for(ProtoSprite *boss in self.bossArr)
     NSLog(@"Button PResesed");
     MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:mainMenuViewController animated:YES];
+    //[self presentModalViewController:mainMenuViewController animated:YES];
+    [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
 
 -(void)specialButtonPressed: (id)sender
@@ -1258,7 +1261,7 @@ for(ProtoSprite *boss in self.bossArr)
     [UIView commitAnimations];
 }
 
--(void) flashMultiplier:(float)coordinatex:(float)coordinatey:(int)val
+-(void) flashMultiplier:(float)coordinatex setCoordinateY:(float)coordinatey  setFlashScoreVal:(int)val
 {
     // Create a blinking text
     UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake(coordinatex, coordinatey, 400, 50)];

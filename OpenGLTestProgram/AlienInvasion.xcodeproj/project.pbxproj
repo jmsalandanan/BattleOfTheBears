@@ -86,6 +86,7 @@
 		0CD02CDD16646AD500A9EB9F /* healthbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CDC16646AD500A9EB9F /* healthbar.png */; };
 		0CD02CE81664711B00A9EB9F /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD02CE61664711B00A9EB9F /* HowToViewController.m */; };
 		0CD02CE91664711B00A9EB9F /* HowToViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02CE71664711B00A9EB9F /* HowToViewController.xib */; };
+		0CE84F78170C2C7700918E42 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE84F77170C2C7700918E42 /* Default-568h@2x.png */; };
 		0CF5BD0F165E118B0070B404 /* gun1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD01165E118B0070B404 /* gun1.png */; };
 		0CF5BD10165E118B0070B404 /* gun2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD02165E118B0070B404 /* gun2.png */; };
 		0CF5BD11165E118B0070B404 /* gun3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD03165E118B0070B404 /* gun3.png */; };
@@ -255,6 +256,7 @@
 		0CD02CE51664711B00A9EB9F /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
 		0CD02CE61664711B00A9EB9F /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
 		0CD02CE71664711B00A9EB9F /* HowToViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToViewController.xib; sourceTree = "<group>"; };
+		0CE84F77170C2C7700918E42 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0CF5BD01165E118B0070B404 /* gun1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun1.png; sourceTree = "<group>"; };
 		0CF5BD02165E118B0070B404 /* gun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun2.png; sourceTree = "<group>"; };
 		0CF5BD03165E118B0070B404 /* gun3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun3.png; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 		0C21FDB1164CA2F2006152B9 = {
 			isa = PBXGroup;
 			children = (
+				0CE84F77170C2C7700918E42 /* Default-568h@2x.png */,
 				0C21FDBF164CA2F2006152B9 /* Frameworks */,
 				0C21FDBD164CA2F2006152B9 /* Products */,
 				0C21FDC6164CA2F2006152B9 /* PrototypeApp */,
@@ -654,7 +657,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Exer;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Jose Mari Salandanan";
 			};
 			buildConfigurationList = 0C21FDB6164CA2F2006152B9 /* Build configuration list for PBXProject "AlienInvasion" */;
@@ -804,6 +807,7 @@
 				0C0775D5170BC7DB00C1EE50 /* appIcon.png in Resources */,
 				0C0775D6170BC7DB00C1EE50 /* appIconRetina.png in Resources */,
 				0C0775D7170BC7DB00C1EE50 /* background.jpg in Resources */,
+				0CE84F78170C2C7700918E42 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +856,9 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rio Ohmori (GU37ZJ94M4)";
 				COPY_PHASE_STRIP = NO;
@@ -869,7 +876,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "749EF362-0C1B-4F29-907E-9DA8FA360AC8";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 			};
 			name = Debug;
 		};
@@ -880,6 +887,9 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rio Ohmori (GU37ZJ94M4)";
 				COPY_PHASE_STRIP = YES;
@@ -891,7 +901,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "749EF362-0C1B-4F29-907E-9DA8FA360AC8";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -903,6 +913,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenGLTestProgram/AlienInvasion-Prefix.pch";
 				INFOPLIST_FILE = "OpenGLTestProgram/AlienInvasion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "Battle of the Bears";
 				WRAPPER_EXTENSION = app;
 			};
@@ -915,6 +926,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenGLTestProgram/AlienInvasion-Prefix.pch";
 				INFOPLIST_FILE = "OpenGLTestProgram/AlienInvasion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "Battle of the Bears";
 				WRAPPER_EXTENSION = app;
 			};

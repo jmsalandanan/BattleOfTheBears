@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SGGViewController.m"
-         timestampString = "386650734.542421"
+         timestampString = "386730376.335757"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1235"
-         endingLineNumber = "1235"
+         startingLineNumber = "1238"
+         endingLineNumber = "1238"
          landmarkName = "-specialButtonPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -157,6 +157,19 @@
          startingLineNumber = "42"
          endingLineNumber = "42"
          landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SGGViewController.m"
+         timestampString = "386730376.335757"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1264"
+         endingLineNumber = "1264"
+         landmarkName = "-flashMultiplier:::"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
