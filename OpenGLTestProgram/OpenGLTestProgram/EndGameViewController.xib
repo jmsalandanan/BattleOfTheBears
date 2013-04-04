@@ -109,15 +109,15 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="121107913">
+						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="814807559">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">buttonpressed_endgameview.png</string>
 						</object>
-						<object class="NSCustomResource" key="IBUISelectedBackgroundImage" id="563387826">
+						<object class="NSCustomResource" key="IBUISelectedBackgroundImage" id="338645257">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">buttonpressed.png</string>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="814379085">
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="899982456">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">button_endgameview.png</string>
 						</object>
@@ -154,9 +154,9 @@
 							<bytes key="NSRGB">MC4yNzc1Nzk4OTUzIDAuNzM3MzY0NDc3IDAuMjczMjg4MzExOAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="194190817"/>
-						<reference key="IBUIHighlightedBackgroundImage" ref="121107913"/>
-						<reference key="IBUISelectedBackgroundImage" ref="563387826"/>
-						<reference key="IBUINormalBackgroundImage" ref="814379085"/>
+						<reference key="IBUIHighlightedBackgroundImage" ref="814807559"/>
+						<reference key="IBUISelectedBackgroundImage" ref="338645257"/>
+						<reference key="IBUINormalBackgroundImage" ref="899982456"/>
 						<reference key="IBUIFontDescription" ref="768974067"/>
 						<reference key="IBUIFont" ref="332270064"/>
 					</object>
@@ -345,10 +345,10 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="bg_endgameview.png">{480, 320}</string>
-			<string key="button_endgameview.png">{98, 31}</string>
+			<string key="bg_endgameview.png">{16, 16}</string>
+			<string key="button_endgameview.png">{16, 16}</string>
 			<string key="buttonpressed.png">{98, 31}</string>
-			<string key="buttonpressed_endgameview.png">{98, 31}</string>
+			<string key="buttonpressed_endgameview.png">{16, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
