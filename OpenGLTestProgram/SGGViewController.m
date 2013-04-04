@@ -197,6 +197,13 @@ static int firepower;
     [self.children addObject:self.shield];
     [self.children addObject:self.playerHealthBar];
     [self.children addObject:self.playerScoreBar];
+   
+    //Resized images
+    self.player.contentSize = CGSizeMake(self.player.contentSize.width/2, self.player.contentSize.height/2);
+    self.shield.contentSize = CGSizeMake(self.shield.contentSize.width/2, self.shield.contentSize.height/2);
+    self.playerScoreBar.contentSize = CGSizeMake(self.playerScoreBar.contentSize.width/2, self.playerScoreBar.contentSize.height/2);
+    self.backGround.contentSize = CGSizeMake(self.backGround.contentSize.width/2, self.backGround.contentSize.height/2);
+    
     UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
     v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
     [wnd addSubview: v];
@@ -251,6 +258,8 @@ static int firepower;
     //shield
     shieldAnimation = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"powerup_shield.png"]];
     
+    //Resized image
+
     //**********
     
     //***********************************************
@@ -380,6 +389,8 @@ static int firepower;
     [SoundLayer playSound:@"playershoot1.mp3"];
         NSString *ammo = (firepower == 0? @"weapon_playerammo1.png": (firepower % 2 == 0?@"weapon_playerammo3.png":@"weapon_playerammo2.png"));
     ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:ammo effect:self.effect];
+        //Resized image
+        sprite.contentSize = CGSizeMake(sprite.contentSize.width/2, sprite.contentSize.height/2);
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
     sprite.moveVelocity = moveVelocity;
     [self.children addObject:sprite];
@@ -409,6 +420,8 @@ static int firepower;
 //addTarget function creates instances of enemy.
 - (void)addTarget{
         ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"enemy_polarbear.png" effect:self.effect];
+    //Resized image
+    target.contentSize = CGSizeMake(target.contentSize.width/2, target.contentSize.height/2);
         target.isAttacking = FALSE;
         [self.children addObject:target];
         BOOL originRand = arc4random_uniform(2);
@@ -440,6 +453,8 @@ static int firepower;
 
 -(void)addBomber{
         ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"enemy_teddybear.png" effect:self.effect];
+    //Resized image
+    target2.contentSize = CGSizeMake(target2.contentSize.width/2, target2.contentSize.height/2);
         [self.children addObject:target2];
         BOOL originRand = arc4random_uniform(2);    
         int rangeY2 = 110;
@@ -461,6 +476,8 @@ static int firepower;
 //Code for spawning suicide panda
 -(void)addSuicideBomber{
     ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"enemy_suicidepanda.png" effect:self.effect];
+    //Resized image
+    target3.contentSize = CGSizeMake(target3.contentSize.width/2, target3.contentSize.height/2);
     [self.children addObject:target3];    
     int rangeY3 = arc4random_uniform(320);
     target3.position = GLKVector2Make(rangeY3, 320);
@@ -471,6 +488,8 @@ static int firepower;
 //Code for spawning fast bomber
 -(void)addFastBomber{
     ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"enemy_hybridbear.png" effect:self.effect];
+    //Resized image
+    target4.contentSize = CGSizeMake(target4.contentSize.width/2, target4.contentSize.height/2);
     [self.children addObject:target4];
     BOOL originRand = arc4random_uniform(2);    
     int rangeY2 = 110;
@@ -493,6 +512,8 @@ static int firepower;
 -(void)addBomb:(float )bombX : (float ) bombY {
     NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"weapon_boss1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"weapon_boss2.png": @"weapon_enemybomb.png"));
     ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
+    //Resized image
+    alienBomb.contentSize = CGSizeMake(alienBomb.contentSize.width/2, alienBomb.contentSize.height/2);
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
     alienBomb.position = GLKVector2Make(bombX, bombY);
     [SoundLayer playSound:@"bombDrop.wav"];
@@ -543,7 +564,8 @@ static int firepower;
         {
             powerUp.specialKey =@"ammo";
         }
-    
+    //Resized image
+    powerUp.contentSize = CGSizeMake(powerUp.contentSize.width/2, powerUp.contentSize.height/2);
         powerUp.moveVelocity = GLKVector2Make(0, -50);
         powerUp.position = GLKVector2Make(powerUpX, powerUpY);
         [SoundLayer playSound:@"bombDrop.wav"];
@@ -575,6 +597,8 @@ static int firepower;
             }
             
             ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
+            //Resized image
+            boss.contentSize = CGSizeMake(boss.contentSize.width/2, boss.contentSize.height/2);
             [self.children addObject:boss];
             [self.bossArr addObject:boss];
             boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
@@ -663,6 +687,8 @@ for(ProtoSprite *boss in self.bossArr)
 //3rd Boss Suicide panda spawning
 -(void)addBossSuicideBomber:(float )originX : (float ) originY{
     ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"enemy_suicidepanda.png" effect:self.effect];
+    //Resized image
+    target3.contentSize = CGSizeMake(target3.contentSize.width/2, target3.contentSize.height/2);
     [self.children addObject:target3];
     target3.position = GLKVector2Make(originX, originY);
     target3.moveVelocity = GLKVector2Make(0,-60);

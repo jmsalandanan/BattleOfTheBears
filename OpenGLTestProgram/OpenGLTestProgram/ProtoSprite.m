@@ -60,9 +60,9 @@ typedef struct {
         // TODO: Set up Textured Quad
         TexturedQuad newQuad;
         newQuad.bl.geometryVertex = CGPointMake(0, 0);
-        newQuad.br.geometryVertex = CGPointMake(self.textureInfo.width, 0);
-        newQuad.tl.geometryVertex = CGPointMake(0, self.textureInfo.height);
-        newQuad.tr.geometryVertex = CGPointMake(self.textureInfo.width, self.textureInfo.height);
+        newQuad.br.geometryVertex = CGPointMake(self.textureInfo.width/2, 0);
+        newQuad.tl.geometryVertex = CGPointMake(0, self.textureInfo.height/2);
+        newQuad.tr.geometryVertex = CGPointMake(self.textureInfo.width/2, self.textureInfo.height/2);
         
         newQuad.bl.textureVertex = CGPointMake(0, 0);
         newQuad.br.textureVertex = CGPointMake(1, 0);
