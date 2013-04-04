@@ -53,10 +53,43 @@
 							<string key="NSResourceName">gameoverscreen.png</string>
 						</object>
 					</object>
+					<object class="IBUILabel" id="635870212">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{158, 161}, {78, 21}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="413835234"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBUIText">Score: </string>
+						<object class="NSColor" key="IBUITextColor" id="1025830934">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<float key="IBUIMinimumFontSize">15</float>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="59093181">
+							<string key="name">Chalkduster</string>
+							<string key="family">Chalkduster</string>
+							<int key="traits">0</int>
+							<double key="pointSize">20</double>
+						</object>
+						<object class="NSFont" key="IBUIFont" id="420332331">
+							<string key="NSName">Chalkduster</string>
+							<double key="NSSize">20</double>
+							<int key="NSfFlags">16</int>
+						</object>
+					</object>
 					<object class="IBUILabel" id="413835234">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{78, 168}, {325, 21}}</string>
+						<string key="NSFrame">{{244, 161}, {110, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="658065603"/>
@@ -67,25 +100,12 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Label</string>
-						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-						</object>
+						<reference key="IBUITextColor" ref="1025830934"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<float key="IBUIMinimumFontSize">15</float>
-						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<string key="name">Chalkduster</string>
-							<string key="family">Chalkduster</string>
-							<int key="traits">0</int>
-							<double key="pointSize">20</double>
-						</object>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Chalkduster</string>
-							<double key="NSSize">20</double>
-							<int key="NSfFlags">16</int>
-						</object>
+						<reference key="IBUIFontDescription" ref="59093181"/>
+						<reference key="IBUIFont" ref="420332331"/>
 					</object>
 					<object class="IBUIButton" id="658065603">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -163,17 +183,17 @@
 					<object class="IBUILabel" id="763348251">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{158, 139}, {164, 21}}</string>
+						<string key="NSFrame">{{158, 132}, {164, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="635870212"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText"/>
+						<string key="IBUIText">Name:</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -279,6 +299,7 @@
 							<reference ref="222780869"/>
 							<reference ref="424889298"/>
 							<reference ref="763348251"/>
+							<reference ref="635870212"/>
 							<reference ref="658065603"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -297,6 +318,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
 						<reference key="object" ref="424889298"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">6</int>
+						<reference key="object" ref="635870212"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -329,6 +355,7 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="8.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>

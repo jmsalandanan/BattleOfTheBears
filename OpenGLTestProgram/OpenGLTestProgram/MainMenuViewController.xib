@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
+		<int key="IBDocument.SystemTarget">1296</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
@@ -41,13 +41,14 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{-15, -7}, {511, 329}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="497726663"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">bg_mainmenuview.png</string>
+							<string key="NSResourceName">mainbg.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="497726663">
@@ -55,6 +56,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{331, 93.5}, {118, 63}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="275607916"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -75,11 +77,11 @@
 						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">buttonpressed_play.png</string>
+							<string key="NSResourceName">playbuttonpressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">button_play.png</string>
+							<string key="NSResourceName">playbutton.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="768651709">
 							<int key="type">2</int>
@@ -96,6 +98,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{330, 182}, {120, 43}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="385551818"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -110,11 +113,11 @@
 						<reference key="IBUINormalTitleShadowColor" ref="191348999"/>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">buttonpressed_howto.png</string>
+							<string key="NSResourceName">howtobuttonpressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">button_howto.png</string>
+							<string key="NSResourceName">howtobutton.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="768651709"/>
 						<reference key="IBUIFont" ref="614828183"/>
@@ -124,7 +127,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{330, 242}, {120, 45}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -138,11 +141,11 @@
 						<reference key="IBUINormalTitleShadowColor" ref="191348999"/>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">buttonpressed_score.png</string>
+							<string key="NSResourceName">scoresbuttonpressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">button_score.png</string>
+							<string key="NSResourceName">scoresbutton.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="768651709"/>
 						<reference key="IBUIFont" ref="614828183"/>
@@ -150,6 +153,7 @@
 				</array>
 				<string key="NSFrameSize">{480, 300}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="43774954"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -263,11 +267,11 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="1" key="4.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="1" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="7.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="7.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -275,19 +279,53 @@
 			<nil key="sourceID"/>
 			<int key="maxID">19</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">MainMenuViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="highScoreButtonPressed:">id</string>
+						<string key="howToButtonPressed:">id</string>
+						<string key="startGameButtonPressed:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="highScoreButtonPressed:">
+							<string key="name">highScoreButtonPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="howToButtonPressed:">
+							<string key="name">howToButtonPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="startGameButtonPressed:">
+							<string key="name">startGameButtonPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MainMenuViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1296" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="bg_mainmenuview.png">{480, 320}</string>
-			<string key="button_howto.png">{120, 43}</string>
-			<string key="button_play.png">{120, 63}</string>
-			<string key="button_score.png">{120, 45}</string>
-			<string key="buttonpressed_howto.png">{120, 43}</string>
-			<string key="buttonpressed_play.png">{120, 63}</string>
-			<string key="buttonpressed_score.png">{120, 45}</string>
+			<string key="howtobutton.png">{120, 43}</string>
+			<string key="howtobuttonpressed.png">{120, 43}</string>
+			<string key="mainbg.png">{480, 320}</string>
+			<string key="playbutton.png">{120, 63}</string>
+			<string key="playbuttonpressed.png">{120, 63}</string>
+			<string key="scoresbutton.png">{120, 45}</string>
+			<string key="scoresbuttonpressed.png">{120, 45}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>

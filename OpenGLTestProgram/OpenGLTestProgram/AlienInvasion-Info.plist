@@ -16,12 +16,11 @@
 			<array>
 				<string>appIcon.png</string>
 				<string>appIconRetina.png</string>
-				<string>appIcon2x.png</string>
 			</array>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.cyscorpions.trainingtest2</string>
+	<string>com.cyscorpions.trainingtest</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -34,8 +33,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
