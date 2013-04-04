@@ -85,6 +85,12 @@
 		0CE73C4E170D2E8600DCD54C /* weapon_playerammo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE73C4B170D2E8500DCD54C /* weapon_playerammo1.png */; };
 		0CE73C4F170D2E8600DCD54C /* weapon_playerammo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE73C4C170D2E8500DCD54C /* weapon_playerammo2.png */; };
 		0CE73C50170D2E8600DCD54C /* weapon_playerammo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE73C4D170D2E8500DCD54C /* weapon_playerammo3.png */; };
+		0CE73C53170D57D300DCD54C /* Bomb.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE73C52170D57D300DCD54C /* Bomb.m */; };
+		0CE73C56170D664700DCD54C /* SuicideBomber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE73C55170D664700DCD54C /* SuicideBomber.m */; };
+		0CE73C59170D68B600DCD54C /* FastBomber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE73C58170D68B600DCD54C /* FastBomber.m */; };
+		0CE73C5C170D69D400DCD54C /* NormalEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE73C5B170D69D400DCD54C /* NormalEnemy.m */; };
+		0CE73C5F170D6C1000DCD54C /* Powerup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE73C5E170D6C1000DCD54C /* Powerup.m */; };
+		0CE73C62170D6F9600DCD54C /* Boss.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE73C61170D6F9500DCD54C /* Boss.m */; };
 		0CF5BD0F165E118B0070B404 /* gun1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD01165E118B0070B404 /* gun1.png */; };
 		0CF5BD10165E118B0070B404 /* gun2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD02165E118B0070B404 /* gun2.png */; };
 		0CF5BD11165E118B0070B404 /* gun3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5BD03165E118B0070B404 /* gun3.png */; };
@@ -263,6 +269,18 @@
 		0CE73C4B170D2E8500DCD54C /* weapon_playerammo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_playerammo1.png; sourceTree = "<group>"; };
 		0CE73C4C170D2E8500DCD54C /* weapon_playerammo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_playerammo2.png; sourceTree = "<group>"; };
 		0CE73C4D170D2E8500DCD54C /* weapon_playerammo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_playerammo3.png; sourceTree = "<group>"; };
+		0CE73C51170D57D300DCD54C /* Bomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bomb.h; sourceTree = "<group>"; };
+		0CE73C52170D57D300DCD54C /* Bomb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bomb.m; sourceTree = "<group>"; };
+		0CE73C54170D664700DCD54C /* SuicideBomber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuicideBomber.h; sourceTree = "<group>"; };
+		0CE73C55170D664700DCD54C /* SuicideBomber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuicideBomber.m; sourceTree = "<group>"; };
+		0CE73C57170D68B500DCD54C /* FastBomber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastBomber.h; sourceTree = "<group>"; };
+		0CE73C58170D68B600DCD54C /* FastBomber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastBomber.m; sourceTree = "<group>"; };
+		0CE73C5A170D69D400DCD54C /* NormalEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalEnemy.h; sourceTree = "<group>"; };
+		0CE73C5B170D69D400DCD54C /* NormalEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalEnemy.m; sourceTree = "<group>"; };
+		0CE73C5D170D6C1000DCD54C /* Powerup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Powerup.h; sourceTree = "<group>"; };
+		0CE73C5E170D6C1000DCD54C /* Powerup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Powerup.m; sourceTree = "<group>"; };
+		0CE73C60170D6F9500DCD54C /* Boss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss.h; sourceTree = "<group>"; };
+		0CE73C61170D6F9500DCD54C /* Boss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boss.m; sourceTree = "<group>"; };
 		0CF5BD01165E118B0070B404 /* gun1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun1.png; sourceTree = "<group>"; };
 		0CF5BD02165E118B0070B404 /* gun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun2.png; sourceTree = "<group>"; };
 		0CF5BD03165E118B0070B404 /* gun3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun3.png; sourceTree = "<group>"; };
@@ -547,13 +565,25 @@
 			children = (
 				0C21FDE6164CA99F006152B9 /* SGGViewController.h */,
 				0C21FDE7164CA99F006152B9 /* SGGViewController.m */,
+				0CE73C60170D6F9500DCD54C /* Boss.h */,
+				0CE73C61170D6F9500DCD54C /* Boss.m */,
+				0CE73C5D170D6C1000DCD54C /* Powerup.h */,
+				0CE73C5E170D6C1000DCD54C /* Powerup.m */,
 				0C76C5561663447500C548BC /* GameViewController.xib */,
 				0C01EA78165F1B7E00ED872E /* Bomber.h */,
 				0C01EA79165F1B7E00ED872E /* Bomber.m */,
+				0CE73C51170D57D300DCD54C /* Bomb.h */,
+				0CE73C52170D57D300DCD54C /* Bomb.m */,
 				0C21FDF8164CAC27006152B9 /* ProtoSprite.h */,
 				0C21FDF9164CAC27006152B9 /* ProtoSprite.m */,
 				0C010F2F166308CC0063670B /* SoundLayer.h */,
 				0C010F30166308CC0063670B /* SoundLayer.m */,
+				0CE73C54170D664700DCD54C /* SuicideBomber.h */,
+				0CE73C55170D664700DCD54C /* SuicideBomber.m */,
+				0CE73C57170D68B500DCD54C /* FastBomber.h */,
+				0CE73C58170D68B600DCD54C /* FastBomber.m */,
+				0CE73C5A170D69D400DCD54C /* NormalEnemy.h */,
+				0CE73C5B170D69D400DCD54C /* NormalEnemy.m */,
 			);
 			name = "Game View";
 			sourceTree = "<group>";
@@ -873,6 +903,12 @@
 				0C76C55B1663517F00C548BC /* EndGameViewController.m in Sources */,
 				0CD02CD416645CDA00A9EB9F /* HighScoreViewController.m in Sources */,
 				0CD02CE81664711B00A9EB9F /* HowToViewController.m in Sources */,
+				0CE73C53170D57D300DCD54C /* Bomb.m in Sources */,
+				0CE73C56170D664700DCD54C /* SuicideBomber.m in Sources */,
+				0CE73C59170D68B600DCD54C /* FastBomber.m in Sources */,
+				0CE73C5C170D69D400DCD54C /* NormalEnemy.m in Sources */,
+				0CE73C5F170D6C1000DCD54C /* Powerup.m in Sources */,
+				0CE73C62170D6F9600DCD54C /* Boss.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,11 +35,15 @@ typedef struct {
 @synthesize isAttacking;
 @synthesize fromOrigin;
 @synthesize specialKey;
+@synthesize rotation = _rotation;
+@synthesize scale = _scale;
+
 
 - (id)initWithFile:(NSString *)fileName effect:(GLKBaseEffect *)effect {
     if ((self = [super init])) {
         // 1
         self.effect = effect;
+        self.scale = 0.2;
         
         // 2
         NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -60,9 +64,9 @@ typedef struct {
         // TODO: Set up Textured Quad
         TexturedQuad newQuad;
         newQuad.bl.geometryVertex = CGPointMake(0, 0);
-        newQuad.br.geometryVertex = CGPointMake(self.textureInfo.width, 0);
-        newQuad.tl.geometryVertex = CGPointMake(0, self.textureInfo.height);
-        newQuad.tr.geometryVertex = CGPointMake(self.textureInfo.width, self.textureInfo.height);
+        newQuad.br.geometryVertex = CGPointMake(self.textureInfo.width/2, 0);
+        newQuad.tl.geometryVertex = CGPointMake(0, self.textureInfo.height/2);
+        newQuad.tr.geometryVertex = CGPointMake(self.textureInfo.width/2, self.textureInfo.height/2);
         
         newQuad.bl.textureVertex = CGPointMake(0, 0);
         newQuad.br.textureVertex = CGPointMake(1, 0);
@@ -111,6 +115,20 @@ typedef struct {
     CGRect rect = CGRectMake(self.position.x, self.position.y, self.contentSize.width, self.contentSize.height);
     return rect;
 }
+- (GLKMatrix4) modelMatrix:(BOOL)renderingSelf {
+    
+    GLKMatrix4 modelMatrix = GLKMatrix4Identity;
+    modelMatrix = GLKMatrix4Translate(modelMatrix, self.position.x, self.position.y, 0);
+    if (renderingSelf) {
+        modelMatrix = GLKMatrix4Translate(modelMatrix, -self.contentSize.width/4, -self.contentSize.height/4, 0);
+    }
+    modelMatrix = GLKMatrix4Scale(modelMatrix, self.scale, self.scale, 0);
+    
+
+    return modelMatrix;
+    
+}
+
 
 
 

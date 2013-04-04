@@ -21,6 +21,8 @@
 @property (assign) BOOL fromOrigin;
 @property (strong) GLKBaseEffect * effect;
 @property (assign) NSString * specialKey;
+@property (assign) float rotation;
+@property (assign) float scale;
 
 @property (strong) GLKTextureInfo * textureInfo;
 

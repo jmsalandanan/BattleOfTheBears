@@ -16,61 +16,6 @@
 
 @interface SGGViewController ()
 
-@property (strong, nonatomic) EAGLContext *context;
-@property (strong) GLKBaseEffect * effect;
-
-@property (strong) ProtoSprite * player;
-@property (strong) ProtoSprite * backGround;
-@property (strong) ProtoSprite * playerHealthBar;
-@property (strong) ProtoSprite * playerScoreBar;
-@property (strong) ProtoSprite * shield;
-
-@property (assign) float timeSinceLastSpawn;
-@property (assign) float x;
-@property (assign) float y;
-
-@property (strong) NSMutableArray * children;
-@property (strong) NSMutableArray *projectiles;
-@property (strong) NSMutableArray *targets;
-@property (strong) NSMutableArray *bomber;
-@property (strong) NSMutableArray *suicideBomber;
-@property (strong) NSMutableArray *fastBomber;
-@property (strong) NSMutableArray *bomb;
-@property (strong) NSMutableArray *bossArr;
-@property (strong) NSMutableArray *powerUps;
-
-@property (assign) int playerScore;
-@property (assign) int playerHealth;
-@property (assign) int playerSpecialAmmo;
-@property (assign) int enemyCounter;
-@property (assign) int  bossHealth;
-@property (assign) int actualVelocity;
-@property (assign) int maxVelocity;
-@property (assign) int minVelocity;
-@property (assign) int rangeVelocity;
-@property (assign) int levelCount;
-@property (assign) int playerMultiplier;
-
-@property (strong)UILabel *scoreLabel;
-@property (strong)UILabel *healthLabel;
-@property (strong)UILabel *specialAmmoLabel;
-@property (strong)UIButton *pauseButton;
-@property (strong)UIButton *specialButton;
-@property (strong)UILabel *multiplierLabel;
-@property (strong)UILabel *scoreValLabel;
-
-@property (assign) BOOL isBossStage;
-@property (assign) BOOL isPaused;
-@property (assign) BOOL isShielded;
-
-@property (strong)UIImageView *shootAnimation;
-@property (strong)UIImageView *explodeAnimation;
-@property (strong)UIImageView *gunAnimation;
-@property (strong)UIImageView *bombAnimation;
-@property (strong)UIImageView *teleportAnimation;
-@property (strong)UIImageView *shieldAnimation;
-@property (strong)UIView *v;
-
 @end
 
 @implementation SGGViewController
@@ -109,11 +54,12 @@
 @synthesize isPaused;
 @synthesize v;
 @synthesize specialButton;
+@synthesize isShielded;
 
-    static NSString * enemyType;
+static NSString * enemyType;
 static int firepower;
 
-@synthesize isShielded;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -132,7 +78,7 @@ static int firepower;
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0/30.0];
     [[UIAccelerometer sharedAccelerometer] setDelegate:self]; [super viewDidLoad];
     [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"gamebgm.mp3"];
-        GLKView *view = (GLKView *)self.view;
+    GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     [EAGLContext setCurrentContext:self.context];
     self.effect = [[GLKBaseEffect alloc] init];
@@ -165,6 +111,7 @@ static int firepower;
     self.backGround.position = GLKVector2Make(0, 0);
     
     self.player = [[ProtoSprite alloc] initWithFile:@"player_koala.png" effect:self.effect];
+    self.player.scale = 50;
     self.player.position = GLKVector2Make(190, 0);
 
     self.shield = [[ProtoSprite alloc]initWithFile:@"powerup_shield.png" effect:self.effect];
@@ -383,7 +330,7 @@ static int firepower;
     sprite.moveVelocity = moveVelocity;
     [self.children addObject:sprite];
     [self.projectiles addObject:sprite];
-    gunAnimation.animationRepeatCount = repeatAnimationOnce;
+    gunAnimation.animationRepeatCount = 0.5;
     [gunAnimation setFrame:CGRectMake(self.player.position.x-10, -60, default_Width, default_Height)];
     [gunAnimation startAnimating];
     [self performSelector:@selector(gunAnimationDone) withObject:nil afterDelay:0.5];
@@ -407,96 +354,44 @@ static int firepower;
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
-        ProtoSprite * normalEnemyPolarBear = [[ProtoSprite alloc] initWithFile:@"enemy_polarbear.png" effect:self.effect];
-        normalEnemyPolarBear.isAttacking = FALSE;
+        NormalEnemy * normalEnemyPolarBear = [[NormalEnemy alloc] initWithFile:@"enemy_polarbear.png" effect:self.effect];
+        [normalEnemyPolarBear spawnNormalEnemy];
         [self.children addObject:normalEnemyPolarBear];
-        BOOL originRand = arc4random_uniform(2);
-        int minY = 200;
-        int maxY = 280;
-        int rangeY = maxY - minY;
-        int actualY = (arc4random() % rangeY) + minY;
-        minVelocity = 480.0/4.0;
-        maxVelocity = 480.0/2.0;
-        rangeVelocity = maxVelocity - minVelocity;
-        actualVelocity = (arc4random() % rangeVelocity) + minVelocity;
-            if(originRand)
-            {
-                normalEnemyPolarBear.position = GLKVector2Make(480 + (normalEnemyPolarBear.contentSize.width/2), actualY);
-                normalEnemyPolarBear.moveVelocity = GLKVector2Make(-100, 0);
-                normalEnemyPolarBear.fromOrigin = originRand;
-            }
-            else
-            {
-                normalEnemyPolarBear.position = GLKVector2Make(-20 + (normalEnemyPolarBear.contentSize.width/2), actualY);
-                normalEnemyPolarBear.moveVelocity = GLKVector2Make(100, 0);
-                normalEnemyPolarBear.fromOrigin = originRand;
-            }
         [self.targets addObject:normalEnemyPolarBear];
         enemyCounter++;
-        NSLog(@"enemy count: %d", enemyCounter);
 }
-
 //add bomber function spawns bomber enemy
 -(void)addBomber{
-        ProtoSprite * bomberEnemyTeddyBear = [[ProtoSprite alloc]initWithFile:@"enemy_teddybear.png" effect:self.effect];
+        Bomber * bomberEnemyTeddyBear = [[Bomber alloc]initWithFile:@"enemy_teddybear.png" effect:self.effect];
+        [bomberEnemyTeddyBear spawnBomber];
         [self.children addObject:bomberEnemyTeddyBear];
-        BOOL originRand = arc4random_uniform(2);    
-        int rangeY2 = 110;
-        int actualY2 = (arc4random() % rangeY2) + 150;
-            if(originRand)
-            {        
-                bomberEnemyTeddyBear.position = GLKVector2Make(480 + (bomberEnemyTeddyBear.contentSize.width/2), actualY2);
-                bomberEnemyTeddyBear.moveVelocity = GLKVector2Make(-actualVelocity,0);
-            }
-            else
-            {
-                bomberEnemyTeddyBear.position = GLKVector2Make(-20 + (bomberEnemyTeddyBear.contentSize.width/2), actualY2);
-                bomberEnemyTeddyBear.moveVelocity = GLKVector2Make(actualVelocity,0);
-            }
         [self.bomber addObject:bomberEnemyTeddyBear];
-        enemyCounter++;
-   
+        enemyCounter++;   
 }
 //Code for spawning suicide panda
 -(void)addSuicideBomber{
-    ProtoSprite * suicidePanda = [[ProtoSprite alloc]initWithFile:@"enemy_suicidepanda.png" effect:self.effect];
+    SuicideBomber * suicidePanda = [[SuicideBomber alloc]initWithFile:@"enemy_suicidepanda.png" effect:self.effect];
+    [suicidePanda spawnSuicidePanda];
     [self.children addObject:suicidePanda];    
-    int rangeY3 = arc4random_uniform(default_Height);
-    suicidePanda.position = GLKVector2Make(rangeY3, default_Height);
-    suicidePanda.moveVelocity = GLKVector2Make(0,-60);
     [self.suicideBomber addObject:suicidePanda];
     enemyCounter++;
 }
 //Code for spawning fast bomber
 -(void)addFastBomber{
-    ProtoSprite * FastBomberHybridBear = [[ProtoSprite alloc]initWithFile:@"enemy_hybridbear.png" effect:self.effect];
+    FastBomber * FastBomberHybridBear = [[FastBomber alloc]initWithFile:@"enemy_hybridbear.png" effect:self.effect];
+    [FastBomberHybridBear spawnFastBomber];    
     [self.children addObject:FastBomberHybridBear];
-    BOOL originRand = arc4random_uniform(2);    
-    int rangeY2 = 110;
-    int actualY2 = (arc4random() % rangeY2) + 150;
-        if(originRand)
-        {
-            FastBomberHybridBear.position = GLKVector2Make(480 + (FastBomberHybridBear.contentSize.width/2), actualY2);
-            FastBomberHybridBear.moveVelocity = GLKVector2Make(-300,0);
-        }
-        else
-        {
-            FastBomberHybridBear.position = GLKVector2Make(-20 + (FastBomberHybridBear.contentSize.width/2), actualY2);
-            FastBomberHybridBear.moveVelocity = GLKVector2Make(300,0);
-        }
-        [self.fastBomber addObject:FastBomberHybridBear];
-        enemyCounter++;
+    [self.fastBomber addObject:FastBomberHybridBear];
+    enemyCounter++;
 }
-
-
 -(void)addBomb:(float )bombX : (float ) bombY {
-    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"weapon_boss1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"weapon_boss2.png": @"weapon_enemybomb.png"));
-    ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
-    alienBomb.moveVelocity = GLKVector2Make(0, -50);
-    alienBomb.position = GLKVector2Make(bombX, bombY);
-    [SoundLayer playSound:@"bombDrop.wav"];
+    NSString * bombImage = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"weapon_boss1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"weapon_boss2.png": @"weapon_enemybomb.png"));
+    Bomb * alienBomb = [[Bomb alloc]initWithFile:bombImage effect:self.effect ];
+    
+    [alienBomb spawnBomb:bombX bombCoordinateY:bombY bombImage:bombImage];
     [self.children addObject:alienBomb];
     [self.bomb addObject:alienBomb];
+    [SoundLayer playSound:@"bombDrop.wav"];
 }
 
 -(void)addShield{
@@ -525,31 +420,12 @@ static int firepower;
         {
             powerUpSprite=@"powerup_weapon.png";
         }
-
-    ProtoSprite * powerUp = [[ProtoSprite alloc] initWithFile:powerUpSprite effect:self.effect];
-    
-        if([powerUpSprite isEqual:@"healthbar.png"])
-        {
-            powerUp.specialKey =@"health";
-
-        }
-        if([powerUpSprite isEqual:@"powerup_shield.png" ])
-        {
-            powerUp.specialKey = @"shield";
-
-        }
-        if([powerUpSprite isEqual:@"powerup_weapon.png"])
-        {
-            powerUp.specialKey =@"ammo";
-        }
-    
-        powerUp.moveVelocity = GLKVector2Make(0, -50);
-        powerUp.position = GLKVector2Make(powerUpX, powerUpY);
-        [SoundLayer playSound:@"bombDrop.wav"];
-        [self.children addObject:powerUp];
-        [self.powerUps addObject:powerUp];
+    Powerup * powerUp = [[Powerup alloc] initWithFile:powerUpSprite effect:self.effect];
+    [powerUp spawnPowerUp:powerUpSprite powerUpX:powerUpX powerUpY:powerUpY];
+    [SoundLayer playSound:@"bombDrop.wav"];
+    [self.children addObject:powerUp];
+    [self.powerUps addObject:powerUp];
 }
-
 -(void)addBoss{
         _levelCount += 1;
     enum {
@@ -582,15 +458,15 @@ static int firepower;
                 bossHealth = levelThreeHealth;
             }
             
-            ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
+            Boss * boss = [[Boss alloc]initWithFile:bossSprite effect:self.effect];
+            [boss spawnBoss];
             [self.children addObject:boss];
             [self.bossArr addObject:boss];
-            boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
-            boss.moveVelocity = GLKVector2Make(-300,0);
         }
 }
 
 //First Boss AI
+
 -(void)firstBoss{
 for(ProtoSprite *boss in self.bossArr)
 {
@@ -695,7 +571,7 @@ for(ProtoSprite *boss in self.bossArr)
     
     if(_levelCount == levelOne)
     {
-        [self firstBoss];
+    [self firstBoss];
     }
     if(_levelCount == levelTwo)
     {
@@ -707,7 +583,7 @@ for(ProtoSprite *boss in self.bossArr)
     }
   
     //checks if bomb's coordinates reaches ground.
-    for(ProtoSprite *alienBomb in self.bomb)
+    for(Bomb *alienBomb in self.bomb)
     {
         if(alienBomb.position.y<=10)
         {
@@ -754,7 +630,7 @@ for(ProtoSprite *boss in self.bossArr)
             break;
         }
     }
-    for(ProtoSprite *powerUp in self.powerUps)
+    for(Powerup *powerUp in self.powerUps)
     {
         if(powerUp.position.y<=groundCoordinate)
         {
@@ -816,7 +692,7 @@ for(ProtoSprite *boss in self.bossArr)
     }
     
     //AI behavior of bombers on when to drop bomb.
-    for(ProtoSprite *bomberEnemyTeddyBear in self.bomber)
+    for(Bomber *bomberEnemyTeddyBear in self.bomber)
     {
         if(bomberEnemyTeddyBear.position.x<=self.player.position.x+80&&!bomberEnemyTeddyBear.isAttacking)
         {
@@ -890,8 +766,6 @@ for(ProtoSprite *boss in self.bossArr)
             }
             break;
         }
-
-
     }
 
     //Checks if every instance of target4 reaches the end of the screen, therefore destroying it.
@@ -923,7 +797,10 @@ for(ProtoSprite *boss in self.bossArr)
         }
         
     }
-  
+
+    
+    
+
     //Checks if player projectile reaches end of screen. If condition is met, projectile is removed and dealloced.
     for(ProtoSprite *projectile in self.projectiles){
             if(projectile.position.x>=480||projectile.position.x<=-20||projectile.position.y>=default_Height)
@@ -1089,7 +966,6 @@ for(ProtoSprite *boss in self.bossArr)
                             EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
                             endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                             endGameViewController.temp = playerScore;
-                           // [self presentModalViewController:endGameViewController animated:YES];
                             [self presentViewController:endGameViewController animated:YES completion:nil];
                         }
                     isBossStage =FALSE;
