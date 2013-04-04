@@ -16,6 +16,7 @@
 			<array>
 				<string>appIcon.png</string>
 				<string>appIconRetina.png</string>
+				<string>appIcon2x.png</string>
 			</array>
 		</dict>
 	</dict>
