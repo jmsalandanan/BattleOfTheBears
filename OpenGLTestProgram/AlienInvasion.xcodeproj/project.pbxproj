@@ -56,7 +56,10 @@
 		0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C814379170A72AC003420F4 /* Menu.mp3 */; };
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 		0C8143B6170AAFA5003420F4 /* sh5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8143AB170AAFA5003420F4 /* sh5.png */; };
@@ -277,7 +280,10 @@
 		0C814379170A72AC003420F4 /* Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Menu.mp3; sourceTree = "<group>"; };
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 		0C8143AB170AAFA5003420F4 /* sh5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sh5.png; sourceTree = "<group>"; };
@@ -569,6 +575,7 @@
 			children = (
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				78ED7BC3170BBAC400093A5B /* appIcon.png */,
 				78ED7BC4170BBAC400093A5B /* appIconRetina.png */,
 				0C010F261662FA530063670B /* sounds */,
@@ -608,6 +615,8 @@
 				78E517C3170D06C70033FB60 /* weapon_boss2.png */,
 				78E517C6170D06D90033FB60 /* weapon_enemybomb.png */,
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 				78E65AEC170AD530009B4C19 /* appIcon2x.png */,
@@ -906,8 +915,11 @@
 				0C240C811665B6B200991CC8 /* bombSound.wav in Resources */,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				7811426F170AA0F00042F754 /* medal.png in Resources */,
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 				7896B90116FC4F9F00D3BC67 /* ammo1.png in Resources */,
@@ -944,6 +956,9 @@
 				7811426F170AA0F00042F754 /* medal.png in Resources */,
 				78114271170AB2190042F754 /* specialammo.png in Resources */,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -971,6 +986,7 @@
 				0C85D8E01709779F00AE2CC8 /* s4.png in Resources */,
 				0C85D8E11709779F00AE2CC8 /* s5.png in Resources */,
 				0C81437A170A72AC003420F4 /* Menu.mp3 in Resources */,
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 				0C8143BE170AAFA5003420F4 /* shield.gif in Resources */,
@@ -1020,6 +1036,8 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 				0C8143B6170AAFA5003420F4 /* sh5.png in Resources */,
 				0C8143B7170AAFA5003420F4 /* sh1.png in Resources */,
 				0C8143B8170AAFA5003420F4 /* sh8.png in Resources */,
@@ -1035,6 +1053,9 @@
 				78E65AEB170AD4D8009B4C19 /* appIcon.png in Resources */,
 				78E65AED170AD530009B4C19 /* appIcon2x.png in Resources */,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
