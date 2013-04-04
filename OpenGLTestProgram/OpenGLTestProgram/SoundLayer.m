@@ -12,20 +12,23 @@
 
 -(void)initializeSounds
 {
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bgmusic.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"crash.wav"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"explosion_small.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"explosion_large.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"laser_enemy.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"maleHit.wav"];
-    //[[SimpleAudioEngine sharedEngine]preloadEffect:@"menu.mp3"];
-    //[[SimpleAudioEngine sharedEngine]preloadEffect:@"ambiance.wav"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"shipDestroySound.wav"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"gunSound.wav"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombSound.wav"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"playerDie.wav"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"playerHit.wav"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombDrop.wav"];
+    [[SimpleAudioEngine sharedEngine]preloadEffect:@"Menu.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bearHit.mp3"];
+    [[SimpleAudioEngine sharedEngine]preloadEffect:@"bearHit2.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombground.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"gamebgm.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"gameover.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"Teleport2.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"PlayerHit.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"playershoot1.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"Teleport.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"shipDestroySound.wav"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"gunSound.wav"];
+            [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombSound.wav"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombDrop.wav"];
+
+
+
 }
 +(void)playSound:(NSString *)soundId
 {

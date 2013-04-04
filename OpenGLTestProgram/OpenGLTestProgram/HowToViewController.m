@@ -45,6 +45,6 @@
 - (IBAction)backButtonPressed:(id)sender {
     MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:mainMenuViewController animated:YES];
+    [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
 @end

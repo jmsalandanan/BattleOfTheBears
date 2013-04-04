@@ -97,7 +97,8 @@ UITextField *message;
     [self check];
     SGGViewController *gameViewController = [[SGGViewController alloc]init];
     gameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:gameViewController animated:YES];
+    //[self presentModalViewController:gameViewController animated:YES];
+    [self presentViewController:gameViewController animated:YES completion:nil];
 
 }
 
@@ -105,7 +106,8 @@ UITextField *message;
     [self check];
     MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:mainMenuViewController animated:YES];
+    //[self presentModalViewController:mainMenuViewController animated:YES];
+    [self presentViewController:mainMenuViewController animated:YES completion:nil];
     
 }
 

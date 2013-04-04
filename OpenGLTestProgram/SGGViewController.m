@@ -342,7 +342,7 @@ static int firepower;
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:explodeAnimation];
     
-    //Shield Animation
+    /*Shield Animation
     shieldAnimation = [[UIImageView alloc]initWithFrame:CGRectMake(50,50,0,320)];
     NSArray *shieldArray = [[NSArray alloc]initWithObjects:
                             [UIImage imageNamed:@"sh1.png"],
@@ -361,7 +361,7 @@ static int firepower;
     [explodeAnimation setAnimationDuration:0.2];
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:shieldAnimation];
-
+*/
     //***********************************************
     playerHealth = 5;
     [self flashScreen];
@@ -408,102 +408,85 @@ static int firepower;
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
-    ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"polarbear.png" effect:self.effect];
-    target.isAttacking = FALSE;
-    [self.children addObject:target];
-    BOOL originRand = arc4random_uniform(2);
-    int minY = 200;
-    int maxY = 300;
-    int rangeY = maxY - minY;
-    int actualY = (arc4random() % rangeY) + minY;
-    minVelocity = 480.0/4.0;
-    maxVelocity = 480.0/2.0;
-    rangeVelocity = maxVelocity - minVelocity;
-    actualVelocity = (arc4random() % rangeVelocity) + minVelocity;
-    if(originRand)
-    {
-        target.position = GLKVector2Make(480 + (target.contentSize.width/2), actualY);
-        target.moveVelocity = GLKVector2Make(-100, 0);
-        target.fromOrigin = originRand;
-    }
-    else
-    {
-        target.position = GLKVector2Make(-20 + (target.contentSize.width/2), actualY);
-        target.moveVelocity = GLKVector2Make(100, 0);
-        target.fromOrigin = originRand;
-    }
-    [self.targets addObject:target];
-    enemyCounter++;
-    NSLog(@"enemy count: %d", enemyCounter);
+        ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"polarbear.png" effect:self.effect];
+        target.isAttacking = FALSE;
+        [self.children addObject:target];
+        BOOL originRand = arc4random_uniform(2);
+        int minY = 200;
+        int maxY = 280;
+        int rangeY = maxY - minY;
+        int actualY = (arc4random() % rangeY) + minY;
+        minVelocity = 480.0/4.0;
+        maxVelocity = 480.0/2.0;
+        rangeVelocity = maxVelocity - minVelocity;
+        actualVelocity = (arc4random() % rangeVelocity) + minVelocity;
+            if(originRand)
+            {
+                target.position = GLKVector2Make(480 + (target.contentSize.width/2), actualY);
+                target.moveVelocity = GLKVector2Make(-100, 0);
+                target.fromOrigin = originRand;
+            }
+            else
+            {
+                target.position = GLKVector2Make(-20 + (target.contentSize.width/2), actualY);
+                target.moveVelocity = GLKVector2Make(100, 0);
+                target.fromOrigin = originRand;
+            }
+        [self.targets addObject:target];
+        enemyCounter++;
+        NSLog(@"enemy count: %d", enemyCounter);
 }
 
 
 -(void)addBomber{
-    ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+        ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
         [self.children addObject:target2];
-    BOOL originRand = arc4random_uniform(2);
-    
-    int rangeY2 = 110;
-    int actualY2 = (arc4random() % rangeY2) + 150;
-    if(originRand)
-    {        
-        target2.position = GLKVector2Make(480 + (target2.contentSize.width/2), actualY2);
-        target2.moveVelocity = GLKVector2Make(-actualVelocity,0);
-    }
-    else
-    {
-        target2.position = GLKVector2Make(-20 + (target2.contentSize.width/2), actualY2);
-        target2.moveVelocity = GLKVector2Make(actualVelocity,0);
-    }
-    [self.bomber addObject:target2];
-    enemyCounter++;
+        BOOL originRand = arc4random_uniform(2);    
+        int rangeY2 = 110;
+        int actualY2 = (arc4random() % rangeY2) + 150;
+            if(originRand)
+            {        
+                target2.position = GLKVector2Make(480 + (target2.contentSize.width/2), actualY2);
+                target2.moveVelocity = GLKVector2Make(-actualVelocity,0);
+            }
+            else
+            {
+                target2.position = GLKVector2Make(-20 + (target2.contentSize.width/2), actualY2);
+                target2.moveVelocity = GLKVector2Make(actualVelocity,0);
+            }
+        [self.bomber addObject:target2];
+        enemyCounter++;
    
 }
-
+//Code for spawning suicide panda
 -(void)addSuicideBomber{
     ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];    
     int rangeY3 = arc4random_uniform(320);
-
-        target3.position = GLKVector2Make(rangeY3, 320);
-        target3.moveVelocity = GLKVector2Make(0,-60);
-
-    [self.suicideBomber addObject:target3];
-    enemyCounter++;
-
-}
-
--(void)addBossSuicideBomber:(float )originX : (float ) originY{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
-    [self.children addObject:target3];
-    
-    target3.position = GLKVector2Make(originX, originY);
+    target3.position = GLKVector2Make(rangeY3, 320);
     target3.moveVelocity = GLKVector2Make(0,-60);
-    
     [self.suicideBomber addObject:target3];
     enemyCounter++;
-
 }
-
+//Code for spawning fast bomber
 -(void)addFastBomber{
     ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"speedybear.png" effect:self.effect];
     [self.children addObject:target4];
-    BOOL originRand = arc4random_uniform(2);
-    
+    BOOL originRand = arc4random_uniform(2);    
     int rangeY2 = 110;
     int actualY2 = (arc4random() % rangeY2) + 150;
-    if(originRand)
-    {
-        target4.position = GLKVector2Make(480 + (target4.contentSize.width/2), actualY2);
-        target4.moveVelocity = GLKVector2Make(-300,0);
-    }
-    else
-    {
-        target4.position = GLKVector2Make(-20 + (target4.contentSize.width/2), actualY2);
-        target4.moveVelocity = GLKVector2Make(300,0);
-    }
-    [self.fastBomber addObject:target4];
-    enemyCounter++;
+        if(originRand)
+        {
+            target4.position = GLKVector2Make(480 + (target4.contentSize.width/2), actualY2);
+            target4.moveVelocity = GLKVector2Make(-300,0);
+        }
+        else
+        {
+            target4.position = GLKVector2Make(-20 + (target4.contentSize.width/2), actualY2);
+            target4.moveVelocity = GLKVector2Make(300,0);
+        }
+        [self.fastBomber addObject:target4];
+        enemyCounter++;
 }
 
 
@@ -519,83 +502,87 @@ static int firepower;
 
 -(void)addShield{
 
-    //self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
-    //[self.view addSubview:shieldAnimation];
+    self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    /*[self.view addSubview:shieldAnimation];
     shieldAnimation.animationDuration = .3;
     shieldAnimation.animationRepeatCount = 0;
     [shieldAnimation setFrame:CGRectMake(self.player.position.x - 20, self.player.position.y, 0, 320)];
     [shieldAnimation startAnimating];
+     */
 
 }
 -(void)addPowerup:(float )powerUpX : (float ) powerUpY {
     int powerupRandomizer = arc4random_uniform(3);
     NSString *powerUpSprite;
-    if(powerupRandomizer == 0)
-    {
-        powerUpSprite = @"healthbar.png";
-    }
-    if(powerupRandomizer == 1)
-    {
-        powerUpSprite =@"shield.png";
-    }
-    if(powerupRandomizer == 2)
-    {
-        powerUpSprite=@"powerupweapon.png";
-    }
+        if(powerupRandomizer == 0)
+        {
+            powerUpSprite = @"healthbar.png";
+        }
+        if(powerupRandomizer == 1)
+        {
+            powerUpSprite =@"shield.png";
+        }
+        if(powerupRandomizer == 2)
+        {
+            powerUpSprite=@"powerupweapon.png";
+        }
 
-
-    NSLog(@"%@",powerUpSprite);
     ProtoSprite * powerUp = [[ProtoSprite alloc] initWithFile:powerUpSprite effect:self.effect];
-    if(powerUpSprite == @"healthbar.png"){
-        powerUp.specialKey =@"health";
-
-    }
-    if(powerUpSprite == @"shield.png"){
-        powerUp.specialKey = @"shield";
-
-    }
     
-    if(powerUpSprite == @"powerupweapon.png"){
-        powerUp.specialKey =@"ammo";
+        if([powerUpSprite isEqual:@"healthbar.png"])
+        {
+            powerUp.specialKey =@"health";
 
-    }
+        }
+        if([powerUpSprite isEqual:@"shield.png" ])
+        {
+            powerUp.specialKey = @"shield";
+
+        }
+        if([powerUpSprite isEqual:@"powerupweapon.png"])
+        {
+            powerUp.specialKey =@"ammo";
+        }
     
-
-    powerUp.moveVelocity = GLKVector2Make(0, -50);
-    powerUp.position = GLKVector2Make(powerUpX, powerUpY);
-    [SoundLayer playSound:@"bombDrop.wav"];
-    [self.children addObject:powerUp];
-    [self.powerUps addObject:powerUp];
+        powerUp.moveVelocity = GLKVector2Make(0, -50);
+        powerUp.position = GLKVector2Make(powerUpX, powerUpY);
+        [SoundLayer playSound:@"bombDrop.wav"];
+        [self.children addObject:powerUp];
+        [self.powerUps addObject:powerUp];
 }
 
 -(void)addBoss{
-    _levelCount += 1;
-    NSLog(@"%d",_levelCount);
-    if(!isBossStage)
-    {
-    NSString *bossSprite;
-        if (_levelCount == 1) {
-            bossSprite = @"miniboss.png";
-            bossHealth = 10;
-            enemyType = @"firstboss";
+        _levelCount += 1;
+        if(!isBossStage)
+        {
+            NSString *bossSprite;
+            if (_levelCount == 1)
+            {
+                bossSprite = @"miniboss.png";
+                bossHealth = 10;
+                enemyType = @"firstboss";
+            }
+            if (_levelCount == 2)
+            {
+                bossSprite = @"transporter.png";
+                bossHealth = 20;
+                enemyType = @"secondboss";
+            }
+            if (_levelCount == 3)
+            {
+                bossSprite = @"giantpanda.png";
+                bossHealth = 30;
+            }
+            
+            ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
+            [self.children addObject:boss];
+            [self.bossArr addObject:boss];
+            boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
+            boss.moveVelocity = GLKVector2Make(-300,0);
         }
-        if (_levelCount == 2) {
-            bossSprite = @"transporter.png";
-            bossHealth = 20;
-            enemyType = @"secondboss";
-        }
-        if (_levelCount == 3) {
-            bossSprite = @"giantpanda.png";
-            bossHealth = 30;
-        }
-    ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
-   
-    [self.children addObject:boss];
-    [self.bossArr addObject:boss];
-    boss.position = GLKVector2Make(480 +(boss.contentSize.width/2),250);
-    boss.moveVelocity = GLKVector2Make(-300,0);
-    }
 }
+
+//First Boss AI
 -(void)firstBoss{
 for(ProtoSprite *boss in self.bossArr)
 {
@@ -604,8 +591,7 @@ for(ProtoSprite *boss in self.bossArr)
     {
         boss.isAttacking = TRUE;
         [self addBomb:boss.position.x :boss.position.y];
-    }
-    
+    }    
     if(boss.position.x<=0)
     {
         boss.moveVelocity = GLKVector2Make(300,0);
@@ -616,9 +602,9 @@ for(ProtoSprite *boss in self.bossArr)
     }
 }
 }
+//2nd Boss AI, Teleport Behavior
 -(void)secondBoss{
     static int attackCounter = 0;
-
     for(ProtoSprite *boss in self.bossArr)
     {
         int rand = arc4random_uniform(10);
@@ -628,24 +614,20 @@ for(ProtoSprite *boss in self.bossArr)
             NSLog(@"%d",attackCounter);
             boss.isAttacking = TRUE;
             [self addBomb:boss.position.x :boss.position.y];
-        }
-           
-            if(attackCounter ==10)
-            {
-                NSLog(@"Teleport!");
-                [SoundLayer playSound:@"Teleport2.mp3"];
-                int teleportRandCoordX = arc4random_uniform(320);
-                int teleportRandCoordY = arc4random_uniform(120);
-                boss.position = GLKVector2Make(teleportRandCoordX,teleportRandCoordY+150);
-                teleportAnimation.animationRepeatCount = 1;
-                [teleportAnimation setFrame:CGRectMake(boss.position.x, -boss.position.y, 0, 320)];
-                [teleportAnimation startAnimating];
-                [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
-                attackCounter = 0;
-                
-
-            }
-        
+        }           
+        if(attackCounter ==10)
+        {
+            NSLog(@"Teleport!");
+            [SoundLayer playSound:@"Teleport2.mp3"];
+            int teleportRandCoordX = arc4random_uniform(320);
+            int teleportRandCoordY = arc4random_uniform(120);
+            boss.position = GLKVector2Make(teleportRandCoordX,teleportRandCoordY+150);
+            teleportAnimation.animationRepeatCount = 1;
+            [teleportAnimation setFrame:CGRectMake(boss.position.x, -boss.position.y, 0, 320)];
+            [teleportAnimation startAnimating];
+            [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+            attackCounter = 0;
+        }        
         if(boss.position.x<=0)
         {
             boss.moveVelocity = GLKVector2Make(300,0);
@@ -657,6 +639,7 @@ for(ProtoSprite *boss in self.bossArr)
         
     }
 }
+//Third Boss Behavior, spawns suicide pandas 
 -(void)thirdBoss{
     for(ProtoSprite *boss in self.bossArr)
     {
@@ -665,8 +648,7 @@ for(ProtoSprite *boss in self.bossArr)
         {
             boss.isAttacking = TRUE;
             [self addBossSuicideBomber:boss.position.x :boss.position.y];
-        }
-        
+        }        
         if(boss.position.x<=0)
         {
             boss.moveVelocity = GLKVector2Make(300,0);
@@ -678,24 +660,38 @@ for(ProtoSprite *boss in self.bossArr)
     }
 }
 
+//3rd Boss Suicide panda spawning
+-(void)addBossSuicideBomber:(float )originX : (float ) originY{
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
+    [self.children addObject:target3];
+    target3.position = GLKVector2Make(originX, originY);
+    target3.moveVelocity = GLKVector2Make(0,-60);
+    [self.suicideBomber addObject:target3];
+    enemyCounter++;
+}
+
 
 - (void)update {
    //int temp;
     NSMutableArray * projectilesToDelete = [NSMutableArray array];
     NSMutableArray * targetsToDelete = [NSMutableArray array];
-
-        if(_levelCount == 1)
-        {
-            [self firstBoss];
-        }
-        if(_levelCount == 2)
-        {
-            [self secondBoss];
-        }
-        if(_levelCount == 3)
-        {
-            [self thirdBoss];
-        }
+    if(isShielded)
+    {
+       self.shield.position = GLKVector2Make(self.player.position.x,self.player.position.y);
+    }
+    
+    if(_levelCount == 1)
+    {
+        [self firstBoss];
+    }
+    if(_levelCount == 2)
+    {
+        [self secondBoss];
+    }
+    if(_levelCount == 3)
+    {
+        [self thirdBoss];
+    }
   
     //checks if bomb's coordinates reaches ground.
     for(ProtoSprite *alienBomb in self.bomb)
@@ -719,32 +715,29 @@ for(ProtoSprite *boss in self.bossArr)
             [self flashScreen];
             if(isShielded)
             {
-            isShielded = false;
-            [shieldAnimation stopAnimating];
+                isShielded = false;
+                self.shield.position = GLKVector2Make(700,700);
             }
             else
             {
                playerHealth -=1;
             }
-            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(alienBomb.position.x-10, 0, 0, 320)];
             [shootAnimation startAnimating];
             [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             [self.bomb removeObject:alienBomb];
             [self.children removeObject:alienBomb];
-            NSLog(@"playerHealth is now: %d",playerHealth);
-            NSLog(@"Player Damaged");
-            if(playerHealth <=0)
-            {
-                //[SoundLayer playSound:@"playerDie.wav"];
-                EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
-                endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
-                firepower = 0;
-                endGameViewController.temp = playerScore;
-                [self presentModalViewController:endGameViewController animated:YES];
-            }
+            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
+                if(playerHealth <=0)
+                {
+                    EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
+                    endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                    firepower = 0;
+                    endGameViewController.temp = playerScore;
+                    //[self presentModalViewController:endGameViewController animated:YES];
+                    [self presentViewController:endGameViewController animated:YES completion:nil];
+                }
             break;
         }
     }
@@ -759,59 +752,54 @@ for(ProtoSprite *boss in self.bossArr)
         if(CGRectIntersectsRect(powerUp.boundingBox, self.player.boundingBox))
         {
             [self flashScreen];
-            if(powerUp.specialKey == @"health")
+            if([powerUp.specialKey isEqual: @"health"])
             {
-            playerHealth +=1;
-            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
+                playerHealth +=1;
+                [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
             }
             
-            if(powerUp.specialKey == @"shield")
+            if([powerUp.specialKey isEqual: @"shield"])
             {
                 if(isShielded)
                 {
                     playerScore +=100;
                 }
-            isShielded = TRUE;
-            [self addShield];
+                isShielded = TRUE;
+                [self addShield];
             }
-            if(powerUp.specialKey == @"ammo")
+            if([powerUp.specialKey isEqual: @"ammo"])
             {
               NSLog(@"Ammo picked up");
               playerSpecialAmmo+=1;
-                firepower++;
+              firepower++;
               [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
-                if(playerSpecialAmmo > 0) {
-                        [specialButton setEnabled:YES];
+                if(playerSpecialAmmo > 0)
+                {
+                    [specialButton setEnabled:YES];
                 }
             }
             [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             [self.powerUps removeObject:powerUp];
             [self.children removeObject:powerUp];
-
             break;
         }
     }
-    
-    
-    
+
     //Checks if every instance of target reaches the end of the screen, therefore destroying it.
     for(ProtoSprite *target in self.targets)
     {
         if(target.position.x<=-800)
         {
             [self.targets removeObject:target];
-            [self.children removeObject:target];
-            
+            [self.children removeObject:target];            
             return;
         }
         if(target.position.x>=550)
         {
             [self.targets removeObject:target];
-            [self.children removeObject:target];
-            
+            [self.children removeObject:target];            
             return;
         }
-        
     }
     
     //AI behavior of bombers on when to drop bomb.
@@ -859,34 +847,32 @@ for(ProtoSprite *boss in self.bossArr)
         {
             [SoundLayer playSound:@"bombground.mp3"];
             [SoundLayer playSound:@"bearHit2.mp3"];
-            [self flashScreen];
-            
+            [self flashScreen];            
             if(!isShielded)
-            playerHealth -=1;
+            {
+                playerHealth -=1;
+            }
             else
             {
-                //self.shield.position = GLKVector2Make(700,700);
+                self.shield.position = GLKVector2Make(700,700);
                 isShielded = FALSE;
                 [shieldAnimation stopAnimating];
             }
-
-            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
             shootAnimation.animationRepeatCount = 1;
             [shootAnimation setFrame:CGRectMake(target3.position.x-10, 0, 0, 320)];
             [shootAnimation startAnimating];
             [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             [self.suicideBomber removeObject:target3];
             [self.children removeObject:target3];
-            NSLog(@"playerHealth is now: %d",playerHealth);
-            NSLog(@"Player Damaged");
+            [healthLabel setText:[NSString stringWithFormat:@"%d",playerHealth]];
+            
             if(playerHealth <=0)
             {
-                //[SoundLayer playSound:@"playerDie.wav"];
                 EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
                 endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
                 endGameViewController.temp = playerScore;
-                [self presentModalViewController:endGameViewController animated:YES];
+                //[self presentModalViewController:endGameViewController animated:YES];
+                [self presentViewController:endGameViewController animated:YES completion:nil];
                 NSLog(@"Game Ends");
             }
             break;
@@ -939,24 +925,27 @@ for(ProtoSprite *boss in self.bossArr)
             }
     }
     //Checks if player projectile collides with target, adds score and destroys both projectiles and targets.
-    for (ProtoSprite * projectile in self.projectiles) {
-        for (ProtoSprite * target in self.targets) {
+    for (ProtoSprite * projectile in self.projectiles)
+    {
+        for (ProtoSprite * target in self.targets)
+        {
             x=target.position.x;
             y=-target.position.y;
-            if (CGRectIntersectsRect(projectile.boundingBox, target.boundingBox)) {                
+            if (CGRectIntersectsRect(projectile.boundingBox, target.boundingBox))
+            {
                 [SoundLayer playSound:@"playerHit.mp3"];
+                
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
+                [explodeAnimation startAnimating];
+                
                 playerScore += (15*playerMultiplier);
-                [self flashMultiplier:x+20 :280 -target.position.y :(15*playerMultiplier)];
+                [self flashMultiplier:x+20 setCoordinateY:280-target.position.y setFlashScoreVal:(15*playerMultiplier)];
                 playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
-                NSLog(@"%d - Player Multiplier",playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
-                [explodeAnimation startAnimating];
-                [targetsToDelete addObject:target];
-                NSLog(@"at %f,%f",target.position.x,target.position.y);
 
+                [targetsToDelete addObject:target];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
             }
         }
@@ -964,47 +953,49 @@ for(ProtoSprite *boss in self.bossArr)
         //Same as above function, for bomber enemy.
         for(ProtoSprite *target2 in self.bomber)
         {
-            x=target2.position.x;
-            y=-target2.position.y;            
-            if (CGRectIntersectsRect(projectile.boundingBox, target2.boundingBox)) {
-                [SoundLayer playSound:@"playerHit.mp3"];
-                [self.view addSubview:explodeAnimation];
-                [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
-                [self flashMultiplier:x+20 :280 -target2.position.y :(30*playerMultiplier)];
-                 playerMultiplier +=1;
-                [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
-                [explodeAnimation startAnimating];
- 
-                playerScore += (30 *playerMultiplier);
-                [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
- 
+                x=target2.position.x;
+                y=-target2.position.y;            
+                if (CGRectIntersectsRect(projectile.boundingBox, target2.boundingBox))
+                {
+                    [SoundLayer playSound:@"playerHit.mp3"];
+                    [self.view addSubview:explodeAnimation];
+                    [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
+                    [explodeAnimation startAnimating];
 
-                [projectilesToDelete addObject:projectile];
-                [self.bomber removeObject:target2];
-                [self.children removeObject:target2];
-                [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
-                break;
-            }
+                                [self flashMultiplier:x+20 setCoordinateY:280-target2.position.y setFlashScoreVal:(30*playerMultiplier)];                    playerMultiplier +=1;
+                    playerScore += (30 *playerMultiplier);
+                    [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
+                    [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+
+                    [projectilesToDelete addObject:projectile];
+                    [self.bomber removeObject:target2];
+                    [self.children removeObject:target2];
+                    [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
+                    break;
+                }
         }
         //same as above function, for suicide bomber enemy
         for(ProtoSprite *target3 in self.suicideBomber)
         {
             x=target3.position.x;
             y=-target3.position.y;
-            if (CGRectIntersectsRect(projectile.boundingBox, target3.boundingBox)) {
+            if (CGRectIntersectsRect(projectile.boundingBox, target3.boundingBox))
+            {
                 [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];                
                 [explodeAnimation startAnimating];
+               
                 [self addBomb:target3.position.x :target3.position.y];
                 [self addBomb:target3.position.x - 50 :target3.position.y];
                 [self addBomb:target3.position.x + 50:target3.position.y];
+                
                 playerScore += (50*playerMultiplier);
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
-                [self flashMultiplier:x+20 :280 -target3.position.y :(50*playerMultiplier)];
+                [self flashMultiplier:x+20 setCoordinateY:280-target3.position.y setFlashScoreVal:(50*playerMultiplier)];
                 playerMultiplier +=1;
-
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
+                
                 [projectilesToDelete addObject:projectile];
                 [self.suicideBomber removeObject:target3];
                 [self.children removeObject:target3];
@@ -1016,22 +1007,26 @@ for(ProtoSprite *boss in self.bossArr)
         {
             x=target4.position.x;
             y=-target4.position.y;
-            if (CGRectIntersectsRect(projectile.boundingBox, target4.boundingBox)) {
+            if (CGRectIntersectsRect(projectile.boundingBox, target4.boundingBox))
+            {
                 [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
-                [self addPowerup:target4.position.x :target4.position.y];
                 [explodeAnimation startAnimating];
+                
+                [self addPowerup:target4.position.x :target4.position.y];
+                
                 playerScore += (70*playerMultiplier);
-                [self flashMultiplier:x+20 :280 -target4.position.y :(70*playerMultiplier)];
+                [self flashMultiplier:x+20 setCoordinateY:280-target4.position.y setFlashScoreVal:(70*playerMultiplier)];
                 [scoreLabel setText:[NSString stringWithFormat:@"%d",playerScore]];
+                playerMultiplier +=1;
                 [multiplierLabel setText:[NSString stringWithFormat:@"%d",playerMultiplier]];
+                
                 [projectilesToDelete addObject:projectile];
                 [self.fastBomber removeObject:target4];
                 [self.children removeObject:target4];
                 [self performSelector:@selector(animation2Done) withObject:nil afterDelay:0.3];
-                 playerMultiplier +=1;
-                NSLog(@"%d - Player Multiplier",playerMultiplier);
+
                 break;
             }
         }
@@ -1060,7 +1055,8 @@ for(ProtoSprite *boss in self.bossArr)
         {
             x=boss.position.x;
             y=-boss.position.y;
-            if (CGRectIntersectsRect(projectile.boundingBox, boss.boundingBox)) {
+            if (CGRectIntersectsRect(projectile.boundingBox, boss.boundingBox))
+            {
                 [SoundLayer playSound:@"playerHit.mp3"];
                 [self.view addSubview:explodeAnimation];
                 [explodeAnimation setFrame:CGRectMake(x, y, 0, 320)];
@@ -1069,94 +1065,107 @@ for(ProtoSprite *boss in self.bossArr)
                 bossHealth--;
  
                 [self performSelector:@selector(explodeAnimationDone) withObject:nil afterDelay:0.3];
-                if(bossHealth<=0){
+                if(bossHealth<=0)
+                {
                     playerScore +=100;
                     enemyType = @"";
-                [self.bossArr removeObject:boss];
-                [self.children removeObject:boss];
-                    if(_levelCount == 3)
-                    {
-                        EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
-                        endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                        //[endGameViewController player:[NSStrinstringWithFormat:@"%d",playerScore]];
-                        endGameViewController.temp = playerScore;
-                        [self presentModalViewController:endGameViewController animated:YES];
-
-                    }
+                    [self.bossArr removeObject:boss];
+                    [self.children removeObject:boss];
+                        if(_levelCount == 3)
+                        {
+                            EndGameViewController *endGameViewController = [[EndGameViewController alloc]init];
+                            endGameViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                            endGameViewController.temp = playerScore;
+                           // [self presentModalViewController:endGameViewController animated:YES];
+                            [self presentViewController:endGameViewController animated:YES completion:nil];
+                        }
                     isBossStage =FALSE;
                     enemyCounter = 0;                    
                 }
                 break;
             }
         }
+        
         //deletes dealloced objects
-        for (ProtoSprite * target in targetsToDelete) {
+        for (ProtoSprite * target in targetsToDelete)
+        {
             [self.targets removeObject:target];
             [self.children removeObject:target];
         }        
-        if (targetsToDelete.count > 0) {
+        if (targetsToDelete.count > 0)
+        {
             [projectilesToDelete addObject:projectile];
         }
     }
-    for (ProtoSprite * projectile in projectilesToDelete) {
+    
+    for (ProtoSprite * projectile in projectilesToDelete)
+    {
         [self.projectiles removeObject:projectile];
         [self.children removeObject:projectile];
     }
-    for (ProtoSprite * target2 in targetsToDelete) {
+    for (ProtoSprite * target2 in targetsToDelete)
+    {
         [self.projectiles removeObject:target2];
         [self.children removeObject:target2];
     }
-    for (ProtoSprite * target3 in targetsToDelete) {
+    for (ProtoSprite * target3 in targetsToDelete)
+    {
         [self.projectiles removeObject:target3];
         [self.children removeObject:target3];
     }
-    for (ProtoSprite * target4 in targetsToDelete) {
+    for (ProtoSprite * target4 in targetsToDelete)
+    {
         [self.projectiles removeObject:target4];
         [self.children removeObject:target4];
     }
-    for (ProtoSprite * projectile in projectilesToDelete) {
+    for (ProtoSprite * projectile in projectilesToDelete)
+    {
         [self.projectiles removeObject:projectile];
         [self.children removeObject:projectile];
     }
+    
     self.timeSinceLastSpawn += self.timeSinceLastUpdate;
     if (self.timeSinceLastSpawn > 1.0)
     {
         self.timeSinceLastSpawn = 0;
-        if(!isBossStage){
-        [self addTarget];
-        int r = arc4random_uniform(74);
-        if(r<25)
-         {
-            return;
-         }
-        if(r>25&&r<60)
-         {
-             //[self addBomber];
-                          [self addFastBomber];
-         }
-         if(r>40&&r<60)
-         {
-             //[self addSuicideBomber];
-                          [self addFastBomber];
-         }
-        if(r>60)
+        if(!isBossStage)
         {
-             [self addFastBomber];
+            [self addTarget];
+            int r = arc4random_uniform(74);
+            if(r<25)
+            {
+                return;
+            }
+            if(r>25&&r<60)
+            {
+                [self addBomber];
+            }
+            if(r>40&&r<60)
+            {
+                [self addSuicideBomber];
+            }
+            if(r>60)
+            {
+                [self addFastBomber];
+            }
         }
-     }
     }
-    for (ProtoSprite * sprite in self.children) {
+    
+    for (ProtoSprite * sprite in self.children)
+    {
         [sprite update:self.timeSinceLastUpdate];
     }
+    
     if(enemyCounter >=50)
     {
-
-        if(!isBossStage){
-        [self addBoss];
-        isBossStage=TRUE;        
+        if(!isBossStage)
+        {
+            [self addBoss];
+            isBossStage=TRUE;        
         }
     }
 }
+
 -(void)explodeAnimationDone
 {
     [explodeAnimation stopAnimating];
@@ -1177,64 +1186,71 @@ for(ProtoSprite *boss in self.bossArr)
     firepower = 0;
     [super viewDidUnload];
 }
--(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+
+-(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
     float valueX = acceleration.y*30.0;
     int newX = (int)(self.player.position.x + valueX);
+    
     if (newX > 440-player_Radius)
+    {
         newX = 440-player_Radius;
+    }
     
     if (newX < 0 + player_Radius)
+    {
         newX = 0 + player_Radius;
+    }
     self.player.position = GLKVector2Make(newX, 0);
 }
+
 -(void)pauseButtonPressed: (id)sender
 {
     NSLog(@"Button PResesed");
     MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:mainMenuViewController animated:YES];
+    //[self presentModalViewController:mainMenuViewController animated:YES];
+    [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
+
 -(void)specialButtonPressed: (id)sender
 {
     int specialX = 50, specialY = 50;
     if(gunAnimation.isAnimating == false &&playerSpecialAmmo!=0)
     {
-    for(int shootCounter = 0; shootCounter <=5;shootCounter++)
-    {
-        GLKVector2 target = GLKVector2Make(specialX , specialY);
-        GLKVector2 offset = GLKVector2Subtract(target, self.player.position);
-        GLKVector2 normalizedOffset = GLKVector2Normalize(offset);
-        static float POINTS_PER_SECOND = 480;
-        GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
+        for(int shootCounter = 0; shootCounter <=5;shootCounter++)
+        {
+            GLKVector2 target = GLKVector2Make(specialX , specialY);
+            GLKVector2 offset = GLKVector2Subtract(target, self.player.position);
+            GLKVector2 normalizedOffset = GLKVector2Normalize(offset);
+            static float POINTS_PER_SECOND = 480;
+            GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
             [SoundLayer playSound:@"playershoot1.mp3"];
             ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
             sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
             sprite.moveVelocity = moveVelocity;
             [self.children addObject:sprite];
             [self.projectiles addObject:sprite];
-        specialX +=50;
-        NSLog(@"Projectile :%d is shooting at X: %d",shootCounter,specialX);
-        //specialY +=100;
-    }
-        gunAnimation.animationRepeatCount = 1;
-        [gunAnimation setFrame:CGRectMake(self.player.position.x-10, -60, 0, 320)];
-        [gunAnimation startAnimating];
-
-//        [self flashScreen];
-
-        [self flashScreen];
-        playerSpecialAmmo -=1;
-        [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
-        if(playerSpecialAmmo == 0) {
-            [specialButton setEnabled:NO];
+            specialX +=50;
+            NSLog(@"Projectile :%d is shooting at X: %d",shootCounter,specialX);
         }
+            gunAnimation.animationRepeatCount = 1;
+            [gunAnimation setFrame:CGRectMake(self.player.position.x-10, -60, 0, 320)];
+            [gunAnimation startAnimating];
+            [self flashScreen];
+            playerSpecialAmmo -=1;
+            [specialAmmoLabel setText:[NSString stringWithFormat:@"%d",playerSpecialAmmo]];
+            if(playerSpecialAmmo == 0)
+                {
+                    [specialButton setEnabled:NO];
+                }
     }
     else
     {
         return;
-
     }
 }
+
 -(void) flashScreen
 {
     v.alpha = 1;
@@ -1245,7 +1261,7 @@ for(ProtoSprite *boss in self.bossArr)
     [UIView commitAnimations];
 }
 
--(void) flashMultiplier:(float)coordinatex:(float)coordinatey:(int)val
+-(void) flashMultiplier:(float)coordinatex setCoordinateY:(float)coordinatey  setFlashScoreVal:(int)val
 {
     // Create a blinking text
     UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake(coordinatex, coordinatey, 400, 50)];
@@ -1268,10 +1284,8 @@ for(ProtoSprite *boss in self.bossArr)
     void (^completionLabel2) (BOOL) = ^(BOOL f) {
         labelText.alpha = 0;
     };
-    
     [UIView animateWithDuration:1 animations:animationLabel completion:completionLabel];
     [UIView animateWithDuration:1 animations:animationLabel2 completion:completionLabel2];
 }
-
 
 @end
