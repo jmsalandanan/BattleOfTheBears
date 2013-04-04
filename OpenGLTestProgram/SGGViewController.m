@@ -157,18 +157,18 @@ static int firepower;
     [healthLabel setText:@"5"];
 //    [multiplierLabel setText:@"1"];
     [specialAmmoLabel setText:@"0"];
-    [pauseButton setImage:[UIImage imageNamed:@"homebutton.png"] forState:UIControlStateNormal];
-    [pauseButton setImage:[UIImage imageNamed:@"homebuttonpressed.png"] forState:UIControlStateHighlighted];
-    [specialButton setImage:[UIImage imageNamed:@"specialammo.png"] forState:UIControlStateNormal];
+    [pauseButton setImage:[UIImage imageNamed:@"button_home.png"] forState:UIControlStateNormal];
+    [pauseButton setImage:[UIImage imageNamed:@"buttonpressed_home.png"] forState:UIControlStateHighlighted];
+    [specialButton setImage:[UIImage imageNamed:@"button_specialammo.png"] forState:UIControlStateNormal];
     [specialButton setEnabled:NO];
     
-    self.backGround = [[ProtoSprite alloc] initWithFile:@"background.jpg" effect:self.effect];
+    self.backGround = [[ProtoSprite alloc] initWithFile:@"bg_gameview.png" effect:self.effect];
     self.backGround.position = GLKVector2Make(0, 0);
     
-    self.player = [[ProtoSprite alloc] initWithFile:@"playerkoala.png" effect:self.effect];
+    self.player = [[ProtoSprite alloc] initWithFile:@"player_koala.png" effect:self.effect];
     self.player.position = GLKVector2Make(190, 0);
 
-    self.shield = [[ProtoSprite alloc]initWithFile:@"shield.png" effect:self.effect];
+    self.shield = [[ProtoSprite alloc]initWithFile:@"powerup_shield.png" effect:self.effect];
     self.shield.position = GLKVector2Make(900, 900);
     self.playerHealthBar = [[ProtoSprite alloc]initWithFile:@"healthbar.png" effect:self.effect];
     self.playerHealthBar.position = GLKVector2Make(440,10);
@@ -249,7 +249,7 @@ static int firepower;
     [self.view addSubview:shootAnimation];
     [shootAnimation setAnimationDuration:0.3];
     //shield
-    shieldAnimation = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shield.png"]];
+    shieldAnimation = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"powerup_shield.png"]];
     
     //**********
     
@@ -378,7 +378,7 @@ static int firepower;
     if(!gunAnimation.isAnimating)
     {
     [SoundLayer playSound:@"playershoot1.mp3"];
-        NSString *ammo = (firepower == 0? @"ammo1.png": (firepower % 2 == 0?@"ammo.png":@"ammo2.png"));
+        NSString *ammo = (firepower == 0? @"weapon_playerammo1.png": (firepower % 2 == 0?@"weapon_playerammo3.png":@"weapon_playerammo2.png"));
     ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:ammo effect:self.effect];
     sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
     sprite.moveVelocity = moveVelocity;
@@ -408,7 +408,7 @@ static int firepower;
 
 //addTarget function creates instances of enemy.
 - (void)addTarget{
-        ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"polarbear.png" effect:self.effect];
+        ProtoSprite * target = [[ProtoSprite alloc] initWithFile:@"enemy_polarbear.png" effect:self.effect];
         target.isAttacking = FALSE;
         [self.children addObject:target];
         BOOL originRand = arc4random_uniform(2);
@@ -439,7 +439,7 @@ static int firepower;
 
 
 -(void)addBomber{
-        ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"bomber.png" effect:self.effect];
+        ProtoSprite * target2 = [[ProtoSprite alloc]initWithFile:@"enemy_teddybear.png" effect:self.effect];
         [self.children addObject:target2];
         BOOL originRand = arc4random_uniform(2);    
         int rangeY2 = 110;
@@ -460,7 +460,7 @@ static int firepower;
 }
 //Code for spawning suicide panda
 -(void)addSuicideBomber{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"enemy_suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];    
     int rangeY3 = arc4random_uniform(320);
     target3.position = GLKVector2Make(rangeY3, 320);
@@ -470,7 +470,7 @@ static int firepower;
 }
 //Code for spawning fast bomber
 -(void)addFastBomber{
-    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"speedybear.png" effect:self.effect];
+    ProtoSprite * target4 = [[ProtoSprite alloc]initWithFile:@"enemy_hybridbear.png" effect:self.effect];
     [self.children addObject:target4];
     BOOL originRand = arc4random_uniform(2);    
     int rangeY2 = 110;
@@ -491,7 +491,7 @@ static int firepower;
 
 
 -(void)addBomb:(float )bombX : (float ) bombY {
-    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"panira1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"panira3.png": @"bomb.png"));
+    NSString * bomb = ([enemyType isEqualToString:@"firstboss"] && isBossStage? @"weapon_boss1.png": ([enemyType isEqualToString:@"secondboss"] && isBossStage? @"weapon_boss2.png": @"weapon_enemybomb.png"));
     ProtoSprite * alienBomb = [[ProtoSprite alloc] initWithFile:bomb effect:self.effect];
     alienBomb.moveVelocity = GLKVector2Make(0, -50);
     alienBomb.position = GLKVector2Make(bombX, bombY);
@@ -520,11 +520,11 @@ static int firepower;
         }
         if(powerupRandomizer == 1)
         {
-            powerUpSprite =@"shield.png";
+            powerUpSprite =@"powerup_shield.png";
         }
         if(powerupRandomizer == 2)
         {
-            powerUpSprite=@"powerupweapon.png";
+            powerUpSprite=@"powerup_weapon.png";
         }
 
     ProtoSprite * powerUp = [[ProtoSprite alloc] initWithFile:powerUpSprite effect:self.effect];
@@ -534,12 +534,12 @@ static int firepower;
             powerUp.specialKey =@"health";
 
         }
-        if([powerUpSprite isEqual:@"shield.png" ])
+        if([powerUpSprite isEqual:@"powerup_shield.png" ])
         {
             powerUp.specialKey = @"shield";
 
         }
-        if([powerUpSprite isEqual:@"powerupweapon.png"])
+        if([powerUpSprite isEqual:@"powerup_weapon.png"])
         {
             powerUp.specialKey =@"ammo";
         }
@@ -558,19 +558,19 @@ static int firepower;
             NSString *bossSprite;
             if (_levelCount == 1)
             {
-                bossSprite = @"miniboss.png";
+                bossSprite = @"enemy_boss1_carebear.png";
                 bossHealth = 10;
                 enemyType = @"firstboss";
             }
             if (_levelCount == 2)
             {
-                bossSprite = @"transporter.png";
+                bossSprite = @"enemy_boss2_cybear.png";
                 bossHealth = 20;
                 enemyType = @"secondboss";
             }
             if (_levelCount == 3)
             {
-                bossSprite = @"giantpanda.png";
+                bossSprite = @"enemy_boss3_giantpanda.png";
                 bossHealth = 30;
             }
             
@@ -662,7 +662,7 @@ for(ProtoSprite *boss in self.bossArr)
 
 //3rd Boss Suicide panda spawning
 -(void)addBossSuicideBomber:(float )originX : (float ) originY{
-    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"suicidepanda.png" effect:self.effect];
+    ProtoSprite * target3 = [[ProtoSprite alloc]initWithFile:@"enemy_suicidepanda.png" effect:self.effect];
     [self.children addObject:target3];
     target3.position = GLKVector2Make(originX, originY);
     target3.moveVelocity = GLKVector2Make(0,-60);
@@ -1226,7 +1226,7 @@ for(ProtoSprite *boss in self.bossArr)
             static float POINTS_PER_SECOND = 480;
             GLKVector2 moveVelocity = GLKVector2MultiplyScalar(normalizedOffset, POINTS_PER_SECOND);
             [SoundLayer playSound:@"playershoot1.mp3"];
-            ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"ammo.png" effect:self.effect];
+            ProtoSprite * sprite = [[ProtoSprite alloc] initWithFile:@"weapon_playerammo3.png" effect:self.effect];
             sprite.position = GLKVector2Make(self.player.position.x+20, self.player.position.y +50);
             sprite.moveVelocity = moveVelocity;
             [self.children addObject:sprite];
