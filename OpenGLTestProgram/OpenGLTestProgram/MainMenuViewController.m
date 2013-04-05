@@ -10,6 +10,7 @@
 #import "HighScoreViewController.h"
 #import "SGGViewController.h"
 #import "SimpleAudioEngine.h"
+#import "HowToViewController.h"
 
 @interface MainMenuViewController ()
 
