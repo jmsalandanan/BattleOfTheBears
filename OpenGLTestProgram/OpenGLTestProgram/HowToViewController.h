@@ -11,5 +11,6 @@
 @interface HowToViewController : UIViewController
 
 - (IBAction)backButtonPressed:(id)sender;
+- (IBAction)forwardButtonPressed:(id)sender;
 
 @end
