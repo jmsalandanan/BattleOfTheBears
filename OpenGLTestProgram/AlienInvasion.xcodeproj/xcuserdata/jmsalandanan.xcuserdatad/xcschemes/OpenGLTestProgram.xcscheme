@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0C21FDBB164CA2F2006152B9"
-               BuildableName = "Battle of the Bears.app"
+               BuildableName = "AlienInvasion.app"
                BlueprintName = "AlienInvasion"
                ReferencedContainer = "container:AlienInvasion.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0C21FDBB164CA2F2006152B9"
-            BuildableName = "Battle of the Bears.app"
+            BuildableName = "AlienInvasion.app"
             BlueprintName = "AlienInvasion"
             ReferencedContainer = "container:AlienInvasion.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0C21FDBB164CA2F2006152B9"
-            BuildableName = "Battle of the Bears.app"
+            BuildableName = "AlienInvasion.app"
             BlueprintName = "AlienInvasion"
             ReferencedContainer = "container:AlienInvasion.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0C21FDBB164CA2F2006152B9"
-            BuildableName = "Battle of the Bears.app"
+            BuildableName = "AlienInvasion.app"
             BlueprintName = "AlienInvasion"
             ReferencedContainer = "container:AlienInvasion.xcodeproj">
          </BuildableReference>
