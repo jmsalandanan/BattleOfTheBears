@@ -1,5 +1,5 @@
 //
-//  HowToPage2ViewController.h
+//  HowToPage3ViewController.h
 //  AlienInvasion
 //
 //  Created by carmela.tortoza on 4/5/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HowToPage2ViewController : UIViewController
+@interface HowToPage3ViewController : UIViewController
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)forwardButtonPressed:(id)sender;

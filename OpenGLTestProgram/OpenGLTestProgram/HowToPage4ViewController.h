@@ -1,5 +1,5 @@
 //
-//  HowToPage2ViewController.h
+//  HowToPage4ViewController.h
 //  AlienInvasion
 //
 //  Created by carmela.tortoza on 4/5/13.
@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HowToPage2ViewController : UIViewController
+@interface HowToPage4ViewController : UIViewController
 
 - (IBAction)backButtonPressed:(id)sender;
-- (IBAction)forwardButtonPressed:(id)sender;
 - (IBAction)homeButtonPressed:(id)sender;
 
 @end

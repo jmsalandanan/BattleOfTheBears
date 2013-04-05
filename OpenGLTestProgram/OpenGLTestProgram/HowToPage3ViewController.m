@@ -1,22 +1,22 @@
 //
-//  HowToPage1ViewController.m
+//  HowToPage3ViewController.m
 //  AlienInvasion
 //
-//  Created by carmela.tortoza on 4/4/13.
+//  Created by carmela.tortoza on 4/5/13.
 //  Copyright (c) 2013 Jose Mari Salandanan. All rights reserved.
 //
 
-#import "HowToPage1ViewController.h"
-#import "MainMenuViewController.h"
-#import "HowToViewController.h"
+#import "HowToPage3ViewController.h"
 #import "HowToPage2ViewController.h"
+#import "MainMenuViewController.h"
+#import "HowToPage4ViewController.h"
 
 
-@interface HowToPage1ViewController ()
+@interface HowToPage3ViewController ()
 
 @end
 
-@implementation HowToPage1ViewController
+@implementation HowToPage3ViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,18 +33,19 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+}
+
 - (IBAction)backButtonPressed:(id)sender {
-    HowToViewController *mainMenuViewController = [[HowToViewController alloc]init];
+    HowToPage2ViewController *mainMenuViewController = [[HowToPage2ViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
@@ -56,8 +57,9 @@
 }
 
 - (IBAction)forwardButtonPressed:(id)sender {
-    HowToPage2ViewController *mainMenuViewController = [[HowToPage2ViewController alloc]init];
+    HowToPage4ViewController *mainMenuViewController = [[HowToPage4ViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
+
 @end

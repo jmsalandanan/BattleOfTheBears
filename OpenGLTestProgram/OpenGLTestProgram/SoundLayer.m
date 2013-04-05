@@ -12,9 +12,9 @@
 
 -(void)initializeSounds
 {
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"Menu.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"Menu.mp3"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"bearHit.mp3"];
-    [[SimpleAudioEngine sharedEngine]preloadEffect:@"bearHit2.mp3"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bearHit2.mp3"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombground.mp3"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"gamebgm.mp3"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"gameover.mp3"];
@@ -24,7 +24,7 @@
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"Teleport.mp3"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"shipDestroySound.wav"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"gunSound.wav"];
-            [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombSound.wav"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombSound.wav"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"bombDrop.wav"];
 
 

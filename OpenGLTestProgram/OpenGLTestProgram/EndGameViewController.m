@@ -35,7 +35,7 @@ UITextField *message;
     [playerScore setText:[NSString stringWithFormat:@"Score: %d",temp]];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int score = [defaults integerForKey:@"score"];
-    if(score>temp)
+    if(score>=temp)
     {
 //        [message setText:@"Game Over!"];
         [nameField setAlpha:0];

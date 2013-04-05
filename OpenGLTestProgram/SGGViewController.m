@@ -16,60 +16,6 @@
 
 @interface SGGViewController ()
 
-@property (strong, nonatomic) EAGLContext *context;
-@property (strong) GLKBaseEffect * effect;
-
-@property (strong) ProtoSprite * player;
-@property (strong) ProtoSprite * backGround;
-@property (strong) ProtoSprite * playerHealthBar;
-@property (strong) ProtoSprite * playerScoreBar;
-@property (strong) ProtoSprite * shield;
-
-@property (assign) float timeSinceLastSpawn;
-@property (assign) float x;
-@property (assign) float y;
-
-@property (strong) NSMutableArray * children;
-@property (strong) NSMutableArray *projectiles;
-@property (strong) NSMutableArray *targets;
-@property (strong) NSMutableArray *bomber;
-@property (strong) NSMutableArray *suicideBomber;
-@property (strong) NSMutableArray *fastBomber;
-@property (strong) NSMutableArray *bomb;
-@property (strong) NSMutableArray *bossArr;
-@property (strong) NSMutableArray *powerUps;
-
-@property (assign) int playerScore;
-@property (assign) int playerHealth;
-@property (assign) int playerSpecialAmmo;
-@property (assign) int enemyCounter;
-@property (assign) int  bossHealth;
-@property (assign) int actualVelocity;
-@property (assign) int maxVelocity;
-@property (assign) int minVelocity;
-@property (assign) int rangeVelocity;
-@property (assign) int levelCount;
-@property (assign) int playerMultiplier;
-
-@property (strong)UILabel *scoreLabel;
-@property (strong)UILabel *healthLabel;
-@property (strong)UILabel *specialAmmoLabel;
-@property (strong)UIButton *pauseButton;
-@property (strong)UIButton *specialButton;
-@property (strong)UILabel *multiplierLabel;
-@property (strong)UILabel *scoreValLabel;
-
-@property (assign) BOOL isBossStage;
-@property (assign) BOOL isPaused;
-@property (assign) BOOL isShielded;
-
-@property (strong)UIImageView *shootAnimation;
-@property (strong)UIImageView *explodeAnimation;
-@property (strong)UIImageView *gunAnimation;
-@property (strong)UIImageView *bombAnimation;
-@property (strong)UIImageView *teleportAnimation;
-@property (strong)UIImageView *shieldAnimation;
-@property (strong)UIView *v;
 
 @end
 
@@ -145,7 +91,7 @@ static int firepower;
     scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(45,280,80,40)];
     healthLabel = [[UILabel alloc]initWithFrame:CGRectMake(450, 275, 40, 40)];
     pauseButton = [[UIButton alloc]initWithFrame:CGRectMake(435, 235, 39, 40)];
-    specialButton = [[UIButton alloc]initWithFrame:CGRectMake(415, 195, 80, 40)];
+    specialButton = [[UIButton alloc]initWithFrame:CGRectMake(430, 195, 36, 46)];
     specialAmmoLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,200,40,40)];
     multiplierLabel = [[UILabel alloc]initWithFrame:CGRectMake(450,150,40,40)];
     [pauseButton addTarget: self
@@ -168,7 +114,7 @@ static int firepower;
     self.player = [[ProtoSprite alloc] initWithFile:@"player_koala.png" effect:self.effect];
     self.player.position = GLKVector2Make(190, 0);
 
-    self.shield = [[ProtoSprite alloc]initWithFile:@"powerup_shield.png" effect:self.effect];
+    self.shield = [[ProtoSprite alloc]initWithFile:@"shield.png" effect:self.effect];
     self.shield.position = GLKVector2Make(900, 900);
     self.playerHealthBar = [[ProtoSprite alloc]initWithFile:@"healthbar.png" effect:self.effect];
     self.playerHealthBar.position = GLKVector2Make(440,10);
@@ -235,28 +181,28 @@ static int firepower;
                              CGRectMake(185, -60, 0, 320)];
 
     NSArray * imageArray  = [[NSArray alloc] initWithObjects:
-                             [UIImage imageNamed:@"1.png"],
-                             [UIImage imageNamed:@"2.png"],
-                             [UIImage imageNamed:@"3.png"],
-                             [UIImage imageNamed:@"4.png"],
-                             [UIImage imageNamed:@"5.png"],
-                             [UIImage imageNamed:@"6.png"],
-                             [UIImage imageNamed:@"7.png"],
-                             [UIImage imageNamed:@"8.png"],
-                             [UIImage imageNamed:@"9.png"],
-                             [UIImage imageNamed:@"10.png"],
-                             [UIImage imageNamed:@"11.png"],
-                             [UIImage imageNamed:@"12.png"],
-                             [UIImage imageNamed:@"13.png"],
-                             [UIImage imageNamed:@"14.png"],
-                             [UIImage imageNamed:@"15.png"],
+                             [UIImage imageNamed:@"bombExplode1.png"],
+                             [UIImage imageNamed:@"bombExplode2.png"],
+                             [UIImage imageNamed:@"bombExplode3.png"],
+                             [UIImage imageNamed:@"bombExplode4.png"],
+                             [UIImage imageNamed:@"bombExplode5.png"],
+                             [UIImage imageNamed:@"bombExplode6.png"],
+                             [UIImage imageNamed:@"bombExplode7.png"],
+                             [UIImage imageNamed:@"bombExplode8.png"],
+                             [UIImage imageNamed:@"bombExplode9.png"],
+                             [UIImage imageNamed:@"bombExplode10.png"],
+                             [UIImage imageNamed:@"bombExplode11.png"],
+                             [UIImage imageNamed:@"bombExplode12.png"],
+                             [UIImage imageNamed:@"bombExplode13.png"],
+                             [UIImage imageNamed:@"bombExplode14.png"],
+                             [UIImage imageNamed:@"bombExplode15.png"],
                              nil];
     shootAnimation.animationImages = imageArray;
     shootAnimation.contentMode = UIViewContentModeBottomLeft;
     [self.view addSubview:shootAnimation];
     [shootAnimation setAnimationDuration:0.3];
     //shield
-    shieldAnimation = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"powerup_shield.png"]];
+    shieldAnimation = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shield.png"]];
     
     //Resized image
 
@@ -286,14 +232,14 @@ static int firepower;
                      CGRectMake(185, -60, 0, 320)];
     
     NSArray * imageteleportArray  = [[NSArray alloc] initWithObjects:
-                                 [UIImage imageNamed:@"b1.png"],
-                                 [UIImage imageNamed:@"b2.png"],
-                                 [UIImage imageNamed:@"b3.png"],
-                                 [UIImage imageNamed:@"b4.png"],
-                                 [UIImage imageNamed:@"b5.png"],
-                                 [UIImage imageNamed:@"b6.png"],
-                                 [UIImage imageNamed:@"b7.png"],
-                                 [UIImage imageNamed:@"b8.png"],
+                                 [UIImage imageNamed:@"teleport1.png"],
+                                 [UIImage imageNamed:@"teleport2.png"],
+                                 [UIImage imageNamed:@"teleport3.png"],
+                                 [UIImage imageNamed:@"teleport4.png"],
+                                 [UIImage imageNamed:@"teleport5.png"],
+                                 [UIImage imageNamed:@"teleport6.png"],
+                                 [UIImage imageNamed:@"teleport7.png"],
+                                 [UIImage imageNamed:@"teleport8.png"],
                                  nil];
     teleportAnimation.animationImages = imageteleportArray;
     teleportAnimation.contentMode = UIViewContentModeBottomLeft;
@@ -320,7 +266,6 @@ static int firepower;
                                  [UIImage imageNamed:@"gun12.png"],
                                  [UIImage imageNamed:@"gun13.png"],
                                  [UIImage imageNamed:@"gun14.png"],
-
                                  nil];
     gunAnimation.animationImages = imageGunArray;
     gunAnimation.contentMode = UIViewContentModeBottomLeft;
@@ -347,7 +292,7 @@ static int firepower;
                                       nil];
     explodeAnimation.animationImages = imageExplosionArray;
     explodeAnimation.contentMode = UIViewContentModeBottomLeft;
-    [explodeAnimation setAnimationDuration:0.2];
+    [explodeAnimation setAnimationDuration:0.1];
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:explodeAnimation];
     
@@ -371,10 +316,12 @@ static int firepower;
     explodeAnimation.animationRepeatCount = 1;
     [self.view addSubview:shieldAnimation];
 */
-    //***********************************************
+//***********************************************
     playerHealth = 5;
+    firepower = 0;
     [self flashScreen];
 }
+
 
 - (void)handleTapFrom:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
@@ -401,6 +348,7 @@ static int firepower;
     [self performSelector:@selector(gunAnimationDone) withObject:nil afterDelay:0.5];
     } 
 }
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
      return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
@@ -537,11 +485,11 @@ static int firepower;
     NSString *powerUpSprite;
         if(powerupRandomizer == 0)
         {
-            powerUpSprite = @"healthbar.png";
+            powerUpSprite = @"powerup_health.png";
         }
         if(powerupRandomizer == 1)
         {
-            powerUpSprite =@"powerup_shield.png";
+            powerUpSprite =@"shield.png";
         }
         if(powerupRandomizer == 2)
         {
@@ -550,12 +498,12 @@ static int firepower;
 
     ProtoSprite * powerUp = [[ProtoSprite alloc] initWithFile:powerUpSprite effect:self.effect];
     
-        if([powerUpSprite isEqual:@"healthbar.png"])
+        if([powerUpSprite isEqual:@"powerup_health.png"])
         {
             powerUp.specialKey =@"health";
 
         }
-        if([powerUpSprite isEqual:@"powerup_shield.png" ])
+        if([powerUpSprite isEqual:@"shield.png" ])
         {
             powerUp.specialKey = @"shield";
 
@@ -594,8 +542,7 @@ static int firepower;
             {
                 bossSprite = @"enemy_boss3_giantpanda.png";
                 bossHealth = 30;
-            }
-            
+            }            
             ProtoSprite * boss = [[ProtoSprite alloc]initWithFile:bossSprite effect:self.effect];
             //Resized image
             boss.contentSize = CGSizeMake(boss.contentSize.width/2, boss.contentSize.height/2);
@@ -659,8 +606,7 @@ for(ProtoSprite *boss in self.bossArr)
         else if(boss.position.x>=460)
         {
             boss.moveVelocity = GLKVector2Make(-300,0);
-        }
-        
+        }        
     }
 }
 //Third Boss Behavior, spawns suicide pandas 
@@ -695,7 +641,6 @@ for(ProtoSprite *boss in self.bossArr)
     [self.suicideBomber addObject:target3];
     enemyCounter++;
 }
-
 
 - (void)update {
    //int temp;
