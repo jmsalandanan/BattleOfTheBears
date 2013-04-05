@@ -1,20 +1,22 @@
 //
-//  HowToViewController.m
-//  PrototypeApp
+//  HowToPage1ViewController.m
+//  AlienInvasion
 //
-//  Created by Jose Mari Salandanan on 11/27/12.
-//  Copyright (c) 2012 Jose Mari Salandanan. All rights reserved.
+//  Created by carmela.tortoza on 4/4/13.
+//  Copyright (c) 2013 Jose Mari Salandanan. All rights reserved.
 //
 
-#import "HowToViewController.h"
-#import "MainMenuViewController.h"
 #import "HowToPage1ViewController.h"
+#import "MainMenuViewController.h"
+#import "HowToViewController.h"
+#import "HowToPage2ViewController.h"
 
-@interface HowToViewController ()
+
+@interface HowToPage1ViewController ()
 
 @end
 
-@implementation HowToViewController
+@implementation HowToPage1ViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,26 +33,30 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 - (IBAction)backButtonPressed:(id)sender {
+    HowToViewController *mainMenuViewController = [[HowToViewController alloc]init];
+    mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:mainMenuViewController animated:YES completion:nil];
+}
+
+- (IBAction)homeButtonPressed:(id)sender {
     MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
 
 - (IBAction)forwardButtonPressed:(id)sender {
-    HowToPage1ViewController *mainMenuViewController = [[HowToPage1ViewController alloc]init];
+    HowToPage2ViewController *mainMenuViewController = [[HowToPage2ViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
