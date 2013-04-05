@@ -8,6 +8,7 @@
 
 #import "HowToViewController.h"
 #import "MainMenuViewController.h"
+#import "HowToPage1ViewController.h"
 
 @interface HowToViewController ()
 
@@ -44,6 +45,12 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     MainMenuViewController *mainMenuViewController = [[MainMenuViewController alloc]init];
+    mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:mainMenuViewController animated:YES completion:nil];
+}
+
+- (IBAction)forwardButtonPressed:(id)sender {
+    HowToPage1ViewController *mainMenuViewController = [[HowToPage1ViewController alloc]init];
     mainMenuViewController.modalInPopover = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:mainMenuViewController animated:YES completion:nil];
 }
