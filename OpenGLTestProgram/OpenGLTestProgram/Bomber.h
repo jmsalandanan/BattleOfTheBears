@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ProtoSprite.h"
 
-@interface Bomber : NSObject
-
-
+@interface Bomber : ProtoSprite
+-(ProtoSprite *)spawnBomber;
 
 @end
